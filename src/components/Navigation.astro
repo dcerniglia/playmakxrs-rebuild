@@ -1,0 +1,92 @@
+---
+const currentPath = Astro.url.pathname;
+const navItems = [
+  { name: 'Home', href: '/' },
+  { name: 'About Us', href: '/about-us' },
+  { name: 'Join Us', href: '/join-us' },
+  { name: 'The Book', href: '/the-book' },
+];
+---
+
+<nav class="sticky top-0 z-50 bg-white shadow-sm">
+  <div class="max-w-7xl mx-auto px-6 py-4">
+    <div class="flex items-center justify-between">
+      <!-- Logo -->
+      <a href="/" class="flex items-center">
+        <span class="text-2xl font-display font-bold text-black">
+          PLAYMAKXRS<span class="text-xs align-top">™</span>
+        </span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center space-x-8">
+        {navItems.map(item => (
+          <a
+            href={item.href}
+            class={`font-display font-semibold transition-all duration-200 ${
+              currentPath === item.href
+                ? 'text-primary border-b-2 border-primary'
+                : 'text-black hover:text-primary'
+            }`}
+          >
+            {item.name}
+          </a>
+        ))}
+        <a
+          href="/join-us"
+          class="bg-primary text-white px-6 py-2 rounded-md font-display font-bold hover:bg-primary-dark transition-all duration-200 transform hover:scale-105"
+        >
+          Join the Team
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button
+        id="mobile-menu-button"
+        class="md:hidden text-black focus:outline-none"
+        aria-label="Toggle mobile menu"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+      {navItems.map(item => (
+        <a
+          href={item.href}
+          class={`block py-2 font-display font-semibold transition-colors ${
+            currentPath === item.href
+              ? 'text-primary'
+              : 'text-black hover:text-primary'
+          }`}
+        >
+          {item.name}
+        </a>
+      ))}
+      <a
+        href="/join-us"
+        class="block mt-4 bg-primary text-white px-6 py-2 rounded-md font-display font-bold text-center hover:bg-primary-dark transition-colors"
+      >
+        Join the Team
+      </a>
+    </div>
+  </div>
+</nav>
+
+<script>
+  // Mobile menu toggle
+  const button = document.getElementById('mobile-menu-button');
+  const menu = document.getElementById('mobile-menu');
+
+  button?.addEventListener('click', () => {
+    menu?.classList.toggle('hidden');
+  });
+
+  // Close mobile menu on navigation
+  document.addEventListener('astro:page-load', () => {
+    menu?.classList.add('hidden');
+  });
+</script>

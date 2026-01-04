@@ -1,0 +1,54 @@
+---
+interface Props {
+  imageUrl?: string;
+  imageAlt?: string;
+}
+
+const { imageUrl = '/hero-home.jpg', imageAlt = 'Bobby Grier historical photo' } = Astro.props;
+---
+
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <!-- Image -->
+      <div class="relative">
+        <img
+          src={imageUrl}
+          alt={imageAlt}
+          class="rounded-lg shadow-2xl w-full"
+          loading="lazy"
+        />
+        <div class="absolute -bottom-4 -right-4 bg-primary text-white px-6 py-3 rounded-md font-display font-bold shadow-lg">
+          1956 Sugar Bowl
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div>
+        <h2 class="font-display text-4xl md:text-5xl font-bold text-black mb-6">
+          The Bobby Grier Legacy
+        </h2>
+        <div class="space-y-4 text-gray-700 leading-relaxed">
+          <p>
+            In 1956, Bobby Grier made history as the first African American to play in the Sugar Bowl,
+            breaking racial barriers in one of college football's most prestigious games. His courage
+            on the field that day changed the course of American sports history forever.
+          </p>
+          <p>
+            Grier's stand against discrimination wasn't just about football—it was about dignity,
+            equality, and the power of one person to spark change. His legacy reminds us that
+            every play matters, every voice counts, and every day is an opportunity to make history.
+          </p>
+          <p class="font-display font-bold text-primary text-lg">
+            Without Bobby Grier, there is no game. Without courage, there is no change.
+          </p>
+          <p>
+            Today, Playmakxrs Global™ carries forward this legacy by amplifying the voices of
+            athletes and creators who refuse to stay silent—who make plays that matter both on
+            and off the field.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

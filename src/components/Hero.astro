@@ -1,52 +1,73 @@
 ---
-// Optional: Add background image path as prop
 interface Props {
+  title: string;
+  subtitle?: string;
+  description?: string;
+  ctaText?: string;
+  ctaHref?: string;
   backgroundImage?: string;
+  showSocialProof?: boolean;
 }
 
-const { backgroundImage } = Astro.props;
+const {
+  title,
+  subtitle,
+  description,
+  ctaText,
+  ctaHref,
+  backgroundImage,
+  showSocialProof = false
+} = Astro.props;
 ---
 
 <section class="relative bg-black text-white overflow-hidden">
   <!-- Background image with overlay (optional) -->
   {backgroundImage && (
     <div class="absolute inset-0 opacity-20">
-      <img 
-        src={backgroundImage} 
-        alt="" 
+      <img
+        src={backgroundImage}
+        alt=""
         class="w-full h-full object-cover"
       />
     </div>
   )}
-  
+
   <div class="relative max-w-7xl mx-auto px-6 py-32 lg:py-40">
-    <!-- Social proof banner -->
-    <div class="mb-8 flex flex-wrap gap-4 text-xs uppercase tracking-wider opacity-60">
-      <span>#VanGrier™Legacy</span>
-      <span>#H2P</span>
-      <span>#MSNBC</span>
-      <span>#TheTodayShow</span>
-      <span>#TheElizabethDoleFoundation</span>
-      <span>#Playmakxrs™</span>
-    </div>
-    
+    <!-- Social proof banner (optional) -->
+    {showSocialProof && (
+      <div class="mb-8 flex flex-wrap gap-4 text-xs uppercase tracking-wider opacity-60">
+        <span>#VanGrier™Legacy</span>
+        <span>#H2P</span>
+        <span>#MSNBC</span>
+        <span>#TheTodayShow</span>
+        <span>#TheElizabethDoleFoundation</span>
+        <span>#Playmakxrs™</span>
+      </div>
+    )}
+
     <!-- Main headline -->
     <h1 class="font-display text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight">
-      Elevate Your
-      <span class="text-gold block">Game</span>
+      {title}
+      {subtitle && (
+        <span class="text-primary block">{subtitle}</span>
+      )}
     </h1>
-    
-    <!-- Subheadline -->
-    <p class="text-xl lg:text-2xl mb-10 max-w-2xl opacity-90 leading-relaxed">
-      Elite training for athletes who refuse to settle for average
-    </p>
-    
+
+    <!-- Description -->
+    {description && (
+      <p class="text-xl lg:text-2xl mb-10 max-w-2xl opacity-90 leading-relaxed">
+        {description}
+      </p>
+    )}
+
     <!-- CTA Button -->
-    <a 
-      href="#contact" 
-      class="inline-block bg-gold hover:bg-orange-600 text-black font-display font-bold px-10 py-5 rounded-sm text-lg uppercase tracking-wide transition-all duration-300 hover:scale-105"
-    >
-      Start Your Journey
-    </a>
+    {ctaText && ctaHref && (
+      <a
+        href={ctaHref}
+        class="inline-block bg-primary hover:bg-primary-dark text-white font-display font-bold px-10 py-5 rounded-md text-lg uppercase tracking-wide transition-all duration-300 hover:scale-105"
+      >
+        {ctaText}
+      </a>
+    )}
   </div>
 </section>
