@@ -6,6 +6,7 @@ import Footer from '../components/Footer.astro';
 
 const base = import.meta.env.BASE_URL;
 const buildPath = (path: string) => `${base}/${path}`.replace(/\/+/g, '/');
+const amazonUrl = 'https://www.amazon.com/No-Grier-Game-Showdown-American/dp/1969372451';
 ---
 
 <Layout
@@ -44,7 +45,7 @@ const buildPath = (path: string) => `${base}/${path}`.replace(/\/+/g, '/');
           <p class="text-lg mb-4 opacity-80">
             By <span class="font-display font-bold">Rob Grier Jr.</span> and <span class="font-display font-bold">Camille Grier</span>
           </p>
-          <Button text="Pre-Order the Book" href="#pre-order" variant="primary" />
+          <Button text="Order the Book" href={amazonUrl} variant="primary" />
         </div>
       </div>
     </div>
@@ -138,18 +139,18 @@ const buildPath = (path: string) => `${base}/${path}`.replace(/\/+/g, '/');
     </div>
   </section>
 
-  <!-- Pre-Order CTA -->
-  <section id="pre-order" class="bg-white py-20">
+  <!-- Order CTA -->
+  <section id="order" class="bg-white py-20">
     <div class="max-w-3xl mx-auto px-6 text-center">
       <h2 class="font-display text-3xl md:text-4xl font-bold text-black mb-6">
         Get Your Copy Today
       </h2>
       <p class="text-lg text-gray-700 mb-8">
-        Pre-order <em>No Grier, No Game</em> and be among the first to experience this powerful story
+        Order <em>No Grier, No Game</em> and experience this powerful story
         of courage, family, and the fight for equality in American sports.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <Button text="Pre-Order Now" href="#" variant="primary" />
+        <Button text="Order Now on Amazon" href={amazonUrl} variant="primary" />
         <Button text="Learn More About Bobby Grier" href={buildPath('about-us')} variant="secondary" />
       </div>
     </div>
