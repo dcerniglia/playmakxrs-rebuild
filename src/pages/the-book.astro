@@ -1,0 +1,156 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Button from '../components/Button.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="No Grier, No Game - Playmakxrs Global™"
+  description="How Bobby Grier and the Sugar Bowl Showdown Changed American Sports History"
+>
+  <Navigation />
+
+  <!-- Hero Section with Book Cover -->
+  <section class="bg-black text-white py-20 lg:py-32">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <!-- Book Cover Image -->
+        <div class="flex justify-center lg:justify-end">
+          <div class="relative max-w-md">
+            <img
+              src="/book-cover.jpg"
+              alt="No Grier, No Game book cover"
+              class="rounded-lg shadow-2xl w-full"
+              loading="eager"
+            />
+            <div class="absolute -bottom-6 -right-6 bg-primary text-white px-6 py-3 rounded-md font-display font-bold shadow-lg">
+              Available Now
+            </div>
+          </div>
+        </div>
+
+        <!-- Book Info -->
+        <div class="text-center lg:text-left">
+          <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-black mb-4 leading-tight">
+            No Grier, <span class="text-primary">No Game</span>
+          </h1>
+          <h2 class="text-xl md:text-2xl mb-6 opacity-90">
+            How Bobby Grier and the Sugar Bowl Showdown Changed American Sports History
+          </h2>
+          <p class="text-lg mb-4 opacity-80">
+            By <span class="font-display font-bold">Rob Grier Jr.</span> and <span class="font-display font-bold">Camille Grier</span>
+          </p>
+          <Button text="Pre-Order the Book" href="#pre-order" variant="primary" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Book Description -->
+  <section class="bg-white py-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="font-display text-3xl md:text-4xl font-bold text-black mb-8 text-center">
+        A Story of Courage, Family, and National Significance
+      </h2>
+
+      <div class="space-y-6 text-lg text-gray-700 leading-relaxed">
+        <p>
+          <em>No Grier, No Game</em> is more than a sports book—it's a family memoir, a civil rights narrative,
+          and a testament to the power of one person's courage to change history. Written by Bobby Grier's
+          grandchildren, Rob Grier Jr. and Camille Grier, this book tells the untold story of the 1956 Sugar
+          Bowl and the man who broke barriers on college football's biggest stage.
+        </p>
+
+        <p>
+          In 1956, Bobby Grier became the first African American to play in the Sugar Bowl, defying segregation
+          laws and risking everything to take the field. His presence in that game sparked controversy, protests,
+          and ultimately, change. But his story has never been fully told—until now.
+        </p>
+
+        <p>
+          Through personal interviews, family archives, and meticulous research, <em>No Grier, No Game</em> reveals:
+        </p>
+
+        <ul class="list-disc list-inside space-y-2 ml-4">
+          <li>The political and social pressures Bobby Grier faced leading up to the game</li>
+          <li>The role his courage played in desegregating Southern college football</li>
+          <li>How one man's stand inspired generations of athletes to demand equality</li>
+          <li>The personal cost of being a pioneer and the legacy he left behind</li>
+        </ul>
+
+        <p>
+          This book is a call to remember that progress doesn't happen by accident—it happens because people
+          like Bobby Grier refuse to back down. It's a reminder that sports are never just about the game;
+          they're about the people who play it and the barriers they break along the way.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Themes -->
+  <section class="bg-gray-50 py-20">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2 class="font-display text-3xl md:text-4xl font-bold text-black mb-12 text-center">
+        Key Themes
+      </h2>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="text-5xl mb-4">🏆</div>
+          <h3 class="font-display text-xl font-bold text-black mb-3">Breaking Barriers</h3>
+          <p class="text-gray-700">
+            How Bobby Grier's courage on the field challenged segregation and opened doors for future generations
+          </p>
+        </div>
+
+        <div class="text-center">
+          <div class="text-5xl mb-4">🤝</div>
+          <h3 class="font-display text-xl font-bold text-black mb-3">Unity Through Courage</h3>
+          <p class="text-gray-700">
+            The power of standing up for what's right, even when the cost is high and the opposition is fierce
+          </p>
+        </div>
+
+        <div class="text-center">
+          <div class="text-5xl mb-4">📚</div>
+          <h3 class="font-display text-xl font-bold text-black mb-3">Historical Impact</h3>
+          <p class="text-gray-700">
+            Understanding how sports history shapes cultural progress and why Bobby Grier's story still matters today
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tagline Section -->
+  <section class="bg-black text-white py-20">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="font-display text-4xl md:text-5xl font-bold mb-6 leading-tight">
+        "Without Bobby Grier, there is no game. Without courage, there is no change."
+      </h2>
+      <p class="text-xl opacity-90 mb-8">
+        This is the story that needed to be told. This is the legacy that demanded to be remembered.
+      </p>
+    </div>
+  </section>
+
+  <!-- Pre-Order CTA -->
+  <section id="pre-order" class="bg-white py-20">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <h2 class="font-display text-3xl md:text-4xl font-bold text-black mb-6">
+        Get Your Copy Today
+      </h2>
+      <p class="text-lg text-gray-700 mb-8">
+        Pre-order <em>No Grier, No Game</em> and be among the first to experience this powerful story
+        of courage, family, and the fight for equality in American sports.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <Button text="Pre-Order Now" href="#" variant="primary" />
+        <Button text="Learn More About Bobby Grier" href="/about-us" variant="secondary" />
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

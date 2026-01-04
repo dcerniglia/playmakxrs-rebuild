@@ -1,0 +1,123 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Hero from '../components/Hero.astro';
+import ValueCard from '../components/ValueCard.astro';
+import Button from '../components/Button.astro';
+import Footer from '../components/Footer.astro';
+
+const coreValues = [
+  {
+    title: 'Family',
+    description: 'We foster a culture of belonging where every member is valued, supported, and empowered to reach their full potential. Together, we rise.'
+  },
+  {
+    title: 'Play',
+    description: 'We celebrate the joy, creativity, and passion that fuels competition and drives excellence. Play is where champions are made.'
+  },
+  {
+    title: 'Action',
+    description: 'We believe in turning words into movement, ideas into impact. Action defines us—on the field, in the community, and beyond.'
+  },
+  {
+    title: 'Excellence',
+    description: 'We pursue greatness in everything we do, setting the highest standards and inspiring others to do the same. Excellence is our baseline.'
+  },
+  {
+    title: 'Player Rights',
+    description: 'We advocate for the dignity, voice, and opportunities of every athlete. Your rights matter. Your story matters. You matter.'
+  }
+];
+---
+
+<Layout
+  title="About Us - Playmakxrs Global™"
+  description="Learn about our mission, values, and the legacy of Bobby Grier that drives us forward"
+>
+  <Navigation />
+
+  <Hero
+    title="Who We Are"
+    description="Honoring the legacy of Bobby Grier and amplifying the voices of athletes and creators who make plays that matter"
+    ctaText="Join the Movement"
+    ctaHref="/join-us"
+  />
+
+  <!-- Mission Statement -->
+  <section class="bg-white py-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="font-display text-3xl md:text-4xl font-bold text-black mb-6 text-center">
+        Our Mission
+      </h2>
+      <p class="text-xl text-gray-700 leading-relaxed text-center mb-8">
+        Playmakxrs Global™ amplifies voices of athletes and creators who make plays that matter.
+        We are the platform where courage meets action, where legacy meets opportunity, and where
+        every story has the power to change the game.
+      </p>
+      <p class="text-lg text-gray-600 leading-relaxed text-center">
+        Inspired by Bobby Grier's courage in breaking racial barriers at the 1956 Sugar Bowl,
+        we carry forward a legacy of standing up, speaking out, and making history—one play at a time.
+      </p>
+    </div>
+  </section>
+
+  <!-- Core Values -->
+  <section class="bg-gray-50 py-20">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="font-display text-3xl md:text-4xl font-bold text-black mb-4 text-center">
+        Our Core Values
+      </h2>
+      <p class="text-lg text-gray-600 mb-12 text-center max-w-2xl mx-auto">
+        These five principles guide everything we do and define who we are as a community
+      </p>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {coreValues.map(value => (
+          <ValueCard title={value.title} description={value.description} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Impact Story -->
+  <section class="bg-white py-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="font-display text-3xl md:text-4xl font-bold text-black mb-6 text-center">
+        Our Impact
+      </h2>
+      <div class="space-y-6 text-lg text-gray-700 leading-relaxed">
+        <p>
+          Since our founding, Playmakxrs Global™ has been committed to honoring the legacy of
+          Bobby Grier—the first African American to play in the Sugar Bowl. His courage in 1956
+          wasn't just about football; it was about breaking barriers, demanding equality, and
+          proving that one person's stand can change history.
+        </p>
+        <p>
+          Today, we continue that mission by providing a platform for athletes, creators, and
+          community leaders to share their stories, access NIL (Name, Image, Likeness) opportunities,
+          participate in exclusive events, and make a tangible impact in their communities.
+        </p>
+        <p>
+          From exclusive storytelling to advocacy for player rights, we're building a movement
+          that celebrates the plays that matter—both on and off the field.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Philosophy Section -->
+  <section class="bg-black text-white py-20">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
+        We Are the Coach. Our Community Is the Hero.
+      </h2>
+      <p class="text-xl opacity-90 mb-8 leading-relaxed">
+        We don't tell your story—you do. We provide the platform, the opportunities, and the
+        support. You bring the courage, the talent, and the voice. Together, we make plays that matter.
+      </p>
+      <Button text="Become a Playmakxr" href="/join-us" variant="primary" />
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

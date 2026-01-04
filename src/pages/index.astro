@@ -1,16 +1,78 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
 import Hero from '../components/Hero.astro';
-import Services from '../components/Services.astro';
-import About from '../components/About.astro';
-import Contact from '../components/Contact.astro';
+import StorySection from '../components/StorySection.astro';
+import NewsletterSignup from '../components/NewsletterSignup.astro';
+import Button from '../components/Button.astro';
 import Footer from '../components/Footer.astro';
 ---
 
-<Layout title="Playmakxrs - Elite Athletic Training">
-  <Hero />
-  <Services />
-  <About />
-  <Contact />
+<Layout
+  title="Playmakxrs Global™ - Game Day Is Every Day"
+  description="Amplifying voices of athletes and creators who make plays that matter"
+>
+  <Navigation />
+
+  <Hero
+    title="Game Day Is"
+    subtitle="Every Day™"
+    description="Amplifying voices of athletes and creators who make plays that matter"
+    ctaText="Join the Team"
+    ctaHref="/join-us"
+    showSocialProof={true}
+  />
+
+  <!-- Mission Section -->
+  <section class="bg-white py-20">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <h2 class="font-display text-4xl md:text-5xl font-bold text-black mb-6">
+        Where Courage, Action, and Legacy Meet
+      </h2>
+      <p class="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed mb-8">
+        Playmakxrs Global™ celebrates athletes, creators, and community leaders who refuse to stay silent.
+        We provide a platform for impact storytelling, exclusive content, and opportunities that matter.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4 text-gray-600">
+        <div class="flex items-center gap-2">
+          <span class="text-primary text-2xl">✓</span>
+          <span>Athletes</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-primary text-2xl">✓</span>
+          <span>Creators</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-primary text-2xl">✓</span>
+          <span>Community Leaders</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-primary text-2xl">✓</span>
+          <span>Impact Storytelling</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bobby Grier Story -->
+  <StorySection />
+
+  <!-- Callout Section -->
+  <section class="bg-black text-white py-20">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
+        No Play Too Small. No Dream Too Big.
+      </h2>
+      <p class="text-xl opacity-90 mb-8 leading-relaxed">
+        Every voice matters. Every story counts. Join a movement that amplifies the plays
+        that change the game—on the field, in the community, and beyond.
+      </p>
+      <Button text="Be Part of the Movement" href="/join-us" variant="primary" />
+    </div>
+  </section>
+
+  <!-- Newsletter Signup -->
+  <NewsletterSignup />
+
   <Footer />
 </Layout>

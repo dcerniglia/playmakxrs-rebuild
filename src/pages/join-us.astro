@@ -1,0 +1,108 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Hero from '../components/Hero.astro';
+import BenefitCard from '../components/BenefitCard.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+
+const benefits = [
+  {
+    icon: '📖',
+    title: 'Exclusive Stories',
+    description: 'Access behind-the-scenes content, athlete interviews, and impact stories that go beyond the scoreboard. Be part of the narrative that matters.'
+  },
+  {
+    icon: '💼',
+    title: 'NIL Opportunities',
+    description: 'Student-athletes gain access to Name, Image, and Likeness opportunities that help you build your brand, monetize your talent, and maximize your potential.'
+  },
+  {
+    icon: '🎟️',
+    title: 'Events & Experiences',
+    description: 'Get invited to exclusive events, networking opportunities, and experiences that connect you with other playmakxrs and industry leaders.'
+  },
+  {
+    icon: '🌟',
+    title: 'Ways to Make Impact',
+    description: 'Join community initiatives, advocacy programs, and storytelling projects that amplify voices and create meaningful change in sports and beyond.'
+  }
+];
+---
+
+<Layout
+  title="Join Us - Playmakxrs Global™"
+  description="Join the movement. Access exclusive stories, NIL opportunities, events, and ways to make an impact."
+>
+  <Navigation />
+
+  <Hero
+    title="Join the Movement"
+    description="Become part of a community that amplifies voices, celebrates courage, and makes plays that matter"
+  />
+
+  <!-- Movement Intro -->
+  <section class="bg-white py-20">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="font-display text-3xl md:text-4xl font-bold text-black mb-6">
+        Why Join Playmakxrs Global™?
+      </h2>
+      <p class="text-xl text-gray-700 leading-relaxed mb-8">
+        We're building a community where athletes, creators, and leaders come together to share
+        stories, seize opportunities, and create impact. Whether you're breaking barriers on the
+        field or making moves in your community, you belong here.
+      </p>
+      <p class="text-lg text-gray-600 leading-relaxed">
+        Join a movement inspired by Bobby Grier's legacy—where every voice matters, every play
+        counts, and game day is every day.
+      </p>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="bg-gray-50 py-20">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="font-display text-3xl md:text-4xl font-bold text-black mb-12 text-center">
+        What You Get
+      </h2>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        {benefits.map(benefit => (
+          <BenefitCard
+            icon={benefit.icon}
+            title={benefit.title}
+            description={benefit.description}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form Section -->
+  <section class="bg-white">
+    <div class="max-w-3xl mx-auto px-6 py-20 text-center">
+      <h2 class="font-display text-3xl md:text-4xl font-bold text-black mb-4">
+        Ready to Make Your Play?
+      </h2>
+      <p class="text-lg text-gray-600 mb-12">
+        Fill out the form below to join the Playmakxrs Global™ community. We'll be in touch soon!
+      </p>
+    </div>
+  </section>
+
+  <Contact />
+
+  <!-- Final CTA -->
+  <section class="bg-black text-white py-16">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="font-display text-3xl md:text-4xl font-bold mb-4">
+        Game Day Is Every Day™. Make Your Play Today.
+      </h2>
+      <p class="text-lg opacity-90">
+        Join a community that refuses to stay silent. Your voice matters. Your story counts.
+      </p>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
