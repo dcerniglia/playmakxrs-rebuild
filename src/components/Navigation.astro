@@ -2,10 +2,10 @@
 const base = import.meta.env.BASE_URL;
 const currentPath = Astro.url.pathname;
 const navItems = [
-  { name: 'Home', href: `${base}` },
-  { name: 'About Us', href: `${base}about-us` },
-  { name: 'Join Us', href: `${base}join-us` },
-  { name: 'The Book', href: `${base}the-book` },
+  { name: 'Home', href: `${base}/` },
+  { name: 'About Us', href: `${base}/about-us` },
+  { name: 'Join Us', href: `${base}/join-us` },
+  { name: 'The Book', href: `${base}/the-book` },
 ];
 ---
 
@@ -37,7 +37,7 @@ const navItems = [
           </a>
         ))}
         <a
-          href={`${base}join-us`}
+          href={`${base}/join-us`}
           class="bg-primary text-white px-6 py-2 rounded-md font-display font-bold hover:bg-primary-dark transition-all duration-200 transform hover:scale-105"
         >
           Join the Team
@@ -71,7 +71,7 @@ const navItems = [
         </a>
       ))}
       <a
-        href={`${base}join-us`}
+        href={`${base}/join-us`}
         class="block mt-4 bg-primary text-white px-6 py-2 rounded-md font-display font-bold text-center hover:bg-primary-dark transition-colors"
       >
         Join the Team
