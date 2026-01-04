@@ -8,6 +8,8 @@ import Button from '../components/Button.astro';
 import Footer from '../components/Footer.astro';
 
 const base = import.meta.env.BASE_URL;
+// Helper function to build paths - removes double slashes
+const buildPath = (path: string) => `${base}${path}`.replace(/\/+/g, '/');
 ---
 
 <Layout
@@ -18,10 +20,10 @@ const base = import.meta.env.BASE_URL;
 
   <Hero
     title="Game Day Is"
-    subtitle="Every Day™"
+    subtitle="Every Day"
     description="Amplifying voices of athletes and creators who make plays that matter"
     ctaText="Join the Team"
-    ctaHref={`${base}/join-us`}
+    ctaHref={buildPath('join-us')}
     showSocialProof={true}
   />
 
@@ -71,7 +73,7 @@ const base = import.meta.env.BASE_URL;
 
       <div class="relative rounded-lg overflow-hidden shadow-2xl">
         <img
-          src={`${base}/vintage-football-collage.png`}
+          src={buildPath('vintage-football-collage.png')}
           alt="Vintage football seniors collage - generations of athletes making history"
           class="w-full h-auto"
           loading="lazy"
@@ -99,7 +101,7 @@ const base = import.meta.env.BASE_URL;
         Every voice matters. Every story counts. Join a movement that amplifies the plays
         that change the game—on the field, in the community, and beyond.
       </p>
-      <Button text="Be Part of the Movement" href={`${base}/join-us`} variant="primary" />
+      <Button text="Be Part of the Movement" href={buildPath('join-us')} variant="primary" />
     </div>
   </section>
 
