@@ -18,6 +18,8 @@ const {
   backgroundImage,
   showSocialProof = false
 } = Astro.props;
+
+const base = import.meta.env.BASE_URL;
 ---
 
 <section class="relative bg-black text-white overflow-hidden">
@@ -32,16 +34,25 @@ const {
     </div>
   )}
 
-  <div class="relative max-w-7xl mx-auto px-6 py-32 lg:py-40">
-    <!-- Social proof banner (optional) -->
+  <div class="relative max-w-7xl mx-auto px-6 py-22 lg:py-32">
+    <!-- Social proof banner with logo (optional) -->
     {showSocialProof && (
-      <div class="mb-8 flex flex-wrap gap-4 text-xs uppercase tracking-wider opacity-60">
-        <span>#VanGrier™Legacy</span>
-        <span>#H2P</span>
-        <span>#MSNBC</span>
-        <span>#TheTodayShow</span>
-        <span>#TheElizabethDoleFoundation</span>
-        <span>#Playmakxrs™</span>
+      <div class="mb-8">
+        {/* <div class="flex items-center justify-center mb-4">
+          <img
+            src={`${base}logo.png`}
+            alt="Playmakxrs Global™"
+            class=" w-full h-auto"
+          />
+        </div> */}
+        <div class="flex flex-wrap justify-center gap-4 text-xs uppercase tracking-wider opacity-60">
+          <span>#VanGrier™Legacy</span>
+          <span>#H2P</span>
+          <span>#MSNBC</span>
+          <span>#TheTodayShow</span>
+          <span>#TheElizabethDoleFoundation</span>
+          <span>#Playmakxrs™</span>
+        </div>
       </div>
     )}
 

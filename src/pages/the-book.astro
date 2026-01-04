@@ -3,6 +3,8 @@ import Layout from '../layouts/Layout.astro';
 import Navigation from '../components/Navigation.astro';
 import Button from '../components/Button.astro';
 import Footer from '../components/Footer.astro';
+
+const base = import.meta.env.BASE_URL;
 ---
 
 <Layout
@@ -19,12 +21,12 @@ import Footer from '../components/Footer.astro';
         <div class="flex justify-center lg:justify-end">
           <div class="relative max-w-md">
             <img
-              src="/book-cover.jpg"
+              src={`${base}book-cover.png`}
               alt="No Grier, No Game book cover"
               class="rounded-lg shadow-2xl w-full"
               loading="eager"
             />
-            <div class="absolute -bottom-6 -right-6 bg-primary text-white px-6 py-3 rounded-md font-display font-bold shadow-lg">
+            <div class="absolute -bottom-6 -right-6 bg-yellow-400 text-black px-6 py-3 rounded-full font-display font-bold shadow-xl transform rotate-3 border-4 border-black">
               Available Now
             </div>
           </div>
@@ -147,7 +149,7 @@ import Footer from '../components/Footer.astro';
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <Button text="Pre-Order Now" href="#" variant="primary" />
-        <Button text="Learn More About Bobby Grier" href="/about-us" variant="secondary" />
+        <Button text="Learn More About Bobby Grier" href={`${base}about-us`} variant="secondary" />
       </div>
     </div>
   </section>

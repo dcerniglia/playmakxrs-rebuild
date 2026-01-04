@@ -148,7 +148,7 @@ Update in `src/pages/join-us.astro` - `benefits` array (lines 8-27)
 2. Reference as `/image-name.jpg` in components
 3. Required images:
    - `/logo.jpg` - Playmakxrs logo
-   - `/hero-home.jpg` - Home page hero/Bobby Grier photo
+   - `/hero-home.png` - Home page hero/Bobby Grier photo
    - `/book-cover.jpg` - Book cover for The Book page
 
 ### Change Colors

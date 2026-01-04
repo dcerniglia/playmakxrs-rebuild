@@ -1,10 +1,11 @@
 ---
+const base = import.meta.env.BASE_URL;
 const currentPath = Astro.url.pathname;
 const navItems = [
-  { name: 'Home', href: '/' },
-  { name: 'About Us', href: '/about-us' },
-  { name: 'Join Us', href: '/join-us' },
-  { name: 'The Book', href: '/the-book' },
+  { name: 'Home', href: `${base}` },
+  { name: 'About Us', href: `${base}about-us` },
+  { name: 'Join Us', href: `${base}join-us` },
+  { name: 'The Book', href: `${base}the-book` },
 ];
 ---
 
@@ -12,22 +13,13 @@ const navItems = [
   <div class="max-w-7xl mx-auto px-6 py-4">
     <div class="flex items-center justify-between">
       <!-- Logo -->
-      <a href="/" class="flex items-center gap-2 group">
-        <div class="relative">
-          <img
-            src="/logo.png"
-            alt="Playmakxrs Global™"
-            class="h-14 md:h-16 w-auto brightness-0 invert transition-all duration-200 group-hover:scale-105"
-          />
-        </div>
-        <div class="hidden sm:block">
-          <span class="text-xl md:text-2xl font-display font-black text-black leading-none tracking-tight">
-            PLAYMAKXRS
-          </span>
-          <span class="block text-[10px] md:text-xs font-display font-semibold text-primary tracking-wider">
-            GLOBAL™
-          </span>
-        </div>
+      <a href="/" class="flex flex-col group transition-all duration-200 hover:opacity-80">
+        <span class="text-2xl md:text-3xl font-display font-black text-black leading-none tracking-tight">
+          PLAYMAKXRS
+        </span>
+        <span class="text-xs md:text-sm font-display font-semibold text-primary tracking-wider -mt-1">
+          GLOBAL™
+        </span>
       </a>
 
       <!-- Desktop Navigation -->
@@ -45,7 +37,7 @@ const navItems = [
           </a>
         ))}
         <a
-          href="/join-us"
+          href={`${base}join-us`}
           class="bg-primary text-white px-6 py-2 rounded-md font-display font-bold hover:bg-primary-dark transition-all duration-200 transform hover:scale-105"
         >
           Join the Team
@@ -79,7 +71,7 @@ const navItems = [
         </a>
       ))}
       <a
-        href="/join-us"
+        href={`${base}join-us`}
         class="block mt-4 bg-primary text-white px-6 py-2 rounded-md font-display font-bold text-center hover:bg-primary-dark transition-colors"
       >
         Join the Team
