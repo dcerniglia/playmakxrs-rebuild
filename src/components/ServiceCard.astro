@@ -1,0 +1,39 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  icon?: string;
+}
+
+const { title, description, icon } = Astro.props;
+---
+
+<div class="group bg-white border-2 border-gray-200 hover:border-gold p-8 transition-all duration-300 hover:shadow-xl">
+  <!-- Icon (optional) -->
+  {icon && (
+    <div class="text-gold text-4xl mb-6">
+      {icon}
+    </div>
+  )}
+  
+  <!-- Title -->
+  <h3 class="font-display text-2xl font-bold mb-4 text-black group-hover:text-gold transition-colors">
+    {title}
+  </h3>
+  
+  <!-- Description -->
+  <p class="text-gray-600 leading-relaxed mb-6">
+    {description}
+  </p>
+  
+  <!-- Learn More Link -->
+  <a 
+    href="#contact" 
+    class="inline-flex items-center text-gold font-semibold hover:underline"
+  >
+    Learn More
+    <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+    </svg>
+  </a>
+</div>

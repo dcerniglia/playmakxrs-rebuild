@@ -1,0 +1,45 @@
+---
+import ServiceCard from './ServiceCard.astro';
+
+const services = [
+  {
+    title: 'Personal Training',
+    description: 'One-on-one coaching tailored to your specific goals, strengths, and areas for improvement. Build strength, speed, and confidence.',
+    icon: '🏋️',
+  },
+  {
+    title: 'Team Coaching',
+    description: 'Develop championship-caliber teams with proven strategies, drills, and leadership development that translate to wins on and off the field.',
+    icon: '👥',
+  },
+  {
+    title: 'Performance Consulting',
+    description: 'Strategic guidance for athletes, coaches, and programs looking to take their performance to the next level with data-driven insights.',
+    icon: '📊',
+  },
+];
+---
+
+<section class="bg-white py-20 lg:py-32">
+  <div class="max-w-7xl mx-auto px-6">
+    <!-- Section Title -->
+    <h2 class="font-display text-4xl lg:text-5xl font-bold mb-4 text-center">
+      Our <span class="text-gold">Services</span>
+    </h2>
+    
+    <p class="text-center text-gray-600 text-lg mb-16 max-w-2xl mx-auto">
+      Comprehensive training solutions designed to help you reach your full potential
+    </p>
+    
+    <!-- Service Cards Grid -->
+    <div class="grid md:grid-cols-3 gap-8 lg:gap-12">
+      {services.map(service => (
+        <ServiceCard 
+          title={service.title}
+          description={service.description}
+          icon={service.icon}
+        />
+      ))}
+    </div>
+  </div>
+</section>
