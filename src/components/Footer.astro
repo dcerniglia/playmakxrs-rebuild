@@ -1,7 +1,7 @@
 ---
 const currentYear = new Date().getFullYear();
 const base = import.meta.env.BASE_URL;
-const buildPath = (path: string) => `${base}${path}`.replace(/\/+/g, '/');
+const buildPath = (path: string) => `${base}/${path}`.replace(/\/+/g, '/');
 ---
 
 <footer class="bg-black text-white py-12">

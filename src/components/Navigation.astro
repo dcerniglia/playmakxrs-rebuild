@@ -1,6 +1,6 @@
 ---
 const base = import.meta.env.BASE_URL;
-const buildPath = (path: string) => `${base}${path}`.replace(/\/+/g, '/');
+const buildPath = (path: string) => `${base}/${path}`.replace(/\/+/g, '/');
 const currentPath = Astro.url.pathname;
 const navItems = [
   { name: 'Home', href: buildPath('') },

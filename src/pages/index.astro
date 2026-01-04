@@ -8,8 +8,11 @@ import Button from '../components/Button.astro';
 import Footer from '../components/Footer.astro';
 
 const base = import.meta.env.BASE_URL;
-// Helper function to build paths - removes double slashes
-const buildPath = (path: string) => `${base}${path}`.replace(/\/+/g, '/');
+// Helper function to build paths - ensures proper slash between base and path
+const buildPath = (path: string) => {
+  const normalized = `${base}/${path}`.replace(/\/+/g, '/');
+  return normalized;
+};
 ---
 
 <Layout
