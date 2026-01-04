@@ -7,6 +7,7 @@ import Button from '../components/Button.astro';
 import Footer from '../components/Footer.astro';
 
 const base = import.meta.env.BASE_URL;
+const buildPath = (path: string) => `${base}${path}`.replace(/\/+/g, '/');
 
 const coreValues = [
   {
@@ -117,7 +118,7 @@ const coreValues = [
         We don't tell your story—you do. We provide the platform, the opportunities, and the
         support. You bring the courage, the talent, and the voice. Together, we make plays that matter.
       </p>
-      <Button text="Become a Playmakxr" href={`${base}join-us`} variant="primary" />
+      <Button text="Become a Playmakxr" href={buildPath('join-us')} variant="primary" />
     </div>
   </section>
 
