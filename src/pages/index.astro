@@ -6,6 +6,7 @@ import StorySection from '../components/StorySection.astro';
 import NewsletterSignup from '../components/NewsletterSignup.astro';
 import Button from '../components/Button.astro';
 import Footer from '../components/Footer.astro';
+import MediaLogos from '../components/MediaLogos.astro';
 
 const base = import.meta.env.BASE_URL;
 // Helper function to build paths - ensures proper slash between base and path
@@ -107,6 +108,9 @@ const buildPath = (path: string) => {
       <Button text="Be Part of the Movement" href={buildPath('join-us')} variant="primary" />
     </div>
   </section>
+
+  <!-- Media Logos -->
+  <MediaLogos />
 
   <!-- Newsletter Signup -->
   <NewsletterSignup />
