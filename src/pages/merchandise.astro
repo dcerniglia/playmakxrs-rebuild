@@ -1,0 +1,96 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Hero from '../components/Hero.astro';
+import Button from '../components/Button.astro';
+import Footer from '../components/Footer.astro';
+
+const base = import.meta.env.BASE_URL;
+const buildPath = (path: string) => `${base}/${path}`.replace(/\/+/g, '/');
+const shopifyUrl = 'https://playmakxrs.myshopify.com';
+---
+
+<Layout
+  title="Merchandise - Playmakxrs Global™"
+  description="The Playmakxrs™ Collection exists for those who wish to carry the story forward in a tangible way."
+>
+  <Navigation />
+
+  <Hero
+    title="The Collection"
+    subtitle="A Way to Participate"
+    description="The Playmakxrs™ Collection exists for those who wish to carry the story forward in a tangible way. Each piece is designed with the same care and restraint that guides our storytelling."
+    ctaText="View the Collection"
+    ctaHref={shopifyUrl}
+  />
+
+  <!-- Why It Exists -->
+  <section class="bg-white py-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="font-display text-3xl md:text-4xl font-bold text-black mb-6 text-center">
+        Why It Exists
+      </h2>
+      <p class="text-xl text-gray-700 leading-relaxed text-center mb-6">
+        For some, engaging with the story through reading or conversation is enough. For others, wearing or sharing a piece becomes a way to remain connected over time.
+      </p>
+      <p class="text-lg text-gray-600 leading-relaxed text-center">
+        The collection is a physical extension of The Bobby Grier Story™ — built with no spectacle, no trend, and no excess.
+      </p>
+    </div>
+  </section>
+
+  <!-- What Guides the Collection -->
+  <section class="bg-gray-50 py-20">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="font-display text-3xl md:text-4xl font-bold text-black mb-12 text-center">
+        What Guides the Collection
+      </h2>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="text-center">
+          <h3 class="font-display text-xl font-bold text-black mb-3">Purpose over volume</h3>
+        </div>
+        <div class="text-center">
+          <h3 class="font-display text-xl font-bold text-black mb-3">Simplicity over statement</h3>
+        </div>
+        <div class="text-center">
+          <h3 class="font-display text-xl font-bold text-black mb-3">Quality over novelty</h3>
+        </div>
+        <div class="text-center">
+          <h3 class="font-display text-xl font-bold text-black mb-3">Meaning over messaging</h3>
+        </div>
+      </div>
+
+      <p class="text-lg text-gray-600 leading-relaxed text-center mt-12">
+        Each item is produced in limited runs and designed to endure.
+      </p>
+    </div>
+  </section>
+
+  <!-- A Note on Proceeds -->
+  <section class="bg-white py-20">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="font-display text-3xl md:text-4xl font-bold text-black mb-6">
+        A Note on Proceeds
+      </h2>
+      <p class="text-xl text-gray-700 leading-relaxed">
+        Proceeds support the continued preservation and stewardship of authentic American legacy stories. This is participation, not promotion.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-black text-white py-20">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
+        Explore the Collection
+      </h2>
+      <p class="text-xl opacity-90 mb-8 leading-relaxed">
+        No urgency. No pressure. Only intention.
+      </p>
+      <Button text="View the Collection" href={shopifyUrl} variant="primary" />
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

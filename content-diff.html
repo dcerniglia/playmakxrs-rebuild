@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Content Diff — Playmakxrs Rebrand</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --border: #30363d;
+    --text: #c9d1d9;
+    --text-muted: #8b949e;
+    --heading: #f0f6fc;
+    --accent: #58a6ff;
+    --green: #3fb950;
+    --red: #f85149;
+    --yellow: #d29922;
+    --green-bg: #0d2818;
+    --red-bg: #2d1117;
+    --yellow-bg: #2d2200;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  h1 { color: var(--heading); font-size: 2rem; margin-bottom: 0.25rem; }
+  h2 { color: var(--heading); font-size: 1.5rem; margin: 2.5rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
+  h3 { color: var(--accent); font-size: 1.15rem; margin: 1.5rem 0 0.75rem; }
+  h4 { color: var(--text); font-size: 1rem; margin: 1rem 0 0.5rem; }
+  p { margin-bottom: 0.75rem; }
+  .subtitle { color: var(--text-muted); font-size: 1rem; margin-bottom: 2rem; }
+  .badge { display: inline-block; padding: 0.15rem 0.6rem; border-radius: 999px; font-size: 0.75rem; font-weight: 600; margin-right: 0.35rem; }
+  .badge-new { background: var(--green-bg); color: var(--green); border: 1px solid #238636; }
+  .badge-remove { background: var(--red-bg); color: var(--red); border: 1px solid #da3633; }
+  .badge-change { background: var(--yellow-bg); color: var(--yellow); border: 1px solid #9e6a03; }
+  .badge-keep { background: var(--surface); color: var(--text-muted); border: 1px solid var(--border); }
+  table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+  th { background: var(--surface); color: var(--heading); text-align: left; padding: 0.6rem 0.75rem; border: 1px solid var(--border); font-weight: 600; }
+  td { padding: 0.6rem 0.75rem; border: 1px solid var(--border); vertical-align: top; }
+  tr:hover td { background: rgba(88, 166, 255, 0.04); }
+  .current { color: var(--red); }
+  .new { color: var(--green); }
+  ul { margin: 0.5rem 0 0.75rem 1.5rem; }
+  li { margin-bottom: 0.35rem; }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1.25rem;
+    margin: 1rem 0;
+  }
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+  .card h4 { margin-top: 0; }
+  .tone-compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+  .tone-box {
+    padding: 1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+  }
+  .tone-box.old { background: var(--red-bg); border: 1px solid #da3633; }
+  .tone-box.new { background: var(--green-bg); border: 1px solid #238636; }
+  .tone-box strong { display: block; margin-bottom: 0.5rem; }
+  blockquote {
+    border-left: 3px solid var(--accent);
+    padding: 0.75rem 1rem;
+    margin: 1rem 0;
+    background: var(--surface);
+    border-radius: 0 6px 6px 0;
+    font-style: italic;
+    color: var(--text-muted);
+  }
+  .file-ref { font-family: 'SF Mono', SFMono-Regular, Consolas, monospace; font-size: 0.85rem; color: var(--accent); background: var(--surface); padding: 0.1rem 0.4rem; border-radius: 3px; }
+  .section-header { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
+  .toc { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+  .toc ul { list-style: none; margin: 0; padding: 0; }
+  .toc li { margin-bottom: 0.3rem; }
+  .toc a { color: var(--accent); text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+  .toc .indent { margin-left: 1.25rem; }
+  a { color: var(--accent); }
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+  .summary-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1rem;
+    text-align: center;
+  }
+  .summary-card .num { font-size: 2rem; font-weight: 700; color: var(--heading); }
+  .summary-card .label { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem; }
+</style>
+</head>
+<body>
+
+<h1>Playmakxrs Content Diff</h1>
+<p class="subtitle">BG38 Document mapped onto current site &mdash; February 2026</p>
+
+<div class="summary-grid">
+  <div class="summary-card"><div class="num" style="color:var(--yellow)">6</div><div class="label">Pages Changed</div></div>
+  <div class="summary-card"><div class="num" style="color:var(--green)">3</div><div class="label">New Pages</div></div>
+  <div class="summary-card"><div class="num" style="color:var(--red)">2</div><div class="label">Pages Removed</div></div>
+  <div class="summary-card"><div class="num" style="color:var(--accent)">10</div><div class="label">Components Affected</div></div>
+</div>
+
+<nav class="toc">
+  <strong>Contents</strong>
+  <ul>
+    <li><a href="#structural">Structural Changes</a></li>
+    <li><a href="#tone">Global Tone &amp; Content</a></li>
+    <li><a href="#home">Home Page</a></li>
+    <li><a href="#about">About Us</a></li>
+    <li><a href="#merchandise">Merchandise (was Shop)</a></li>
+    <li><a href="#partnership">Partnership (new)</a></li>
+    <li><a href="#book">The Book</a></li>
+    <li><a href="#updates">Updates (new)</a></li>
+    <li><a href="#contact">Contact Us (new)</a></li>
+    <li><a href="#components">Components &amp; Files</a></li>
+  </ul>
+</nav>
+
+<!-- ============ STRUCTURAL ============ -->
+<h2 id="structural">Structural Changes</h2>
+
+<h3>Navigation</h3>
+<table>
+  <tr><th>Current</th><th>New</th></tr>
+  <tr>
+    <td class="current">Home, About Us, Join Us, The Book, Shop</td>
+    <td class="new">Home, About Us, Merchandise, Partnership, The Book, Updates, Contact Us</td>
+  </tr>
+  <tr>
+    <td class="current">CTA: "Join the Team" &rarr; /join-us</td>
+    <td class="new">CTA: "Start a Conversation" &rarr; /partnership or /contact-us</td>
+  </tr>
+</table>
+<ul>
+  <li><span class="badge badge-change">SPLIT</span> <strong>Join Us</strong> &rarr; <strong>Partnership</strong> + <strong>Contact Us</strong></li>
+  <li><span class="badge badge-change">RENAME</span> <strong>Shop</strong> &rarr; <strong>Merchandise</strong> (different tone &amp; content)</li>
+  <li><span class="badge badge-new">NEW</span> <strong>Updates</strong> page (blog/milestones)</li>
+</ul>
+
+<h3>Footer</h3>
+<table>
+  <tr><th>Element</th><th>Current</th><th>New</th></tr>
+  <tr><td>Links</td><td class="current">Home, About Us, Join Us, The Book, Shop</td><td class="new">Home, About Us, Merchandise, Partnership, The Book, Updates, Contact Us</td></tr>
+  <tr><td>Tagline</td><td class="current">"Amplifying voices of athletes and creators..."</td><td class="new">Remove</td></tr>
+  <tr><td>Slogan</td><td class="current">"Game Day Is Every Day&trade;"</td><td class="new">Remove</td></tr>
+  <tr><td>Newsletter</td><td class="current">Separate component on homepage</td><td class="new">Move into footer: "Receive occasional updates on the stories and moments we steward."</td></tr>
+</table>
+
+<!-- ============ TONE ============ -->
+<h2 id="tone">Global Tone &amp; Content Shift</h2>
+
+<div class="tone-compare">
+  <div class="tone-box old">
+    <strong>Current Voice</strong>
+    "Refuse to stay silent" &bull; "Amplifying voices" &bull; "Movement" &bull; "Game Day Is Every Day" &bull; Emojis in cards &bull; High energy &bull; Athletes, creators, community leaders
+  </div>
+  <div class="tone-box new">
+    <strong>New Voice</strong>
+    "Preserving stories" &bull; "Narrative stewardship" &bull; "Restraint" &bull; No urgency language &bull; No emojis &bull; Quiet, credible &bull; Universities, foundations, Fortune 500
+  </div>
+</div>
+
+<table>
+  <tr><th>Aspect</th><th>Current</th><th>New</th></tr>
+  <tr><td>Language</td><td>"Refuse to stay silent", urgency</td><td>No urgency, no hype, restrained</td></tr>
+  <tr><td>Emojis</td><td>Used throughout cards</td><td>None anywhere</td></tr>
+  <tr><td>Audience</td><td>Athletes, creators, leaders</td><td>Universities, institutions, Fortune 500</td></tr>
+  <tr><td>Brand voice</td><td>Energetic, activist</td><td>Quiet, credible, disciplined</td></tr>
+  <tr><td>Tagline</td><td>"Game Day Is Every Day&trade;"</td><td>"Preserving Stories That Hold Us Together"</td></tr>
+</table>
+
+<!-- ============ HOME ============ -->
+<h2 id="home">Home Page <span class="file-ref">src/pages/index.astro</span></h2>
+
+<h3 class="section-header">Hero <span class="badge badge-change">REWRITE</span></h3>
+<table>
+  <tr><th>Field</th><th>Current</th><th>New</th></tr>
+  <tr><td>Title</td><td class="current">"Game Day Is Every Day"</td><td class="new">"PLAYMAKXRS&trade; | PLAYMAKXRS GLOBAL&trade;"</td></tr>
+  <tr><td>Subtitle</td><td class="current">(none)</td><td class="new">"Preserving Stories That Hold Us Together"</td></tr>
+  <tr><td>Description</td><td class="current">"Amplifying voices of athletes and creators who make plays that matter"</td><td class="new">Full paragraph: narrative infrastructure platform, preserving America's most consequential stories</td></tr>
+  <tr><td>CTA</td><td class="current">"Join the Team" &rarr; /join-us</td><td class="new">"Discover the Story" &rarr; /the-book</td></tr>
+  <tr><td>Hashtags</td><td class="current">#Playmakxrs, #GameDayIsEveryDay, #NoGrierNoGame</td><td class="new">Remove entirely</td></tr>
+</table>
+
+<h3 class="section-header">Mission Section &rarr; "What We Believe" <span class="badge badge-change">REWRITE</span></h3>
+<div class="card">
+  <h4>Current</h4>
+  <p>"Where Courage, Action, and Legacy Meet" &mdash; checkmarks for Athletes, Creators, Community Leaders, Impact Storytelling</p>
+  <h4>New</h4>
+  <p>"Not all stories are meant to be optimized for attention. Some are meant to be protected, carried forward, and told with restraint."</p>
+  <ul>
+    <li>Reduce division rather than inflame it</li>
+    <li>Create shared understanding rather than spectacle</li>
+    <li>Unite people around values that outlast trends</li>
+  </ul>
+</div>
+
+<h3 class="section-header">Legacy Collage <span class="badge badge-remove">REMOVE</span></h3>
+<p>Current vintage football collage with "Every Generation. Every Play. Every Voice." &mdash; remove entirely.</p>
+
+<h3 class="section-header">StorySection &rarr; "What We Do" <span class="badge badge-change">REPLACE</span></h3>
+<div class="card">
+  <p>"Playmakxrs&trade; exists to identify, interpret, and steward stories that already carry meaning." Grounded in:</p>
+  <ul>
+    <li>Historic moments rooted in documented truth and lived experience</li>
+    <li>Institutional alignment built on trust, credibility, and shared values</li>
+    <li>Cultural infrastructure designed for endurance, not cycles</li>
+  </ul>
+</div>
+
+<h3 class="section-header">Callout &rarr; "Who We Work With" <span class="badge badge-change">REPLACE</span></h3>
+<div class="card">
+  <h4>Current</h4>
+  <p>"No Play Too Small. No Dream Too Big." &mdash; "Be Part of the Movement"</p>
+  <h4>New</h4>
+  <p>Selective partnerships valuing integrity, historical accuracy, long-term cultural relevance, educational impact, values-based leadership. "Partnership with Playmakxrs&trade; is not transactional. It is participatory."</p>
+</div>
+
+<h3 class="section-header">MediaLogos <span class="badge badge-keep">KEEP</span></h3>
+<p>Keep as-is. Serves as credibility strip per new doc.</p>
+
+<h3 class="section-header">Newsletter <span class="badge badge-change">MOVE</span></h3>
+<p>Move into footer globally. New copy: "Receive occasional updates on the stories and moments we steward."</p>
+
+<!-- ============ ABOUT ============ -->
+<h2 id="about">About Us <span class="file-ref">src/pages/about-us.astro</span></h2>
+
+<h3 class="section-header">Hero <span class="badge badge-change">REWRITE</span></h3>
+<table>
+  <tr><th>Field</th><th>Current</th><th>New</th></tr>
+  <tr><td>Title</td><td>"Who We Are"</td><td>"Who We Are" (same)</td></tr>
+  <tr><td>Description</td><td class="current">"Honoring the legacy of Bobby Grier and amplifying the voices..."</td><td class="new">"narrative stewardship platform dedicated to preserving and elevating authentic American legacy stories"</td></tr>
+  <tr><td>CTA</td><td class="current">"Join the Movement" &rarr; /join-us</td><td class="new">Remove CTA from hero</td></tr>
+</table>
+
+<h3 class="section-header">Core Values (5 cards) <span class="badge badge-remove">REMOVE</span></h3>
+<p>Remove Family, Play, Action, Excellence, Player Rights cards. Replace with 5 new sequential sections:</p>
+
+<div class="card-grid">
+  <div class="card">
+    <h4>1. Our Belief</h4>
+    <p>Real stories shape identity, values, and collective memory. When handled with care they unify communities and strengthen institutions.</p>
+  </div>
+  <div class="card">
+    <h4>2. Our History</h4>
+    <p>Foundation is The Bobby Grier Story&trade;. 1956 Sugar Bowl. Amazon bestseller <em>No Grier, No Game&trade;</em>. "Not mythology&hellip; authentic factual history."</p>
+  </div>
+  <div class="card">
+    <h4>3. How We Work</h4>
+    <p>Coherence before scale. Trust precedes growth, meaning precedes momentum, alignment precedes amplification.</p>
+  </div>
+  <div class="card">
+    <h4>4. Our Role in Culture</h4>
+    <p>Teach without preaching, inspire without exaggeration, unite without erasing difference. Cultural continuity, not nostalgia.</p>
+  </div>
+  <div class="card">
+    <h4>5. Looking Forward</h4>
+    <p>Times Square moments to campus conversations. Long view. Continuity not acceleration.</p>
+  </div>
+</div>
+
+<h3 class="section-header">Impact Section <span class="badge badge-remove">REMOVE</span></h3>
+<p>Bobby Grier content moves to "Our History". NIL and player rights language removed entirely.</p>
+
+<h3 class="section-header">Philosophy CTA <span class="badge badge-remove">REMOVE</span></h3>
+<p>"We Are the Coach. Our Community Is the Hero." + "Become a Playmakxr" &mdash; remove entirely.</p>
+
+<!-- ============ MERCHANDISE ============ -->
+<h2 id="merchandise">Merchandise <span class="file-ref">src/pages/shop.astro &rarr; merchandise.astro</span></h2>
+
+<p><span class="badge badge-change">RENAME</span> Route: <code>/shop</code> &rarr; <code>/merchandise</code></p>
+
+<h3 class="section-header">Hero <span class="badge badge-change">REWRITE</span></h3>
+<table>
+  <tr><th>Field</th><th>Current</th><th>New</th></tr>
+  <tr><td>Title</td><td class="current">"Rep the Movement"</td><td class="new">"The Collection"</td></tr>
+  <tr><td>Subtitle</td><td class="current">(none)</td><td class="new">"A Way to Participate"</td></tr>
+  <tr><td>Description</td><td class="current">"Every purchase supports athletes, creators..."</td><td class="new">"exists for those who wish to carry the story forward in a tangible way"</td></tr>
+  <tr><td>CTA</td><td class="current">"Shop Now"</td><td class="new">"View the Collection"</td></tr>
+</table>
+
+<h3 class="section-header">Intro &rarr; "Why It Exists" <span class="badge badge-change">REWRITE</span></h3>
+<p><span class="current">Current:</span> "Wear Your Purpose" &mdash; joining a movement.<br>
+<span class="new">New:</span> Physical extension of The Bobby Grier Story&trade;. "No spectacle, trend, or excess."</p>
+
+<h3 class="section-header">Impact Cards &rarr; "What Guides the Collection" <span class="badge badge-change">REPLACE</span></h3>
+<div class="card">
+  <p><span class="current">Remove:</span> Storytelling Platform, NIL Opportunities, Community Impact (with emojis)</p>
+  <p><span class="new">Replace with 4 principles (no emojis):</span></p>
+  <ul>
+    <li>Purpose over volume</li>
+    <li>Simplicity over statement</li>
+    <li>Quality over novelty</li>
+    <li>Meaning over messaging</li>
+  </ul>
+</div>
+
+<h3 class="section-header">CTA <span class="badge badge-change">REWRITE</span></h3>
+<p><span class="current">Current:</span> "Every Purchase Makes a Play" &mdash; Shop Now + Learn Our Story<br>
+<span class="new">New:</span> "No urgency. No pressure. Only intention." &mdash; single "View the Collection" button</p>
+
+<!-- ============ PARTNERSHIP ============ -->
+<h2 id="partnership">Partnership <span class="badge badge-new">NEW PAGE</span> <span class="file-ref">src/pages/partnership.astro</span></h2>
+
+<p>Replaces <code>join-us.astro</code>. Completely new content targeting institutional partners.</p>
+
+<div class="card">
+  <h4>Page Sections</h4>
+  <ol>
+    <li><strong>Hero:</strong> "Partner with Playmakxrs&trade;" / "A Thoughtful Approach to Cultural Partnership"</li>
+    <li><strong>What Guides Our Work:</strong> Real stories carry weight, how told matters, integrity essential, trust built slowly</li>
+    <li><strong>How We Partner:</strong> Partnership &amp; Access Framework &mdash; governance, access boundaries, historical integrity</li>
+    <li><strong>Who We Work With:</strong> Universities, athletic programs, foundations, purpose-driven corporations</li>
+    <li><strong>The Bobby Grier Story&trade;:</strong> Foundational narrative. "Partners align with a model, not a moment."</li>
+    <li><strong>What Partnership Is &mdash; and Is Not:</strong> IS: values-based, long-term, trust. IS NOT: advertising, logo placement, short-term promo</li>
+    <li><strong>CTA:</strong> "No urgency. No pressure. Only alignment." &rarr; "Start a Conversation" &rarr; /contact-us</li>
+  </ol>
+</div>
+
+<!-- ============ BOOK ============ -->
+<h2 id="book">The Book <span class="file-ref">src/pages/the-book.astro</span></h2>
+
+<h3 class="section-header">New Quote Block <span class="badge badge-new">ADD</span></h3>
+<blockquote>
+  "The story of Bobby Grier is not just about football. It is about a man whose strength and dignity challenged a nation to live up to its ideals. His legacy reminds us that one act of courage, carried out with perseverance and grace, can ripple across generations."<br>
+  &mdash; <strong>Steve Schwab</strong>, CEO, Elizabeth Dole Foundation
+</blockquote>
+
+<h3 class="section-header">Hero <span class="badge badge-change">MODIFY</span></h3>
+<table>
+  <tr><th>Field</th><th>Current</th><th>New</th></tr>
+  <tr><td>Author line</td><td class="current">"By Rob Grier Jr. and Camille Grier"</td><td class="new">Remove from hero</td></tr>
+  <tr><td>Amazon URL</td><td class="current">Paperback (/1969372451)</td><td class="new">Hardcover (/196937246X)</td></tr>
+</table>
+
+<h3 class="section-header">Book Description <span class="badge badge-change">REWRITE</span></h3>
+<p><span class="current">Current:</span> Family memoir + civil rights narrative, detailed research bullet points.<br>
+<span class="new">New:</span> "quiet courage", "not performative or theatrical", "story of character". Shorter, more restrained.</p>
+
+<h3 class="section-header">Key Themes &rarr; "Why This Story Matters" <span class="badge badge-change">REWRITE</span></h3>
+<div class="card">
+  <p>Remove emojis. New values:</p>
+  <ul>
+    <li>Courage under pressure</li>
+    <li>Leadership without bravado</li>
+    <li>Progress achieved through dignity</li>
+    <li>The power of sport to reflect our highest ideals</li>
+  </ul>
+</div>
+
+<h3 class="section-header">New Sections <span class="badge badge-new">ADD</span></h3>
+<ul>
+  <li><strong>"Part of a Larger Legacy"</strong> &mdash; book anchors educational &amp; institutional initiatives</li>
+  <li><strong>"Where to Find the Book"</strong> &mdash; Amazon + Barnes &amp; Noble (add B&amp;N link)</li>
+  <li><strong>"For Readers, Educators, and Institutions"</strong> &mdash; meaningful nonfiction, educators, alumni</li>
+  <li><strong>"Why This Matters Now"</strong> &mdash; storytelling for endurance, not attention</li>
+</ul>
+
+<h3 class="section-header">Tagline Section <span class="badge badge-remove">REMOVE</span></h3>
+<p>"Without Bobby Grier, there is no game..." &mdash; remove.</p>
+
+<h3 class="section-header">CTA <span class="badge badge-change">REWRITE</span></h3>
+<p>"Start a Conversation" &rarr; /partnership &bull; "Follow the Legacy" &rarr; /contact-us</p>
+
+<!-- ============ UPDATES ============ -->
+<h2 id="updates">Updates <span class="badge badge-new">NEW PAGE</span> <span class="file-ref">src/pages/updates.astro</span></h2>
+
+<div class="card">
+  <h4>"Moments, Milestones, and Ongoing Work"</h4>
+  <p>Living record of work stewarded by Playmakxrs&trade;. Markers of continuity.</p>
+  <ul>
+    <li>National moments and recognitions</li>
+    <li>University and institutional collaborations</li>
+    <li>Book-related milestones and events</li>
+    <li>Community conversations and campus engagements</li>
+    <li>Behind-the-scenes progress</li>
+  </ul>
+  <p>"Published deliberately, not continuously."</p>
+  <p><em>Requires blog/post infrastructure (markdown files or CMS integration).</em></p>
+</div>
+
+<!-- ============ CONTACT ============ -->
+<h2 id="contact">Contact Us <span class="badge badge-new">NEW PAGE</span> <span class="file-ref">src/pages/contact-us.astro</span></h2>
+
+<div class="card">
+  <p>Standalone contact page. Pull existing <span class="file-ref">Contact.astro</span> form component.</p>
+  <ul>
+    <li>Framing: "Start a Conversation" / "Follow the Legacy"</li>
+    <li>Restrained, no-pressure language</li>
+    <li>Fields: Name, Email, Organization, Message</li>
+  </ul>
+</div>
+
+<!-- ============ COMPONENTS ============ -->
+<h2 id="components">Components &amp; Files</h2>
+
+<h3>Components Affected</h3>
+<table>
+  <tr><th>Component</th><th>Change</th></tr>
+  <tr><td class="file-ref">Navigation.astro</td><td><span class="badge badge-change">CHANGE</span> Update nav items, rename CTA</td></tr>
+  <tr><td class="file-ref">Hero.astro</td><td><span class="badge badge-change">CHANGE</span> Support longer descriptions, remove hashtag social proof</td></tr>
+  <tr><td class="file-ref">Footer.astro</td><td><span class="badge badge-change">CHANGE</span> Update links, add email capture, remove tagline</td></tr>
+  <tr><td class="file-ref">NewsletterSignup.astro</td><td><span class="badge badge-change">CHANGE</span> Merge into footer or restyle</td></tr>
+  <tr><td class="file-ref">StorySection.astro</td><td><span class="badge badge-change">REPLACE</span> Replace with "What We Do" or remove</td></tr>
+  <tr><td class="file-ref">ValueCard.astro</td><td><span class="badge badge-remove">REMOVE</span> No longer used</td></tr>
+  <tr><td class="file-ref">BenefitCard.astro</td><td><span class="badge badge-remove">REMOVE</span> No longer used</td></tr>
+  <tr><td class="file-ref">MediaLogos.astro</td><td><span class="badge badge-keep">KEEP</span> As-is</td></tr>
+  <tr><td class="file-ref">Contact.astro</td><td><span class="badge badge-change">MOVE</span> Move to standalone page</td></tr>
+  <tr><td class="file-ref">Button.astro</td><td><span class="badge badge-keep">KEEP</span> As-is</td></tr>
+</table>
+
+<h3>New Files Needed</h3>
+<table>
+  <tr><th>File</th><th>Purpose</th></tr>
+  <tr><td class="file-ref">src/pages/partnership.astro</td><td>New partnership page (replaces join-us)</td></tr>
+  <tr><td class="file-ref">src/pages/merchandise.astro</td><td>Replaces shop.astro at new route</td></tr>
+  <tr><td class="file-ref">src/pages/updates.astro</td><td>New blog/milestones page</td></tr>
+  <tr><td class="file-ref">src/pages/contact-us.astro</td><td>Standalone contact page</td></tr>
+</table>
+
+<h3>Files to Remove</h3>
+<table>
+  <tr><th>File</th><th>Reason</th></tr>
+  <tr><td class="file-ref">src/pages/join-us.astro</td><td>Replaced by partnership + contact-us</td></tr>
+  <tr><td class="file-ref">src/pages/shop.astro</td><td>Replaced by merchandise.astro</td></tr>
+  <tr><td class="file-ref">src/components/ValueCard.astro</td><td>Core values section removed</td></tr>
+  <tr><td class="file-ref">src/components/BenefitCard.astro</td><td>Benefits section removed</td></tr>
+</table>
+
+</body>
+</html>

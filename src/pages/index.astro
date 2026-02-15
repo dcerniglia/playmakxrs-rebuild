@@ -2,13 +2,11 @@
 import Layout from '../layouts/Layout.astro';
 import Navigation from '../components/Navigation.astro';
 import Hero from '../components/Hero.astro';
-import StorySection from '../components/StorySection.astro';
-import NewsletterSignup from '../components/NewsletterSignup.astro';
 import Button from '../components/Button.astro';
 import Footer from '../components/Footer.astro';
+import MediaLogos from '../components/MediaLogos.astro';
 
 const base = import.meta.env.BASE_URL;
-// Helper function to build paths - ensures proper slash between base and path
 const buildPath = (path: string) => {
   const normalized = `${base}/${path}`.replace(/\/+/g, '/');
   return normalized;
@@ -16,100 +14,96 @@ const buildPath = (path: string) => {
 ---
 
 <Layout
-  title="Playmakxrs Global™ - Game Day Is Every Day"
-  description="Amplifying voices of athletes and creators who make plays that matter"
+  title="Playmakxrs Global™ - Preserving Stories That Hold Us Together"
+  description="A narrative infrastructure platform dedicated to preserving and stewarding America's most consequential stories"
 >
   <Navigation />
 
   <Hero
-    title="Game Day Is"
-    subtitle="Every Day"
-    description="Amplifying voices of athletes and creators who make plays that matter"
-    ctaText="Join the Team"
-    ctaHref={buildPath('join-us')}
-    showSocialProof={true}
+    title="PLAYMAKXRS™ | PLAYMAKXRS GLOBAL"
+    subtitle="Preserving Stories That Hold Us Together"
+    description="Playmakxrs™ and Playmakxrs Global™ are a narrative infrastructure platform dedicated to preserving and stewarding America's most consequential stories — stories rooted in courage, integrity, and historical truth."
+    ctaText="Discover the Story"
+    ctaHref={buildPath('the-book')}
   />
 
-  <!-- Mission Section -->
+  <!-- What We Believe -->
   <section class="bg-white py-20">
     <div class="max-w-7xl mx-auto px-6 text-center">
       <h2 class="font-display text-4xl md:text-5xl font-bold text-black mb-6">
-        Where Courage, Action, and Legacy Meet
+        What We Believe
       </h2>
       <p class="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed mb-8">
-        Playmakxrs Global™ celebrates athletes, creators, and community leaders who refuse to stay silent.
-        We provide a platform for impact storytelling, exclusive content, and opportunities that matter.
+        Not all stories are meant to be optimized for attention. Some are meant to be protected, carried forward, and told with restraint.
       </p>
-      <div class="flex flex-wrap justify-center gap-4 text-gray-600">
-        <div class="flex items-center gap-2">
-          <span class="text-primary text-2xl">✓</span>
-          <span>Athletes</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <span class="text-primary text-2xl">✓</span>
-          <span>Creators</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <span class="text-primary text-2xl">✓</span>
-          <span>Community Leaders</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <span class="text-primary text-2xl">✓</span>
-          <span>Impact Storytelling</span>
-        </div>
+      <div class="max-w-2xl mx-auto text-left">
+        <ul class="space-y-4 text-lg text-gray-700">
+          <li class="flex items-start gap-3">
+            <span class="text-primary mt-1 font-bold">—</span>
+            <span>Reduce division rather than inflame it</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-primary mt-1 font-bold">—</span>
+            <span>Create shared understanding rather than spectacle</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-primary mt-1 font-bold">—</span>
+            <span>Unite people around values that outlast trends</span>
+          </li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <!-- Legacy Collage Section -->
+  <!-- What We Do -->
   <section class="bg-gray-50 py-20">
     <div class="max-w-7xl mx-auto px-6">
-      <div class="text-center mb-12">
-        <h2 class="font-display text-3xl md:text-4xl font-bold text-black mb-4">
-          A Legacy of Excellence
+      <div class="max-w-4xl mx-auto">
+        <h2 class="font-display text-4xl md:text-5xl font-bold text-black mb-6 text-center">
+          What We Do
         </h2>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-          From pioneers who broke barriers to today's playmakxrs who continue the tradition—
-          celebrating generations of athletes who refused to stay silent.
+        <p class="text-xl text-gray-700 leading-relaxed mb-8 text-center">
+          Playmakxrs™ exists to identify, interpret, and steward stories that already carry meaning — through books, limited-run series, archival storytelling, national moments, and institutional partnerships.
         </p>
-      </div>
-
-      <div class="relative rounded-lg overflow-hidden shadow-2xl">
-        <img
-          src={buildPath('vintage-football-collage.png')}
-          alt="Vintage football seniors collage - generations of athletes making history"
-          class="w-full h-auto"
-          loading="lazy"
-        />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
-        <div class="absolute bottom-0 left-0 right-0 p-6 md:p-8 text-white">
-          <p class="font-display text-xl md:text-2xl font-bold">
-            Every Generation. Every Play. Every Voice.
-          </p>
+        <div class="space-y-4 text-lg text-gray-700">
+          <p class="font-display font-semibold text-black mb-4">Our work is grounded in:</p>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3">
+              <span class="text-primary mt-1 font-bold">—</span>
+              <span>Historic moments rooted in documented truth and lived experience</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-primary mt-1 font-bold">—</span>
+              <span>Institutional alignment built on trust, credibility, and shared values</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-primary mt-1 font-bold">—</span>
+              <span>Cultural infrastructure designed for endurance, not cycles</span>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Bobby Grier Story -->
-  <StorySection />
-
-  <!-- Callout Section -->
+  <!-- Who We Work With -->
   <section class="bg-black text-white py-20">
     <div class="max-w-4xl mx-auto px-6 text-center">
       <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
-        No Play Too Small. No Dream Too Big.
+        Who We Work With
       </h2>
       <p class="text-xl opacity-90 mb-8 leading-relaxed">
-        Every voice matters. Every story counts. Join a movement that amplifies the plays
-        that change the game—on the field, in the community, and beyond.
+        We partner selectively with organizations that value integrity and historical accuracy, long-term cultural relevance, educational and community impact, and values-based leadership.
       </p>
-      <Button text="Be Part of the Movement" href={buildPath('join-us')} variant="primary" />
+      <p class="text-lg opacity-80 italic mb-8">
+        Partnership with Playmakxrs™ is not transactional. It is participatory.
+      </p>
+      <Button text="Learn About Partnership" href={buildPath('partnership')} variant="primary" />
     </div>
   </section>
 
-  <!-- Newsletter Signup -->
-  <NewsletterSignup />
+  <!-- Media Logos -->
+  <MediaLogos />
 
   <Footer />
 </Layout>

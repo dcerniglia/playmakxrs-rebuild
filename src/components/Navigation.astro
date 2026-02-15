@@ -5,9 +5,11 @@ const currentPath = Astro.url.pathname;
 const navItems = [
   { name: 'Home', href: buildPath('') },
   { name: 'About Us', href: buildPath('about-us') },
-  { name: 'Join Us', href: buildPath('join-us') },
+  { name: 'Merchandise', href: buildPath('merchandise') },
+  { name: 'Partnership', href: buildPath('partnership') },
   { name: 'The Book', href: buildPath('the-book') },
-  { name: 'Shop', href: buildPath('shop') },
+  { name: 'Updates', href: buildPath('updates') },
+  { name: 'Contact Us', href: buildPath('contact-us') },
 ];
 ---
 
@@ -39,10 +41,10 @@ const navItems = [
           </a>
         ))}
         <a
-          href={buildPath('join-us')}
+          href={buildPath('contact-us')}
           class="bg-primary text-white px-6 py-2 rounded-md font-display font-bold hover:bg-primary-dark transition-all duration-200 transform hover:scale-105"
         >
-          Join the Team
+          Start a Conversation
         </a>
       </div>
 
@@ -73,10 +75,10 @@ const navItems = [
         </a>
       ))}
       <a
-        href={buildPath('join-us')}
+        href={buildPath('contact-us')}
         class="block mt-4 bg-primary text-white px-6 py-2 rounded-md font-display font-bold text-center hover:bg-primary-dark transition-colors"
       >
-        Join the Team
+        Start a Conversation
       </a>
     </div>
   </div>
