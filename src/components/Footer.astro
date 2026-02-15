@@ -9,9 +9,11 @@ const buildPath = (path: string) => `${base}/${path}`.replace(/\/+/g, '/');
     <div class="grid md:grid-cols-3 gap-8 mb-8">
       <!-- Brand + Newsletter -->
       <div>
-        <h3 class="font-display text-2xl font-bold text-primary mb-4">
-          Playmakxrs Global™
-        </h3>
+        <img
+          src={buildPath('pg-logo-dark.jpg')}
+          alt="Playmakxrs Global"
+          class="h-10 w-auto mb-4"
+        />
         <p class="text-gray-400 text-sm mb-4">
           Receive occasional updates on the stories and moments we steward.
         </p>

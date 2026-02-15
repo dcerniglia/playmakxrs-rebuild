@@ -28,12 +28,12 @@ const buildPath = (path: string) => {
   />
 
   <!-- What We Believe -->
-  <section class="bg-white py-20">
+  <section class="section bg-white">
     <div class="max-w-7xl mx-auto px-6 text-center">
-      <h2 class="font-display text-4xl md:text-5xl font-bold text-black mb-6">
+      <h2 class="font-display text-3xl md:text-5xl font-bold text-black mb-4">
         What We Believe
       </h2>
-      <p class="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed mb-8">
+      <p class="text-xl lg:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed mb-6">
         Not all stories are meant to be optimized for attention. Some are meant to be protected, carried forward, and told with restraint.
       </p>
       <ul class="dash-list">
@@ -45,15 +45,15 @@ const buildPath = (path: string) => {
   </section>
 
   <!-- What We Do -->
-  <section class="bg-gray-50 py-20">
+  <section class="section bg-gray-50">
     <div class="max-w-4xl mx-auto px-6 text-center">
-      <h2 class="font-display text-4xl md:text-5xl font-bold text-black mb-6">
+      <h2 class="font-display text-3xl md:text-5xl font-bold text-black mb-4">
         What We Do
       </h2>
-      <p class="text-xl text-gray-700 leading-relaxed mb-8">
+      <p class="text-xl lg:text-2xl text-gray-700 leading-relaxed mb-6">
         Playmakxrs™ exists to identify, interpret, and steward stories that already carry meaning — through books, limited-run series, archival storytelling, national moments, and institutional partnerships.
       </p>
-      <p class="font-display font-semibold text-black mb-6">Our work is grounded in:</p>
+      <p class="font-display font-semibold text-black mb-4 text-sm uppercase tracking-wider">Our work is grounded in</p>
       <ul class="dash-list">
         <li>Historic moments rooted in documented truth and lived experience</li>
         <li>Institutional alignment built on trust, credibility, and shared values</li>
@@ -63,22 +63,21 @@ const buildPath = (path: string) => {
   </section>
 
   <!-- Who We Work With -->
-  <section class="bg-black text-white py-20">
+  <section class="section bg-black text-white">
     <div class="max-w-4xl mx-auto px-6 text-center">
-      <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
+      <h2 class="font-display text-3xl md:text-5xl font-bold mb-4">
         Who We Work With
       </h2>
-      <p class="text-xl opacity-90 mb-8 leading-relaxed">
+      <p class="text-xl lg:text-2xl opacity-90 mb-6 leading-relaxed">
         We partner selectively with organizations that value integrity and historical accuracy, long-term cultural relevance, educational and community impact, and values-based leadership.
       </p>
-      <p class="text-lg opacity-80 italic mb-8">
+      <p class="text-xl lg:text-2xl opacity-70 italic mb-6">
         Partnership with Playmakxrs™ is not transactional. It is participatory.
       </p>
       <Button text="Learn About Partnership" href={buildPath('partnership')} variant="primary" />
     </div>
   </section>
 
-  <!-- Media Logos -->
   <MediaLogos />
 
   <Footer />

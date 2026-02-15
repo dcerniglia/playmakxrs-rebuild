@@ -29,8 +29,8 @@ const {
     </div>
   )}
 
-  <div class="relative max-w-7xl mx-auto px-6 py-20 lg:py-32">
-    <h1 class="font-display text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight">
+  <div class="relative max-w-7xl mx-auto px-6 py-16 lg:py-24">
+    <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-black mb-4 leading-tight">
       {title}
       {subtitle && (
         <span class="text-primary block">{subtitle}</span>
@@ -38,7 +38,7 @@ const {
     </h1>
 
     {description && (
-      <p class="text-xl lg:text-2xl mb-10 max-w-2xl opacity-90 leading-relaxed">
+      <p class="text-xl lg:text-2xl mb-8 max-w-2xl opacity-90 leading-relaxed">
         {description}
       </p>
     )}
@@ -46,7 +46,7 @@ const {
     {ctaText && ctaHref && (
       <a
         href={ctaHref}
-        class="inline-block bg-primary hover:bg-primary-dark text-white font-display font-bold px-10 py-5 rounded-md text-lg uppercase tracking-wide transition-all duration-300 hover:scale-105"
+        class="inline-block bg-primary hover:bg-primary-dark text-white font-display font-bold px-8 py-4 rounded-md uppercase tracking-wide transition-all duration-300 hover:scale-105"
       >
         {ctaText}
       </a>
