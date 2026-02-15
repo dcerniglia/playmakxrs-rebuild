@@ -30,26 +30,12 @@ const buildPath = (path: string) => `${base}/${path}`.replace(/\/+/g, '/');
       <p class="text-lg text-gray-600 mb-8 text-center">
         Our work is built on non-negotiable beliefs:
       </p>
-      <div class="max-w-2xl mx-auto">
-        <ul class="space-y-4 text-lg text-gray-700">
-          <li class="flex items-start gap-3">
-            <span class="text-primary mt-1 font-bold">—</span>
-            <span>Real stories carry cultural weight</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="text-primary mt-1 font-bold">—</span>
-            <span>How a story is told matters as much as the story itself</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="text-primary mt-1 font-bold">—</span>
-            <span>Integrity and historical accuracy are essential</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="text-primary mt-1 font-bold">—</span>
-            <span>Trust is built slowly and protected carefully</span>
-          </li>
-        </ul>
-      </div>
+      <ul class="dash-list">
+        <li>Real stories carry cultural weight</li>
+        <li>How a story is told matters as much as the story itself</li>
+        <li>Integrity and historical accuracy are essential</li>
+        <li>Trust is built slowly and protected carefully</li>
+      </ul>
     </div>
   </section>
 
@@ -119,40 +105,19 @@ const buildPath = (path: string) => `${base}/${path}`.replace(/\/+/g, '/');
       <div class="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
         <div>
           <h3 class="font-display text-xl font-bold text-black mb-6">Partnership Is</h3>
-          <ul class="space-y-3 text-lg text-gray-700">
-            <li class="flex items-start gap-3">
-              <span class="text-primary mt-1 font-bold">—</span>
-              <span>Values-based</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-primary mt-1 font-bold">—</span>
-              <span>Long-term oriented</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-primary mt-1 font-bold">—</span>
-              <span>Built on trust</span>
-            </li>
+          <ul class="dash-list-left">
+            <li>Values-based</li>
+            <li>Long-term oriented</li>
+            <li>Built on trust</li>
           </ul>
         </div>
         <div>
           <h3 class="font-display text-xl font-bold text-black mb-6">Partnership Is Not</h3>
-          <ul class="space-y-3 text-lg text-gray-700">
-            <li class="flex items-start gap-3">
-              <span class="text-gray-400 mt-1 font-bold">—</span>
-              <span>Advertising</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-gray-400 mt-1 font-bold">—</span>
-              <span>Logo placement</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-gray-400 mt-1 font-bold">—</span>
-              <span>Short-term promotion</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-gray-400 mt-1 font-bold">—</span>
-              <span>Narrative ownership</span>
-            </li>
+          <ul class="dash-list-left muted">
+            <li>Advertising</li>
+            <li>Logo placement</li>
+            <li>Short-term promotion</li>
+            <li>Narrative ownership</li>
           </ul>
         </div>
       </div>
