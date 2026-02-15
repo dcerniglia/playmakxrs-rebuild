@@ -6,7 +6,7 @@ interface Props {
   description?: string;
 }
 
-const { title, description = 'Amplifying voices of athletes and creators who make plays that matter' } = Astro.props;
+const { title, description = 'A narrative infrastructure platform dedicated to preserving and stewarding America\'s most consequential stories' } = Astro.props;
 const base = import.meta.env.BASE_URL;
 const buildPath = (path: string) => `${base}/${path}`.replace(/\/+/g, '/');
 ---
@@ -34,14 +34,124 @@ const buildPath = (path: string) => `${base}/${path}`.replace(/\/+/g, '/');
 </html>
 
 <style is:global>
-  /* Smooth scrolling */
   html {
     scroll-behavior: smooth;
   }
-  
-  /* Remove default margins */
+
   * {
     margin: 0;
     padding: 0;
+  }
+
+  /* Centered dash list used across content pages */
+  .dash-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .dash-list li {
+    display: flex;
+    align-items: first baseline;
+    gap: 1rem;
+    text-align: left;
+    max-width: 40rem;
+    width: 100%;
+    font-size: 1.25rem;
+    line-height: 1.875rem;
+    color: #374151; /* gray-700 */
+  }
+  @media (min-width: 1024px) {
+    .dash-list li {
+      font-size: 1.5rem;
+      line-height: 2.25rem;
+    }
+  }
+
+  .dash-list li::before {
+    content: '—';
+    color: #DC2626; /* primary */
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* Left-aligned variant for grid columns */
+  .dash-list-left {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .dash-list-left li {
+    display: flex;
+    align-items: first baseline;
+    gap: 1rem;
+    font-size: 1.25rem;
+    line-height: 1.875rem;
+    color: #374151;
+  }
+
+  .dash-list-left li::before {
+    content: '—';
+    color: #DC2626;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .dash-list-left.muted li::before {
+    color: #9CA3AF; /* gray-400 */
+  }
+
+  /* Content section — compact padding */
+  .section {
+    padding: 3.5rem 0; /* py-14 */
+  }
+
+  @media (min-width: 768px) {
+    .section {
+      padding: 4rem 0;
+    }
+  }
+
+  /* Card with left accent border */
+  .accent-card {
+    background: #F9FAFB; /* gray-50 */
+    border-left: 3px solid #DC2626;
+    padding: 1.5rem 1.75rem;
+    border-radius: 0 0.5rem 0.5rem 0;
+  }
+
+  /* Card for grid layouts */
+  .grid-card {
+    background: #F9FAFB;
+    border: 1px solid #E5E7EB; /* gray-200 */
+    border-radius: 0.5rem;
+    padding: 1.75rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .grid-card:hover {
+    border-color: #DC2626;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+
+  /* Pill/tag style for values and themes */
+  .value-pill {
+    background: #F9FAFB;
+    border: 1px solid #E5E7EB;
+    border-radius: 0.5rem;
+    padding: 1.25rem 1.5rem;
+    text-align: center;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    color: #111827;
+    transition: border-color 0.2s;
+  }
+
+  .value-pill:hover {
+    border-color: #DC2626;
   }
 </style>

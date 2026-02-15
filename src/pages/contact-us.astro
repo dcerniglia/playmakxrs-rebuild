@@ -1,0 +1,32 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Hero from '../components/Hero.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Contact Us - Playmakxrs Global™"
+  description="Start a conversation with Playmakxrs™. We welcome thoughtful inquiries from institutions, educators, and partners."
+>
+  <Navigation />
+
+  <Hero
+    title="Start a Conversation"
+    description="We welcome thoughtful inquiries from universities, institutions, foundations, educators, and anyone aligned with preserving stories that matter."
+  />
+
+  <!-- Framing -->
+  <section class="section bg-white">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <p class="text-xl lg:text-2xl text-gray-600 leading-relaxed">
+        Whether you are exploring a partnership, seeking information about The Bobby Grier Story™, or simply want to follow the legacy — we are here.
+      </p>
+    </div>
+  </section>
+
+  <Contact />
+
+  <Footer />
+</Layout>

@@ -7,17 +7,43 @@ const buildPath = (path: string) => `${base}/${path}`.replace(/\/+/g, '/');
 <footer class="bg-black text-white py-12">
   <div class="max-w-7xl mx-auto px-6">
     <div class="grid md:grid-cols-3 gap-8 mb-8">
-      <!-- Brand -->
+      <!-- Brand + Newsletter -->
       <div>
-        <h3 class="font-display text-2xl font-bold text-primary mb-4">
-          Playmakxrs Global™
-        </h3>
-        <p class="text-gray-400 text-sm mb-2">
-          Amplifying voices of athletes and creators who make plays that matter
+        <img
+          src={buildPath('pg-logo-dark.jpg')}
+          alt="Playmakxrs Global"
+          class="h-10 w-auto mb-4"
+        />
+        <p class="text-gray-400 text-sm mb-4">
+          Receive occasional updates on the stories and moments we steward.
         </p>
-        <p class="text-primary text-sm font-display font-semibold">
-          Game Day Is Every Day™
-        </p>
+        <form
+          name="newsletter"
+          method="POST"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          class="flex gap-2"
+        >
+          <input type="hidden" name="form-name" value="newsletter" />
+          <p class="hidden">
+            <label>
+              Don't fill this out if you're human: <input name="bot-field" />
+            </label>
+          </p>
+          <input
+            type="email"
+            name="email"
+            placeholder="Your email"
+            required
+            class="flex-1 px-3 py-2 rounded-md text-sm bg-gray-900 border border-gray-700 text-white placeholder-gray-500 focus:border-primary focus:outline-none transition-colors"
+          />
+          <button
+            type="submit"
+            class="bg-primary text-white px-4 py-2 rounded-md text-sm font-display font-bold hover:bg-primary-dark transition-colors"
+          >
+            Subscribe
+          </button>
+        </form>
       </div>
 
       <!-- Quick Links -->
@@ -26,9 +52,11 @@ const buildPath = (path: string) => `${base}/${path}`.replace(/\/+/g, '/');
         <ul class="space-y-2 text-sm text-gray-400">
           <li><a href={buildPath('')} class="hover:text-primary transition-colors">Home</a></li>
           <li><a href={buildPath('about-us')} class="hover:text-primary transition-colors">About Us</a></li>
-          <li><a href={buildPath('join-us')} class="hover:text-primary transition-colors">Join Us</a></li>
+          <li><a href={buildPath('merchandise')} class="hover:text-primary transition-colors">Merchandise</a></li>
+          <li><a href={buildPath('partnership')} class="hover:text-primary transition-colors">Partnership</a></li>
           <li><a href={buildPath('the-book')} class="hover:text-primary transition-colors">The Book</a></li>
-          <li><a href={buildPath('shop')} class="hover:text-primary transition-colors">Shop</a></li>
+          <li><a href={buildPath('updates')} class="hover:text-primary transition-colors">Updates</a></li>
+          <li><a href={buildPath('contact-us')} class="hover:text-primary transition-colors">Contact Us</a></li>
         </ul>
       </div>
 
