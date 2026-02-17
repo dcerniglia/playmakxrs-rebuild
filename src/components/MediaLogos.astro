@@ -14,14 +14,9 @@ const logos = [
     href: 'https://www.espn.com/college-football/story/_/id/26027623/the-south-stands-armageddon-breaking-sugar-bowl-color-barrier',
   },
   {
-    name: 'The New York Times',
-    src: buildPath('logos/nytimes.svg'),
-    href: 'https://www.nytimes.com/',
-  },
-  {
-    name: 'Today',
-    src: buildPath('logos/today.svg'),
-    href: 'https://www.youtube.com/watch?v=2C9MDSjUj40&t=7s',
+    name: 'Georgia Tech',
+    src: buildPath('logos/georgia-tech.png'),
+    href: 'https://www.gtalumni.org/news/2024/the-big-moment.html',
   },
   {
     name: 'Fox',
@@ -46,7 +41,7 @@ const logos = [
   {
     name: 'KDKA',
     src: buildPath('logos/kdka.svg'),
-    href: 'https://www.audacy.com/stations/kdkaradio/shows/the-big-k-morning-show-with-larry-richert-42819/episodes/e6d80645b6b8',
+    href: 'https://www.cbsnews.com/pittsburgh/news/former-pitt-football-player-and-first-black-player-to-play-in-the-sugar-bowl-bobby-grier-dies-at-91/',
   },
   {
     name: 'Pitt Athletics',
@@ -160,3 +155,15 @@ const logos = [
     }
   }
 </style>
+
+<script>
+  function restartCarousel() {
+    const inner = document.querySelector('.carousel-inner') as HTMLElement;
+    if (!inner) return;
+    inner.style.animation = 'none';
+    inner.offsetHeight; // force reflow
+    inner.style.animation = '';
+  }
+  restartCarousel();
+  document.addEventListener('astro:page-load', restartCarousel);
+</script>
