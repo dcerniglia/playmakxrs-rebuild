@@ -7,74 +7,127 @@ import Footer from '../components/Footer.astro';
 import MediaLogos from '../components/MediaLogos.astro';
 
 const base = import.meta.env.BASE_URL;
-const buildPath = (path: string) => {
-  const normalized = `${base}/${path}`.replace(/\/+/g, '/');
-  return normalized;
-};
+const buildPath = (path: string) => `${base}/${path}`.replace(/\/+/g, '/');
 ---
 
 <Layout
-  title="Playmakxrs Global™ - Preserving Stories That Hold Us Together"
-  description="A narrative infrastructure platform dedicated to preserving and stewarding America's most consequential stories"
+  title="Playmakxrs Global™ — Institutional Narrative Infrastructure™ for Trusted Meaning"
+  description="Playmakxrs™ helps institutions turn verified stories into usable institutional assets — protecting, verifying, governing, and activating Narrative Capital™ for trusted meaning."
 >
   <Navigation />
 
   <Hero
     title="PLAYMAKXRS™"
-    subtitle="Preserving Stories That Hold Us Together"
-    description="Playmakxrs™ and Playmakxrs Global™ are a narrative infrastructure platform dedicated to preserving and stewarding America's most consequential stories — stories rooted in courage, integrity, and historical truth."
-    ctaText="Discover the Story"
-    ctaHref={buildPath('the-book')}
+    subtitle="Institutional Narrative Infrastructure™ for Trusted Meaning"
+    description="We help universities, athletic programs, foundations, sponsors, museums, cities, families, and media partners turn verified stories into usable institutional assets. In an AI-accelerated world, content is easy to generate. Trust is not."
+    ctaText="Explore the Model"
+    ctaHref={buildPath('for-institutions')}
+    secondaryCtaText="Start a Conversation"
+    secondaryCtaHref={buildPath('contact-us')}
   />
 
-  <!-- What We Believe -->
+  <!-- The Missing Layer -->
   <section class="section bg-white">
-    <div class="max-w-7xl mx-auto px-6 text-center">
+    <div class="max-w-4xl mx-auto px-6 text-center">
       <h2 class="font-display text-3xl md:text-5xl font-bold text-black mb-4">
-        What We Believe
+        The Missing Layer
       </h2>
-      <p class="text-xl lg:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed mb-6">
-        Not all stories are meant to be optimized for attention. Some are meant to be protected, carried forward, and told with restraint.
+      <p class="text-xl lg:text-2xl text-gray-700 leading-relaxed mb-6">
+        Institutions generate meaning. The media distributes it. Platforms amplify it. Until now, there has been no common system for protecting, verifying, governing, and activating the stories that define an institution.
       </p>
-      <ul class="dash-list">
-        <li>Reduce division rather than inflame it</li>
-        <li>Create shared understanding rather than spectacle</li>
-        <li>Unite people around values that outlast trends</li>
-      </ul>
+      <p class="text-xl lg:text-2xl text-gray-700 leading-relaxed mb-6">
+        That missing layer is <strong>Institutional Narrative Infrastructure™</strong> — and it is what we build. We sit between institutions and the media, sponsors, platforms, and communities that carry their stories into the world.
+      </p>
+      <p class="text-lg text-gray-500 italic">
+        Not a content studio. Not a PR campaign. Not an AI content shop. Infrastructure that makes verified meaning usable.
+      </p>
     </div>
   </section>
 
-  <!-- What We Do -->
+  <!-- Why This Matters Now -->
   <section class="section bg-gray-50">
     <div class="max-w-4xl mx-auto px-6 text-center">
       <h2 class="font-display text-3xl md:text-5xl font-bold text-black mb-4">
-        What We Do
+        Why This Matters Now
       </h2>
       <p class="text-xl lg:text-2xl text-gray-700 leading-relaxed mb-6">
-        Playmakxrs™ exists to identify, interpret, and steward stories that already carry meaning — through books, limited-run series, archival storytelling, national moments, and institutional partnerships.
+        The pressure on institutions is rising — budget pressure, enrollment shifts, NIL complexity, donor expectations, AI disruption, and growing questions about the value of institutional trust. The signal is consistent: institutions must create more value from assets they already hold.
       </p>
-      <p class="font-display font-semibold text-black mb-4 text-sm uppercase tracking-wider">Our work is grounded in</p>
+      <p class="font-display font-semibold text-black mb-4 text-sm uppercase tracking-wider">Those assets include</p>
       <ul class="dash-list">
-        <li>Historic moments rooted in documented truth and lived experience</li>
-        <li>Institutional alignment built on trust, credibility, and shared values</li>
-        <li>Cultural infrastructure designed for endurance, not cycles</li>
+        <li>Trusted stories, archives, and athletic history</li>
+        <li>Alumni identity, student leadership, and civic legacy</li>
+        <li>Institutional proof and community memory</li>
       </ul>
+      <p class="text-lg text-gray-500 leading-relaxed mt-6 max-w-2xl mx-auto">
+        Left unmanaged, this value leaks away through fragmentation, unclear ownership, and missed partner opportunities. Stewarded intentionally, it strengthens trust, affinity, sponsorship, belonging, and long-term value.
+      </p>
     </div>
   </section>
 
-  <!-- Who We Work With -->
+  <!-- The AI Trust Gap -->
   <section class="section bg-black text-white">
     <div class="max-w-4xl mx-auto px-6 text-center">
       <h2 class="font-display text-3xl md:text-5xl font-bold mb-4">
-        Who We Work With
+        The AI Trust Gap
+      </h2>
+      <p class="text-xl lg:text-2xl opacity-90 leading-relaxed mb-4">
+        AI makes content easier to generate, faster to distribute, and harder to trust. As synthetic content expands, verified stories become more valuable.
+      </p>
+      <p class="text-xl lg:text-2xl opacity-70 leading-relaxed">
+        Institutions do not need more disconnected content. They need systems that protect provenance, permissions, rights, human truth, and trusted context.
+      </p>
+    </div>
+  </section>
+
+  <!-- From Story to Asset System -->
+  <section class="section bg-white">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+      <h2 class="font-display text-3xl md:text-5xl font-bold text-black mb-4">
+        From Story to Asset System
+      </h2>
+      <p class="text-xl lg:text-2xl text-gray-700 leading-relaxed mb-8 max-w-3xl mx-auto">
+        A meaningful story should not disappear after one post, one event, one campaign, or one anniversary. We help institutions turn verified stories into governed asset systems.
+      </p>
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-3 max-w-3xl mx-auto">
+        <div class="value-pill">Protect</div>
+        <div class="value-pill">Verify</div>
+        <div class="value-pill">Govern</div>
+        <div class="value-pill">Activate</div>
+        <div class="value-pill">Compound</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Founding Proof Case -->
+  <section class="section bg-gray-50">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="font-display text-3xl md:text-5xl font-bold text-black mb-4">
+        The Founding Proof Case
+      </h2>
+      <p class="text-xl lg:text-2xl text-gray-700 leading-relaxed mb-4">
+        The Bobby Grier Story™ is our founding proof case — not simply a football milestone, but a verified story of courage, coalition, and national consequence. Preserved through <em>No Grier, No Game™</em>, it shows how one verified story can support athletics, alumni, donors, sponsors, media, leadership, and long-term institutional value.
+      </p>
+      <p class="text-lg text-gray-500 italic mb-8">
+        Some stories do not need to be invented. They need to be protected, verified, governed, and made usable.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <Button text="Read the Story" href={buildPath('the-book')} variant="primary" />
+        <Button text="See How It Works" href={buildPath('about-us')} variant="secondary" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Start with One Story -->
+  <section class="section bg-black text-white">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="font-display text-3xl md:text-5xl font-bold mb-4">
+        Start with one story. Build visible coherence. Scale from proof.
       </h2>
       <p class="text-xl lg:text-2xl opacity-90 mb-6 leading-relaxed">
-        We partner selectively with organizations that value integrity and historical accuracy, long-term cultural relevance, educational and community impact, and values-based leadership.
+        For institutions exploring this work, Playmakxrs™ begins with a focused 90–120 day pilot. We identify one high-value narrative cluster, clarify rights and approvals, map stakeholders, and deliver practical next steps for leadership.
       </p>
-      <p class="text-xl lg:text-2xl opacity-70 italic mb-6">
-        Partnership with Playmakxrs™ is not transactional. It is participatory.
-      </p>
-      <Button text="Learn About Partnership" href={buildPath('partnership')} variant="primary" />
+      <Button text="Explore the Pilot Pathway" href={buildPath('pilot')} variant="primary" />
     </div>
   </section>
 

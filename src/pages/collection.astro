@@ -5,22 +5,20 @@ import Hero from '../components/Hero.astro';
 import Button from '../components/Button.astro';
 import Footer from '../components/Footer.astro';
 
-const base = import.meta.env.BASE_URL;
-const buildPath = (path: string) => `${base}/${path}`.replace(/\/+/g, '/');
 const shopifyUrl = 'https://playmakxrs.myshopify.com';
 ---
 
 <Layout
-  title="Merchandise - Playmakxrs Global™"
-  description="The Playmakxrs™ Collection exists for those who wish to carry the story forward in a tangible way."
+  title="The Collection — Playmakxrs Global™"
+  description="The Playmakxrs™ Collection offers a quiet way to carry the legacy forward — durable markers of participation, not promotion."
 >
   <Navigation />
 
   <Hero
     title="The Collection"
-    subtitle="A Way to Participate"
-    description="The Playmakxrs™ Collection exists for those who wish to carry the story forward in a tangible way. Each piece is designed with the same care and restraint that guides our storytelling."
-    ctaText="View the Collection"
+    subtitle="Participation, Not Promotion"
+    description="The Playmakxrs™ Collection offers a quiet way for readers, supporters, and participants to carry the legacy forward. Each item is designed with restraint and reflects the same standards that guide the platform itself."
+    ctaText="Explore the Collection"
     ctaHref={shopifyUrl}
   />
 
@@ -31,10 +29,10 @@ const shopifyUrl = 'https://playmakxrs.myshopify.com';
         Why It Exists
       </h2>
       <p class="text-xl lg:text-2xl text-gray-700 leading-relaxed mb-3">
-        For some, engaging with the story through reading or conversation is enough. For others, wearing or sharing a piece becomes a way to remain connected over time.
+        Some people engage through reading, dialogue, and institutional participation. Others want a physical way to remain connected to a legacy that matters to them. The collection provides that option without spectacle or urgency.
       </p>
       <p class="text-lg text-gray-500 leading-relaxed">
-        The collection is a physical extension of The Bobby Grier Story™ — built with no spectacle, no trend, and no excess.
+        These are not promotional products built for novelty or volume. They are durable markers of participation in a story and a standard of stewardship.
       </p>
     </div>
   </section>
@@ -51,9 +49,6 @@ const shopifyUrl = 'https://playmakxrs.myshopify.com';
         <div class="value-pill">Quality over novelty</div>
         <div class="value-pill">Meaning over messaging</div>
       </div>
-      <p class="text-lg text-gray-500 leading-relaxed text-center mt-6">
-        Each item is produced in limited runs and designed to endure.
-      </p>
     </div>
   </section>
 
@@ -64,7 +59,7 @@ const shopifyUrl = 'https://playmakxrs.myshopify.com';
         A Note on Proceeds
       </h2>
       <p class="text-xl lg:text-2xl text-gray-700 leading-relaxed">
-        Proceeds support the continued preservation and stewardship of authentic American legacy stories. This is participation, not promotion.
+        Proceeds support the continued stewardship of authentic legacy stories through Playmakxrs™ and Playmakxrs Global™. This is participation, not promotion.
       </p>
     </div>
   </section>

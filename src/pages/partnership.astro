@@ -7,91 +7,53 @@ import Footer from '../components/Footer.astro';
 
 const base = import.meta.env.BASE_URL;
 const buildPath = (path: string) => `${base}/${path}`.replace(/\/+/g, '/');
+const partnerHref = `${buildPath('contact-us')}?interest=partnership`;
 ---
 
 <Layout
-  title="Partnership - Playmakxrs Global™"
-  description="A thoughtful approach to cultural partnership built on trust, integrity, and shared values."
+  title="Partnership — Playmakxrs Global™"
+  description="A disciplined approach to alignment, trust, and long-term value. We partner with institutions that view narrative as a strategic responsibility."
 >
   <Navigation />
 
   <Hero
-    title="Partner with Playmakxrs"
-    subtitle="A Thoughtful Approach to Cultural Partnership"
-    description="Partnership is deliberate and principled. We work with universities, academic institutions, foundations, nonprofit fiscal sponsors, athletic programs, and purpose-driven organizations."
+    title="Partner With Playmakxrs™"
+    subtitle="Alignment, Trust, and Long-Term Value"
+    description="We partner with institutions and organizations that view narrative as a strategic responsibility rather than a promotional tool — universities, foundations, athletic departments, alumni communities, museums, cultural organizations, media partners, and values-aligned enterprises seeking durable relevance."
+    ctaText="Start a Partnership Conversation"
+    ctaHref={partnerHref}
   />
 
-  <!-- What Guides Our Work -->
+  <!-- Why Partners Engage -->
   <section class="section bg-white">
     <div class="max-w-4xl mx-auto px-6 text-center">
       <h2 class="font-display text-3xl md:text-5xl font-bold text-black mb-4">
-        What Guides Our Work
+        Why Partners Engage
       </h2>
-      <p class="text-lg text-gray-500 mb-6">
-        Our work is built on non-negotiable beliefs:
+      <p class="text-xl lg:text-2xl text-gray-700 leading-relaxed mb-6">
+        Partners work with Playmakxrs™ when they want to align with stories and moments that carry proven weight. In practical terms, that can support:
       </p>
       <ul class="dash-list">
-        <li>Real stories carry cultural weight</li>
-        <li>How a story is told matters as much as the story itself</li>
-        <li>Integrity and historical accuracy are essential</li>
-        <li>Trust is built slowly and protected carefully</li>
+        <li>Institutional positioning and reputational durability</li>
+        <li>Alumni engagement and philanthropic relevance</li>
+        <li>Educational reach and student leadership</li>
+        <li>Athletics identity and media development</li>
+        <li>Sponsor-safe meaning built for long-term trust</li>
       </ul>
     </div>
   </section>
 
-  <!-- How We Partner -->
+  <!-- Sponsor-Safe Meaning -->
   <section class="section bg-gray-50">
     <div class="max-w-4xl mx-auto px-6 text-center">
       <h2 class="font-display text-3xl md:text-5xl font-bold text-black mb-4">
-        How We Partner
+        Sponsor-Safe Meaning
       </h2>
       <p class="text-xl lg:text-2xl text-gray-700 leading-relaxed mb-4">
-        Our Partnership & Access Framework provides clear governance, defined access boundaries, protection of historical integrity, and confidence without complexity.
+        Sponsors are increasingly surrounded by synthetic content, fragmented attention, and audience skepticism. Playmakxrs™ gives sponsors a safer way to align with verified meaning — stories that are rights-governed, institutionally credible, emotionally resonant, and built for long-term trust.
       </p>
       <p class="text-lg text-gray-500 italic">
-        Scarcity is intentional. Alignment matters.
-      </p>
-    </div>
-  </section>
-
-  <!-- Who We Work With -->
-  <section class="section bg-white">
-    <div class="max-w-5xl mx-auto px-6">
-      <h2 class="font-display text-3xl md:text-5xl font-bold text-black mb-8 text-center">
-        Who We Work With
-      </h2>
-      <div class="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto">
-        <div class="grid-card">
-          <h3 class="font-display text-lg font-bold text-black mb-2">Universities and Academic Institutions</h3>
-          <p class="text-gray-600 text-sm">Institutions committed to preserving and teaching authentic American stories.</p>
-        </div>
-        <div class="grid-card">
-          <h3 class="font-display text-lg font-bold text-black mb-2">Athletic Programs and Alumni Communities</h3>
-          <p class="text-gray-600 text-sm">Programs that understand the intersection of sport, culture, and legacy.</p>
-        </div>
-        <div class="grid-card">
-          <h3 class="font-display text-lg font-bold text-black mb-2">Foundations and Nonprofit Organizations</h3>
-          <p class="text-gray-600 text-sm">Organizations aligned with values-based storytelling and cultural stewardship.</p>
-        </div>
-        <div class="grid-card">
-          <h3 class="font-display text-lg font-bold text-black mb-2">Purpose-Driven Corporations</h3>
-          <p class="text-gray-600 text-sm">Companies that lead with values and invest in enduring cultural impact.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- The Bobby Grier Story -->
-  <section class="section bg-gray-50">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      <h2 class="font-display text-3xl md:text-5xl font-bold text-black mb-4">
-        The Bobby Grier Story™
-      </h2>
-      <p class="text-xl lg:text-2xl text-gray-700 leading-relaxed mb-3">
-        At the foundation of every partnership is The Bobby Grier Story™ — a true American legacy built on courage, dignity, and resolve.
-      </p>
-      <p class="text-lg text-gray-500 italic">
-        Partners align with a model, not a moment.
+        Sponsors support the story. They do not own or cheapen it.
       </p>
     </div>
   </section>
@@ -106,9 +68,11 @@ const buildPath = (path: string) => `${base}/${path}`.replace(/\/+/g, '/');
         <div>
           <h3 class="font-display text-lg font-bold text-black mb-4">Partnership Is</h3>
           <ul class="dash-list-left">
-            <li>Values-based</li>
+            <li>Values-aligned</li>
             <li>Long-term oriented</li>
             <li>Built on trust</li>
+            <li>Structured around responsible stewardship</li>
+            <li>Clear about rights and boundaries</li>
           </ul>
         </div>
         <div>
@@ -117,7 +81,9 @@ const buildPath = (path: string) => `${base}/${path}`.replace(/\/+/g, '/');
             <li>Advertising</li>
             <li>Logo placement</li>
             <li>Short-term promotion</li>
-            <li>Narrative ownership</li>
+            <li>Narrative ownership transfer</li>
+            <li>Opportunistic attention extraction</li>
+            <li>Synthetic UGC for shallow attention</li>
           </ul>
         </div>
       </div>
@@ -128,9 +94,9 @@ const buildPath = (path: string) => `${base}/${path}`.replace(/\/+/g, '/');
   <section class="section bg-black text-white">
     <div class="max-w-4xl mx-auto px-6 text-center">
       <p class="text-xl lg:text-2xl opacity-90 mb-6 leading-relaxed">
-        No urgency. No pressure. Only alignment.
+        We begin with alignment, not pressure.
       </p>
-      <Button text="Start a Conversation" href={buildPath('contact-us')} variant="primary" />
+      <Button text="Start a Partnership Conversation" href={partnerHref} variant="primary" />
     </div>
   </section>
 

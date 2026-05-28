@@ -1,0 +1,175 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Hero from '../components/Hero.astro';
+import Button from '../components/Button.astro';
+import Faq from '../components/Faq.astro';
+import Footer from '../components/Footer.astro';
+
+const base = import.meta.env.BASE_URL;
+const buildPath = (path: string) => `${base}/${path}`.replace(/\/+/g, '/');
+const inquiryHref = `${buildPath('contact-us')}?interest=for-institutions`;
+
+const audiences = [
+  'University Presidents',
+  'Trustees',
+  'Athletic Directors',
+  'Advancement Leaders',
+  'Alumni Relations Teams',
+  'Communications Leaders',
+  'Foundations',
+  'Museums & Archives',
+  'Student Leadership Programs',
+  'Corporate Partners',
+];
+
+const steps = [
+  { n: '1', title: 'Inquiry', desc: 'You submit a short form describing your institution, role, and area of interest.' },
+  { n: '2', title: 'Fit Review', desc: 'We determine whether the opportunity fits Playmakxrs™ standards, rights requirements, and institutional alignment.' },
+  { n: '3', title: 'Discovery Call', desc: 'We clarify the story, stakeholders, timeline, and potential value pathways.' },
+  { n: '4', title: 'Scope & Fee', desc: 'We define a practical engagement with clear deliverables, timeline, upfront fee, and any applicable revenue participation.' },
+  { n: '5', title: 'Build', desc: 'We complete the agreed work and provide leadership-ready outputs.' },
+];
+
+const faqItems = [
+  { q: 'Is Playmakxrs™ a PR firm?', a: 'No. PR responds to attention. Playmakxrs™ organizes and governs trusted meaning before, during, and after attention arrives.' },
+  { q: 'Is this a content agency?', a: 'No. Content may be one output, but the work is infrastructure: rights, verification, governance, stakeholder alignment, activation pathways, and long-term value.' },
+  { q: 'Can this help with budget pressure?', a: 'It can help institutions identify underused value inside stories, archives, alumni identity, athletics, and partnerships. It is not a quick-fix budget rescue plan.' },
+  { q: 'Can sponsors be involved?', a: 'Yes, when the alignment is rights-approved, values-aligned, historically respectful, and institutionally credible.' },
+  { q: 'Do we need a fully formed idea before contacting you?', a: 'No. A good starting point is simply identifying a story, archive, athletic moment, alumni legacy, or institutional challenge that may hold underused value.' },
+  { q: 'What is the first step?', a: 'Submit an inquiry. We will determine whether a short discovery call, Value Recovery Brief™, or 90–120 day pilot is the right fit.' },
+];
+---
+
+<Layout
+  title="For Institutions — Playmakxrs Global™"
+  description="A practical pathway for turning verified stories into institutional value. Playmakxrs™ helps institutions recover hidden value from the trusted stories they already own."
+>
+  <Navigation />
+
+  <Hero
+    title="For Institutions"
+    subtitle="A Practical Pathway to Institutional Value"
+    description="Universities and institutions are under pressure to do more with less. Playmakxrs™ helps you recover hidden value from the trusted stories you already own."
+    ctaText="Begin Institutional Inquiry"
+    ctaHref={inquiryHref}
+  />
+
+  <!-- Who This Is For -->
+  <section class="section bg-white">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2 class="font-display text-3xl md:text-5xl font-bold text-black mb-4 text-center">
+        Who This Is For
+      </h2>
+      <p class="text-lg text-gray-500 mb-8 text-center max-w-2xl mx-auto">
+        This page is for the leaders responsible for institutional trust, identity, and long-term value.
+      </p>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
+        {audiences.map((a) => (
+          <div class="value-pill text-sm">{a}</div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- The Problem We Help Solve -->
+  <section class="section bg-gray-50">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="font-display text-3xl md:text-5xl font-bold text-black mb-4">
+        The Problem We Help Solve
+      </h2>
+      <p class="text-xl lg:text-2xl text-gray-700 leading-relaxed mb-6">
+        Most institutions already have meaningful stories. The problem is what happens to them — they are often:
+      </p>
+      <ul class="dash-list">
+        <li>Buried in archives or fragmented across departments</li>
+        <li>Activated only during anniversaries</li>
+        <li>Disconnected from advancement or athletics</li>
+        <li>Unclear in rights ownership</li>
+        <li>Too loosely packaged for sponsors</li>
+        <li>Never translated into usable assets</li>
+      </ul>
+      <p class="text-lg text-gray-500 leading-relaxed mt-6">
+        The result is institutional value leakage. Playmakxrs™ helps close that gap.
+      </p>
+    </div>
+  </section>
+
+  <!-- How Engagement Works -->
+  <section class="section bg-white">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2 class="font-display text-3xl md:text-5xl font-bold text-black mb-8 text-center">
+        How Engagement Works
+      </h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-4">
+        {steps.map((step) => (
+          <div class="grid-card">
+            <div class="font-display text-3xl font-black text-primary mb-2">{step.n}</div>
+            <h3 class="font-display text-lg font-bold text-black mb-2">{step.title}</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">{step.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Commercial Model -->
+  <section class="section bg-gray-50">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="font-display text-3xl md:text-5xl font-bold text-black mb-4">
+        Commercial Model
+      </h2>
+      <p class="text-xl lg:text-2xl text-gray-700 leading-relaxed mb-6">
+        Narrative Infrastructure™ is not a magic rescue plan. It is a disciplined value-recovery system. Engagements may include:
+      </p>
+      <ul class="dash-list">
+        <li>Upfront strategy and build fees</li>
+        <li>Project-based fees</li>
+        <li>Sponsor activation fees</li>
+        <li>Licensing and media development participation</li>
+        <li>Event, educational product, digital exhibit, and merchandise revenue</li>
+        <li>Long-term partnership structures</li>
+      </ul>
+      <p class="text-lg text-gray-500 italic mt-6">
+        The goal is clarity before scale.
+      </p>
+    </div>
+  </section>
+
+  <!-- Rights Before Reach -->
+  <section class="section bg-black text-white">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="font-display text-3xl md:text-5xl font-bold mb-4">
+        Rights Before Reach™
+      </h2>
+      <p class="text-xl lg:text-2xl opacity-90 leading-relaxed mb-4">
+        Before any story becomes public-facing, sponsor-facing, AI-assisted, media-ready, or revenue-generating, Playmakxrs™ clarifies ownership, permissions, approvals, institutional and sponsor use, AI and media use, revenue participation, attribution, and exit terms.
+      </p>
+      <p class="text-xl lg:text-2xl opacity-70 italic">
+        Without rights clarity, scale becomes risk.
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section bg-white">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="font-display text-3xl md:text-5xl font-bold text-black mb-8 text-center">
+        Frequently Asked
+      </h2>
+      <Faq items={faqItems} />
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section bg-gray-50">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="font-display text-2xl md:text-4xl font-bold text-black mb-6">
+        Start with one story. Build visible coherence. Scale from proof.
+      </h2>
+      <Button text="Begin Institutional Inquiry" href={inquiryHref} variant="primary" />
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

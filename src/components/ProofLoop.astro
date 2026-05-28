@@ -1,0 +1,98 @@
+---
+// Bobby Grier proof loop — verified media, articles, and listings that demonstrate
+// how one story compounds into many usable assets. Links cross-referenced with
+// MediaLogos.astro. Items awaiting URLs from the client (NYT front page, AARP,
+// ESPN CFB 150, WTAE, Elizabeth Dole Foundation video, Today Show, Pitt HoF
+// presentation video) are intentionally omitted until links are provided.
+
+interface ProofItem {
+  title: string;
+  outlet: string;
+  type: 'Article' | 'Video' | 'Book';
+  length?: string;
+  href: string;
+}
+
+const items: ProofItem[] = [
+  {
+    title: 'How Bobby Grier Integrated One of College Football’s Biggest Games',
+    outlet: 'The History Channel',
+    type: 'Article',
+    href: 'https://www.history.com/articles/bobby-grier-college-football-color-barrier-sugar-bowl',
+  },
+  {
+    title: '“The South Stands at Armageddon”: Breaking the Sugar Bowl Color Barrier',
+    outlet: 'ESPN',
+    type: 'Article',
+    href: 'https://www.espn.com/college-football/story/_/id/26027623/the-south-stands-armageddon-breaking-sugar-bowl-color-barrier',
+  },
+  {
+    title: 'Sweet Integration: The Story of Bobby Grier and the 1956 Sugar Bowl',
+    outlet: 'WGNO',
+    type: 'Video',
+    length: '3:26',
+    href: 'https://wgno.com/hidden-history/sweet-integration-the-story-of-bobby-grier-and-the-1956-sugar-bowl/',
+  },
+  {
+    title: 'Bobby Grier Interviewed on Fox 5 Atlanta',
+    outlet: 'Fox 5 Atlanta',
+    type: 'Video',
+    length: '4:27',
+    href: 'https://www.youtube.com/watch?v=rqKf4Es0uOU',
+  },
+  {
+    title: 'The Big Moment',
+    outlet: 'Georgia Tech Alumni',
+    type: 'Article',
+    href: 'https://www.gtalumni.org/news/2024/the-big-moment.html',
+  },
+  {
+    title: 'Bobby Grier Enshrined into the Pitt Athletics Hall of Fame',
+    outlet: 'Pitt Athletics',
+    type: 'Article',
+    href: 'https://pittsburghpanthers.com/honors/pitt-athletics-hall-of-fame/bobby-grier/44',
+  },
+  {
+    title: 'Remembering Bobby Grier, First Black Player in the Sugar Bowl',
+    outlet: 'CBS / KDKA Pittsburgh',
+    type: 'Article',
+    href: 'https://www.cbsnews.com/pittsburgh/news/former-pitt-football-player-and-first-black-player-to-play-in-the-sugar-bowl-bobby-grier-dies-at-91/',
+  },
+  {
+    title: 'No Grier, No Game™ — Amazon Best Seller',
+    outlet: 'Amazon',
+    type: 'Book',
+    href: 'https://a.co/d/aXjebcH',
+  },
+  {
+    title: 'No Grier, No Game™',
+    outlet: 'Barnes & Noble',
+    type: 'Book',
+    href: 'https://www.barnesandnoble.com/w/no-grier-no-game-rob-grier/1148515839',
+  },
+  {
+    title: 'No Grier, No Game™',
+    outlet: 'Indigo',
+    type: 'Book',
+    href: 'https://www.indigo.ca/fr-ca/no-grier-no-game-how-bobby-grier-and-the-sugar-bowl-showdown-changed-american-sports-history/1e510e0e-6bc1-38d2-9af5-d8fe695769a7.html',
+  },
+];
+---
+
+<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+  {items.map((item) => (
+    <a
+      href={item.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="grid-card flex flex-col gap-2 text-left no-underline"
+    >
+      <div class="flex items-center justify-between">
+        <span class="text-xs font-display font-bold uppercase tracking-wider text-primary">{item.type}</span>
+        {item.length && <span class="text-xs text-gray-400">{item.length}</span>}
+      </div>
+      <h3 class="font-display font-semibold text-black leading-snug">{item.title}</h3>
+      <p class="text-sm text-gray-500 mt-auto">{item.outlet}</p>
+    </a>
+  ))}
+</div>

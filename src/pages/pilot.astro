@@ -1,0 +1,129 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Hero from '../components/Hero.astro';
+import Button from '../components/Button.astro';
+import Footer from '../components/Footer.astro';
+
+const base = import.meta.env.BASE_URL;
+const buildPath = (path: string) => `${base}/${path}`.replace(/\/+/g, '/');
+const pilotHref = `${buildPath('contact-us')}?interest=pilot`;
+
+const deliverables = [
+  'Narrative Capital™ Map',
+  'Authenticity File™',
+  'Rights & Asset Scan',
+  'Stakeholder Alignment Brief',
+  'Sponsor Coherence Map™',
+  'Moment-to-Meaning Brief™',
+  'Institutional Coherence Brief™',
+  'Digital Exhibit Concept',
+  'Media / Documentary Pathway',
+  'Leadership Programming Concept',
+  'Revenue & Licensing Opportunity Map',
+  'Next-Phase Activation Roadmap',
+];
+
+const involved = [
+  'President or cabinet representative',
+  'Trustees or strategic advisors',
+  'Advancement / development',
+  'Athletics leadership',
+  'Alumni relations',
+  'Communications / external relations',
+  'Education or cultural programming leaders',
+  'Archive or museum representatives',
+  'Selected strategic partners',
+];
+---
+
+<Layout
+  title="The 90–120 Day INI™ Pilot — Playmakxrs Global™"
+  description="A disciplined entry point for institutions exploring Narrative Capital™ as infrastructure. We begin with one high-value narrative cluster."
+>
+  <Navigation />
+
+  <Hero
+    title="The 90–120 Day INI™ Pilot"
+    subtitle="A Disciplined Entry Point"
+    description="For institutions engaging this model for the first time, we begin with one high-value narrative cluster. The purpose is not to do more storytelling — it is to test whether a meaningful story can be protected, verified, governed, aligned, and activated in ways that strengthen institutional value."
+    ctaText="Start a Pilot Conversation"
+    ctaHref={pilotHref}
+  />
+
+  <!-- What We Assess -->
+  <section class="section bg-white">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="font-display text-3xl md:text-5xl font-bold text-black mb-4">
+        What We Assess
+      </h2>
+      <ul class="dash-list">
+        <li>High-value narrative assets already present</li>
+        <li>Current fragmentation or underutilization</li>
+        <li>Rights and approval pathways</li>
+        <li>Stakeholder alignment, sponsor, and partner fit</li>
+        <li>Activation zones across athletics, advancement, alumni, education, media, and leadership</li>
+        <li>Where unmanaged meaning may already be creating institutional leakage</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Who Is Typically Involved -->
+  <section class="section bg-gray-50">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2 class="font-display text-3xl md:text-5xl font-bold text-black mb-8 text-center">
+        Who Is Typically Involved
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        {involved.map((role) => (
+          <div class="grid-card text-gray-700">{role}</div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- What You Receive -->
+  <section class="section bg-white">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2 class="font-display text-3xl md:text-5xl font-bold text-black mb-4 text-center">
+        What You Receive
+      </h2>
+      <p class="text-lg text-gray-500 mb-8 text-center max-w-2xl mx-auto">
+        Leadership-ready outputs that turn one story into a governed, activatable asset system.
+      </p>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+        {deliverables.map((item) => (
+          <div class="value-pill text-sm">{item}</div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- What Success Looks Like -->
+  <section class="section bg-gray-50">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="font-display text-3xl md:text-5xl font-bold text-black mb-4">
+        What Success Looks Like
+      </h2>
+      <ul class="dash-list">
+        <li>Clearer internal understanding of narrative value</li>
+        <li>Rights and governance clarity</li>
+        <li>Stronger alignment around institutional meaning</li>
+        <li>A credible pathway for donor, alumni, sponsor, student, and media activation</li>
+        <li>A responsible basis for expansion</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section bg-black text-white">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <p class="text-xl lg:text-2xl opacity-90 mb-6 leading-relaxed">
+        Clarity first. Alignment first. Scale only where trust and value support it.
+      </p>
+      <Button text="Start a Pilot Conversation" href={pilotHref} variant="primary" />
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

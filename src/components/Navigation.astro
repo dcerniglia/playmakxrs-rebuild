@@ -3,11 +3,12 @@ const base = import.meta.env.BASE_URL;
 const buildPath = (path: string) => `${base}/${path}`.replace(/\/+/g, '/');
 const currentPath = Astro.url.pathname;
 const navItems = [
-  { name: 'About Us', href: buildPath('about-us') },
-  { name: 'Merchandise', href: buildPath('merchandise') },
+  { name: 'About', href: buildPath('about-us') },
+  { name: 'For Institutions', href: buildPath('for-institutions') },
+  { name: 'Pilot', href: buildPath('pilot') },
   { name: 'Partnership', href: buildPath('partnership') },
   { name: 'The Book', href: buildPath('the-book') },
-  { name: 'Updates', href: buildPath('updates') },
+  { name: 'Collection', href: buildPath('collection') },
 ];
 ---
 
@@ -24,7 +25,7 @@ const navItems = [
       </a>
 
       <!-- Desktop Navigation -->
-      <div class="hidden lg:flex items-center space-x-6">
+      <div class="hidden lg:flex items-center space-x-4 xl:space-x-6">
         {navItems.map(item => (
           <a
             href={item.href}

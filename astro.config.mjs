@@ -6,4 +6,10 @@ export default defineConfig({
   site: 'https://www.playmakxrs.com',
   base: '/',
   integrations: [tailwind()],
+  redirects: {
+    '/updates': '/for-institutions',
+    '/merchandise': '/collection',
+    '/shop': '/collection',
+    '/join-us': '/contact-us',
+  },
 });
