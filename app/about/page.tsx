@@ -9,21 +9,24 @@ export default function AboutPage() {
   return (
     <div className="flex flex-col w-full bg-true-black">
       {/* 1. EDITORIAL HERO BANNER */}
-      <section className="relative h-[65vh] min-h-[480px] flex items-end bg-true-black overflow-hidden border-b border-white/10">
+      <section className="relative min-h-[calc(100vh-80px)] flex items-end bg-true-black overflow-hidden border-b border-white/10">
         <div
-          className="absolute inset-0 bg-cover bg-center grayscale opacity-45 mix-blend-luminosity filter contrast-125"
-          style={{ backgroundImage: "url('/assets/vintage_player_bg.png')" }}
+          className="absolute inset-0 bg-cover grayscale opacity-65 mix-blend-luminosity filter contrast-125"
+          style={{
+            backgroundImage: "url('/assets/hero_landing.png')",
+            backgroundPosition: "center 30%",
+          }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-true-black via-true-black/60 to-transparent z-10" />
+        <div className="absolute inset-x-0 bottom-0 h-56 md:h-64 lg:h-72 bg-gradient-to-t from-true-black via-true-black/75 via-45% to-transparent z-10 pointer-events-none" />
 
-        <div className="relative z-20 max-w-4xl mx-auto px-6 md:px-8 pb-16 text-center w-full">
-          <span className="font-heading tracking-widest text-xs md:text-sm text-crimson uppercase font-semibold mb-3 inline-block">
+        <div className="relative z-20 max-w-5xl mx-auto px-6 md:px-8 pb-8 md:pb-10 text-center w-full">
+          <span className="font-heading tracking-widest text-xs md:text-sm text-white uppercase font-semibold mb-2 inline-block drop-shadow-[0_1px_8px_rgba(0,0,0,0.9)]">
             The Founding Case Study & Origin
           </span>
-          <h1 className="text-4xl sm:text-6xl md:text-7xl font-serif-heading font-semibold text-white leading-tight mb-4">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-serif-heading font-semibold text-gold leading-tight mb-3 drop-shadow-[0_2px_16px_rgba(0,0,0,0.95)]">
             The Gentleman Who Changed The Game.
           </h1>
-          <p className="text-xs sm:text-sm md:text-base font-heading tracking-widest text-gray-400 uppercase">
+          <p className="text-xs sm:text-sm md:text-base font-heading tracking-widest text-gray-300 uppercase">
             A Defiant Stand: The Story of the 1956 Sugar Bowl & Bobby Grier
           </p>
         </div>
@@ -60,6 +63,21 @@ export default function AboutPage() {
           <p>
             Decades later, despite the monumental significance of this breakthrough, the story had faded from popular national memory. The historical documentation was fragmented, unauthorized accounts misstated key facts, and the Grier family had never received the comprehensive institutional and commercial recognition the moment deserved.
           </p>
+
+          {/* Historical Archival Photograph: Bobby Grier (#38) */}
+          <figure className="my-12 bg-card-dark border border-white/10 p-4 md:p-6 rounded-sm shadow-2xl max-w-lg mx-auto">
+            <div className="relative overflow-hidden rounded-xs bg-black/40 flex justify-center">
+              <img
+                src="/assets/hero_about.png"
+                alt="Bobby Grier (#38) running with football - University of Pittsburgh archival photo"
+                className="w-full max-w-md h-auto object-contain rounded-xs filter contrast-105"
+              />
+            </div>
+            <figcaption className="mt-4 pt-3 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-400 font-mono gap-1">
+              <span className="text-white font-heading tracking-wider uppercase">Bobby Grier (#38)</span>
+              <span className="text-gray-500">Archival Record • University of Pittsburgh</span>
+            </figcaption>
+          </figure>
 
           <div className="bg-card-dark border border-white/10 p-8 my-10 rounded-sm">
             <h3 className="font-heading text-xl text-white mb-3">

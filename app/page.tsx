@@ -9,31 +9,34 @@ export default function HomePage() {
   return (
     <div className="flex flex-col w-full">
       {/* 1. HERO SECTION */}
-      <section className="relative min-h-[92vh] flex items-center bg-true-black overflow-hidden border-b border-white/10">
+      <section className="relative min-h-[calc(100vh-80px)] flex items-center bg-true-black overflow-hidden border-b border-white/10">
         {/* Background Vintage Player Image with Gradient Overlay */}
         <div
-          className="absolute inset-0 bg-cover bg-no-repeat bg-right lg:bg-center opacity-40 mix-blend-luminosity filter contrast-125"
-          style={{ backgroundImage: "url('/assets/vintage_player_bg.png')" }}
+          className="absolute inset-y-0 right-0 w-full md:w-[80%] lg:w-[75%] bg-no-repeat bg-cover opacity-60 mix-blend-luminosity filter contrast-125"
+          style={{
+            backgroundImage: "url('/assets/hero_landing.png')",
+            backgroundPosition: "left center"
+          }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-true-black via-true-black/90 to-transparent z-10" />
-        <div className="absolute inset-0 bg-gradient-to-t from-true-black via-transparent to-true-black/40 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-true-black via-true-black/80 via-35% to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-true-black via-transparent to-true-black/40 z-10 pointer-events-none" />
 
-        <div className="relative z-20 max-w-7xl mx-auto px-6 md:px-8 py-20 w-full">
+        <div className="relative z-20 max-w-7xl mx-auto px-6 md:px-8 py-8 md:py-10 lg:py-12 w-full">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center space-x-2 bg-crimson/15 border border-crimson/30 px-3.5 py-1.5 rounded-sm mb-6">
+            <div className="inline-flex items-center space-x-2 bg-crimson/15 border border-crimson/30 px-3.5 py-1.5 rounded-sm mb-3.5">
               <span className="w-2 h-2 rounded-full bg-crimson animate-pulse" />
               <span className="text-crimson font-heading text-xs tracking-widest uppercase font-semibold">
                 The Era of Legends
               </span>
             </div>
 
-            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[0.92] tracking-tight text-white mb-6">
+            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[0.92] tracking-tight text-white mb-4">
               THE FAMILY IS THE SOURCE.<br />
               THE INSTITUTION IS THE PLATFORM.<br />
               <span className="text-crimson">PLAYMAKXRS IS THE BRIDGE.</span>
             </h1>
 
-            <p className="text-lg md:text-2xl text-gray-300 mb-10 max-w-2xl font-light leading-relaxed">
+            <p className="text-lg md:text-2xl text-gray-300 mb-6 max-w-2xl font-light leading-relaxed">
               We help athletic departments, legacy families, and partners recover, verify, protect, package, and activate overlooked sports narrative capital.
             </p>
 
