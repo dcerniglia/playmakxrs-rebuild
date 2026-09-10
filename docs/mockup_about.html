@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Playmakxrs™</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'true-black': '#000000',
+                        'deep-navy': '#111111',
+                        'crimson': '#E53935',
+                        'card-dark': '#1A1A1A'
+                    },
+                    fontFamily: {
+                        'oswald': ['Oswald', 'sans-serif'],
+                        'inter': ['Inter', 'sans-serif'],
+                        'playfair': ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #111111; color: #ffffff; }
+        .font-heading { font-family: 'Oswald', sans-serif; text-transform: uppercase; }
+        .font-serif-heading { font-family: 'Playfair Display', serif; }
+        .hero-bg { background-image: url('./assets/vintage_player_bg.png'); background-size: cover; background-position: center 20%; height: 50vh; }
+        .drop-cap::first-letter { font-family: 'Playfair Display', serif; float: left; font-size: 5rem; line-height: 4rem; padding-right: 0.5rem; color: #ffffff; }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+
+    <!-- Navigation -->
+    <nav class="w-full z-50 py-6 px-8 flex justify-between items-center border-b border-white/5 bg-true-black">
+        <div class="text-2xl font-heading font-bold tracking-wider">LEGACY SPORTS</div>
+        <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-400">
+            <a href="client_mockup.html" class="hover:text-white transition">Home</a>
+            <a href="mockup_institutions.html" class="hover:text-white transition">Institutions</a>
+            <a href="mockup_families.html" class="hover:text-white transition">Families</a>
+            <a href="mockup_sponsors.html" class="hover:text-white transition">Sponsors</a>
+            <a href="#" class="text-white transition">Stories</a>
+        </div>
+        <button class="border border-white hover:bg-white hover:text-black px-6 py-2 rounded-sm font-heading tracking-wide transition">Explore</button>
+    </nav>
+
+    <!-- Hero Image -->
+    <div class="w-full hero-bg grayscale"></div>
+
+    <!-- Article Content -->
+    <section class="py-20 px-8 max-w-3xl mx-auto">
+        <div class="text-center mb-16">
+            <h1 class="text-5xl md:text-6xl font-serif-heading mb-6 leading-tight">THE GENTLEMAN WHO CHANGED THE GAME</h1>
+            <p class="text-gray-400 font-heading tracking-widest text-sm">A DEFIANT STAND: THE STORY OF THE 1956 SUGAR BOWL & THE MAN WHO MADE HISTORY</p>
+        </div>
+
+        <div class="text-gray-300 text-lg leading-relaxed space-y-8 font-light drop-cap">
+            <p>Bobby Grier (No. 38) broke the color barrier in the 1956 Sugar Bowl, representing a pivotal moment in American sports and civil rights history. His journey, marked by immense political opposition and personal courage, set a precedent that transcended the game of football itself.</p>
+            <p>Facing threats from state legislators and segregationists who demanded the game be cancelled rather than allow a Black player on the field, Grier's university stood firmly behind him. The defiance was resolute, setting the stage for one of the most culturally significant athletic events of the decade.</p>
+            
+            <blockquote class="border-l-4 border-crimson pl-6 my-12 text-2xl font-serif-heading italic text-white leading-relaxed">
+                "It wasn't just about football; it was about doing what was right. It meant more than just playing in a bowl game."
+            </blockquote>
+            
+            <p>Today, the story of Bobby Grier is not just a chapter in a history book—it is a foundational asset. Playmakxrs is proud to have helped recover, verify, and package this story into a published book, documentary, and institutional program that continues to inspire athletes and alumni alike.</p>
+        </div>
+
+        <!-- Associated Media -->
+        <div class="mt-20 pt-16 border-t border-white/10 text-center">
+            <h3 class="text-2xl font-serif-heading mb-10">ASSOCIATED MEDIA & RESOURCES</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="border border-white/20 p-6 hover:border-crimson transition rounded-sm cursor-pointer">
+                    <div class="font-heading mb-2">THE BOOK</div>
+                    <div class="text-xs text-gray-400">Order on Amazon</div>
+                </div>
+                <div class="border border-white/20 p-6 hover:border-crimson transition rounded-sm cursor-pointer">
+                    <div class="font-heading mb-2">DOCUMENTARY</div>
+                    <div class="text-xs text-gray-400">Watch the Trailer</div>
+                </div>
+                <div class="border border-white/20 p-6 hover:border-crimson transition rounded-sm cursor-pointer">
+                    <div class="font-heading mb-2">PODCAST</div>
+                    <div class="text-xs text-gray-400">Listen to Episode</div>
+                </div>
+                <div class="border border-white/20 p-6 hover:border-crimson transition rounded-sm cursor-pointer">
+                    <div class="font-heading mb-2">ARCHIVES</div>
+                    <div class="text-xs text-gray-400">View Gallery</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
