@@ -28,7 +28,7 @@ export default function ContactPage() {
             Confidential Application
           </span>
           <h1 className="text-4xl sm:text-6xl font-heading font-bold text-white mb-4">
-            PLAYMAKXRS™ PILOT PROGRAM
+            PLAYMAKXRS PILOT PROGRAM
           </h1>
           <p className="text-base sm:text-lg text-gray-400 font-light max-w-2xl mx-auto leading-relaxed">
             Join an exclusive cohort of universities, athletic departments, and family estates recovering and activating legacy narrative capital.
@@ -45,13 +45,13 @@ export default function ContactPage() {
             <div className="lg:col-span-5 space-y-10">
               <div>
                 <span className="text-xs font-mono uppercase text-crimson tracking-wider">
-                  The 90–120 Day INI™ Pilot
+                  The 90–120 Day INI Pilot
                 </span>
                 <h2 className="text-3xl font-heading text-white mt-1 mb-4">
                   What You Receive During The Pilot
                 </h2>
                 <p className="text-sm text-gray-300 font-light leading-relaxed">
-                  The Institutional Narrative Infrastructure (INI™) Pilot is a structured, low-friction engagement designed to prove narrative value with zero institutional disruption.
+                  The Institutional Narrative Infrastructure (INI) Pilot is a structured, low-friction engagement designed to prove narrative value with zero institutional disruption.
                 </p>
               </div>
 
@@ -60,7 +60,7 @@ export default function ContactPage() {
                 <div className="bg-card-dark border border-white/10 p-6 rounded-sm">
                   <div className="flex items-center space-x-3 text-crimson mb-2">
                     <FileText className="w-5 h-5" />
-                    <h3 className="font-heading text-lg text-white">1. Narrative Capital™ Map</h3>
+                    <h3 className="font-heading text-lg text-white">1. Narrative Capital Map</h3>
                   </div>
                   <p className="text-xs text-gray-400 font-light leading-relaxed">
                     Complete forensic cataloging of your athletic department’s unmonetized historical milestones, available archival assets, and barrier-breaking pioneers.
@@ -73,7 +73,7 @@ export default function ContactPage() {
                     <h3 className="font-heading text-lg text-white">2. Rights & Risk Review</h3>
                   </div>
                   <p className="text-xs text-gray-400 font-light leading-relaxed">
-                    Rights Before Reach™ analysis clarifying estate chain-of-title, family alignment status, and risk mitigation protocols before public release.
+                    Rights Before Reach analysis clarifying estate chain-of-title, family alignment status, and risk mitigation protocols before public release.
                   </p>
                 </div>
 
@@ -258,7 +258,7 @@ export default function ContactPage() {
                         <select
                           className="w-full bg-true-black/80 border border-white/15 rounded-sm px-4 py-3 text-sm text-white focus:outline-none focus:border-crimson transition-colors"
                         >
-                          <option value="pilot">90–120 Day INI™ Pilot Program</option>
+                          <option value="pilot">90–120 Day INI Pilot Program</option>
                           <option value="rights">Archival Recovery & Rights Verification</option>
                           <option value="publishing">Book Publishing & Documentary Production</option>
                           <option value="sponsorship">Corporate Heritage Sponsorship</option>

@@ -63,10 +63,10 @@ export default function AboutPage() {
 
           <div className="bg-card-dark border border-white/10 p-8 my-10 rounded-sm">
             <h3 className="font-heading text-xl text-white mb-3">
-              How Playmakxrs™ Rebuilt the Narrative Capital
+              How Playmakxrs Rebuilt the Narrative Capital
             </h3>
             <p className="text-sm text-gray-300 leading-relaxed font-light mb-4">
-              Playmakxrs partnered directly with Bobby Grier and his family. Under our Rights Before Reach™ framework, we verified original historical telegrams, newspaper archives, and oral recollections, securing the official family chain-of-title.
+              Playmakxrs partnered directly with Bobby Grier and his family. Under our Rights Before Reach framework, we verified original historical telegrams, newspaper archives, and oral recollections, securing the official family chain-of-title.
             </p>
             <p className="text-sm text-gray-400 leading-relaxed font-light">
               From this single foundation, we published the bestselling book, structured a national broadcast feature with Fox 5 Atlanta, coordinated the official enshrinement of Bobby Grier into the Pitt Athletics Hall of Fame, and developed campus educational curricula that continue to inspire collegiate athletes today.
@@ -92,7 +92,7 @@ export default function AboutPage() {
               <span className="text-[10px] font-mono uppercase text-crimson block mb-1">National Release</span>
               <h4 className="text-xl font-heading text-white mb-2">The Published Book</h4>
               <p className="text-xs text-gray-400 font-light leading-relaxed mb-4">
-                *No Grier, No Game™* became an Amazon Best Seller, providing the authoritative biographical account of the 1956 Sugar Bowl.
+                *No Grier, No Game* became an Amazon Best Seller, providing the authoritative biographical account of the 1956 Sugar Bowl.
               </p>
               <span className="text-xs font-heading text-crimson uppercase tracking-wider">Available on Amazon & B&N</span>
             </Card>
@@ -141,7 +141,7 @@ export default function AboutPage() {
         <div className="max-w-6xl mx-auto">
           <SectionHeading
             category="Operational Boundaries"
-            title="What Playmakxrs™ Is Not"
+            title="What Playmakxrs Is Not"
             subtitle="To understand our depth, it is critical to understand the boundaries we strictly uphold."
           />
 

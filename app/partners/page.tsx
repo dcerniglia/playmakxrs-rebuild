@@ -70,7 +70,7 @@ export default function PartnersPage() {
         <div className="max-w-7xl mx-auto">
           <SectionHeading
             category="Strategic Brand Value"
-            title="Sponsor-Safe Meaning™"
+            title="Sponsor-Safe Meaning"
             subtitle="Why leading brands are pivoting from volatile athlete sponsorships to permanent cultural heritage."
           />
 
@@ -141,7 +141,7 @@ export default function PartnersPage() {
                 </li>
                 <li className="flex items-start space-x-3">
                   <div className="w-1.5 h-1.5 rounded-full bg-crimson flex-shrink-0 mt-2" />
-                  <span><strong>Rights-Cleared Safety:</strong> Full indemnification backed by our tripartite Rights Before Reach™ framework.</span>
+                  <span><strong>Rights-Cleared Safety:</strong> Full indemnification backed by our tripartite Rights Before Reach framework.</span>
                 </li>
               </ul>
             </div>

@@ -23,11 +23,11 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: 'Playmakxrs™ | The Era of Legends | Narrative Capital for Sports',
+  title: 'Playmakxrs | The Era of Legends | Narrative Capital for Sports',
   description:
-    'The family is the source. The institution is the platform. Playmakxrs™ is the bridge. Recovering, verifying, protecting, packaging, and activating sports narrative capital.',
+    'The family is the source. The institution is the platform. Playmakxrs is the bridge. Recovering, verifying, protecting, packaging, and activating sports narrative capital.',
   openGraph: {
-    title: 'Playmakxrs™ | Sports Narrative Capital',
+    title: 'Playmakxrs | Sports Narrative Capital',
     description:
       'Where legacy lives forever. Recovering and activating overlooked athletic history for universities, families, and partners.',
     type: 'website',

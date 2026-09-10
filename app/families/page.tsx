@@ -102,7 +102,7 @@ export default function FamiliesPage() {
                 </p>
               </div>
               <div className="text-xs text-gray-300 space-y-1.5 pt-4 border-t border-white/10">
-                <p>• Rights Before Reach™ Chain-of-Title</p>
+                <p>• Rights Before Reach Chain-of-Title</p>
                 <p>• Estate Name-Image-Likeness Protection</p>
                 <p>• University Co-Licensing Agreements</p>
               </div>
@@ -186,7 +186,7 @@ export default function FamiliesPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="bg-card-dark border border-white/10 p-6 rounded-sm text-center group hover:border-gold transition-colors">
               <div className="h-40 bg-true-black/60 rounded-sm mb-6 flex items-center justify-center border border-white/5 font-serif-heading text-gold text-lg italic p-4">
-                &ldquo;No Grier, No Game™&rdquo; Hardcover Edition
+                &ldquo;No Grier, No Game&rdquo; Hardcover Edition
               </div>
               <h4 className="font-heading text-white text-lg mb-1">Published Hardcovers</h4>
               <p className="text-xs text-gray-400 font-light">

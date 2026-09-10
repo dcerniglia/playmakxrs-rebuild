@@ -30,7 +30,7 @@ export default function HomePage() {
             <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[0.92] tracking-tight text-white mb-6">
               THE FAMILY IS THE SOURCE.<br />
               THE INSTITUTION IS THE PLATFORM.<br />
-              <span className="text-crimson">PLAYMAKXRS™ IS THE BRIDGE.</span>
+              <span className="text-crimson">PLAYMAKXRS IS THE BRIDGE.</span>
             </h1>
 
             <p className="text-lg md:text-2xl text-gray-300 mb-10 max-w-2xl font-light leading-relaxed">
@@ -76,7 +76,7 @@ export default function HomePage() {
                   <div className="space-y-2.5 mb-8 text-xs text-gray-300">
                     <div className="flex items-center space-x-2.5">
                       <div className="w-1.5 h-1.5 rounded-full bg-crimson flex-shrink-0" />
-                      <span>Rights Before Reach™ Framework</span>
+                      <span>Rights Before Reach Framework</span>
                     </div>
                     <div className="flex items-center space-x-2.5">
                       <div className="w-1.5 h-1.5 rounded-full bg-crimson flex-shrink-0" />
@@ -84,7 +84,7 @@ export default function HomePage() {
                     </div>
                     <div className="flex items-center space-x-2.5">
                       <div className="w-1.5 h-1.5 rounded-full bg-crimson flex-shrink-0" />
-                      <span>90–120 Day INI™ Pilot Deployment</span>
+                      <span>90–120 Day INI Pilot Deployment</span>
                     </div>
                   </div>
                 </div>
@@ -215,7 +215,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto w-full">
           <SectionHeading
             category="Architectural Framework"
-            title="The Playmakxrs™ Triad"
+            title="The Playmakxrs Triad"
             subtitle="How narrative capital transforms from private memory into institutional power and commercial reach."
           />
 
@@ -241,10 +241,10 @@ export default function HomePage() {
               </div>
               <span className="text-xs font-mono uppercase text-crimson">Catalyst</span>
               <h3 className="text-2xl font-heading text-white mt-1 mb-3">
-                2. Playmakxrs™ (The Bridge)
+                2. Playmakxrs (The Bridge)
               </h3>
               <p className="text-sm text-gray-300 font-light leading-relaxed">
-                Applies Rights Before Reach™ methodology, historical forensic verification, book publishing, documentary production, and commercial structuring.
+                Applies Rights Before Reach methodology, historical forensic verification, book publishing, documentary production, and commercial structuring.
               </p>
             </div>
 
@@ -282,7 +282,7 @@ export default function HomePage() {
                   When the Governor of Georgia demanded the 1956 Sugar Bowl be cancelled to prevent Bobby Grier (No. 38) from playing, the University of Pittsburgh and its student body stood fearless. Grier broke the Sugar Bowl color barrier.
                 </p>
                 <p className="text-gray-400 font-light text-sm leading-relaxed">
-                  Playmakxrs worked closely with the Grier family and Pitt Athletics to recover, document, publish (*No Grier, No Game™* Amazon Best Seller), and activate this history across Fox Sports, Pitt Hall of Fame enshrinement, and national media.
+                  Playmakxrs worked closely with the Grier family and Pitt Athletics to recover, document, publish (*No Grier, No Game* Amazon Best Seller), and activate this history across Fox Sports, Pitt Hall of Fame enshrinement, and national media.
                 </p>
                 <div className="pt-2">
                   <Button href="/about" variant="primary">
@@ -299,7 +299,7 @@ export default function HomePage() {
                   </span>
                   <h4 className="text-lg font-heading text-white mt-3 mb-2">The Published Book</h4>
                   <p className="text-xs text-gray-400 font-light leading-relaxed">
-                    *No Grier, No Game™* documented the definitive oral history and political defiance of the 1956 Sugar Bowl.
+                    *No Grier, No Game* documented the definitive oral history and political defiance of the 1956 Sugar Bowl.
                   </p>
                 </div>
 

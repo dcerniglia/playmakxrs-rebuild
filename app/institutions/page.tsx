@@ -14,11 +14,11 @@ const institutionalFAQs: FAQItem[] = [
   },
   {
     question: 'What is the required time commitment from university athletic staff during the pilot?',
-    answer: 'We design the 90–120 Day INI™ Pilot to be low-friction for campus personnel. Your team typically participates in one 60-minute discovery call and facilitates introductions to archival contacts or relevant alumni. Playmakxrs does 90% of the heavy lifting across research, interviews, legal chain-of-title, and production.',
+    answer: 'We design the 90–120 Day INI Pilot to be low-friction for campus personnel. Your team typically participates in one 60-minute discovery call and facilitates introductions to archival contacts or relevant alumni. Playmakxrs does 90% of the heavy lifting across research, interviews, legal chain-of-title, and production.',
   },
   {
     question: 'Who owns the intellectual property and media produced during the partnership?',
-    answer: 'Through our Rights Before Reach™ framework, all underlying trademarks and institutional marks remain 100% university property, while the family’s estate retains moral rights and agreed commercial participation. Playmakxrs establishes clear tripartite agreements so there is never ambiguity, risk, or disputes over ownership.',
+    answer: 'Through our Rights Before Reach framework, all underlying trademarks and institutional marks remain 100% university property, while the family’s estate retains moral rights and agreed commercial participation. Playmakxrs establishes clear tripartite agreements so there is never ambiguity, risk, or disputes over ownership.',
   },
   {
     question: 'How does narrative capital complement our current NIL initiatives?',
@@ -26,7 +26,7 @@ const institutionalFAQs: FAQItem[] = [
   },
   {
     question: 'What are the specific deliverables at the conclusion of the pilot?',
-    answer: 'You receive a complete Narrative Capital™ Audit, an Archival Asset Map, a cleared Rights & Risk Analysis, a comprehensive 12-Month Activation Blueprint, and executive briefing presentations ready for Athletic Directors, Presidents, and Board of Trustees reviews.',
+    answer: 'You receive a complete Narrative Capital Audit, an Archival Asset Map, a cleared Rights & Risk Analysis, a comprehensive 12-Month Activation Blueprint, and executive briefing presentations ready for Athletic Directors, Presidents, and Board of Trustees reviews.',
   },
 ];
 
@@ -37,7 +37,7 @@ export default function InstitutionsPage() {
       <section className="py-24 px-6 md:px-8 bg-gradient-to-b from-true-black via-deep-navy to-true-black border-b border-white/10 text-center relative">
         <div className="max-w-4xl mx-auto">
           <span className="text-crimson font-heading text-sm md:text-base tracking-widest uppercase mb-4 inline-block font-semibold">
-            Institutional Narrative Infrastructure (INI™)
+            Institutional Narrative Infrastructure (INI)
           </span>
           <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold leading-tight text-white mb-6">
             THE DEFINITIVE PLATFORM FOR <br />
@@ -131,13 +131,13 @@ export default function InstitutionsPage() {
               Proprietary Standard
             </span>
             <h2 className="text-3xl md:text-5xl font-heading text-white mb-6">
-              RIGHTS BEFORE REACH™
+              RIGHTS BEFORE REACH
             </h2>
             <p className="text-base md:text-lg text-gray-300 font-light leading-relaxed mb-6">
               Most storytelling efforts fail before they begin because institutions rush to publish content without clarifying underlying estate rights, name-image-likeness permissions, or family alignment.
             </p>
             <p className="text-sm text-gray-400 font-light leading-relaxed mb-8">
-              Playmakxrs enforces Rights Before Reach™: we secure clear, verified, consensus-driven chain-of-title with athlete estates and family descendants before a single word is published. This protects your university from legal disputes, ensures ethical compliance, and builds unshakeable goodwill.
+              Playmakxrs enforces Rights Before Reach: we secure clear, verified, consensus-driven chain-of-title with athlete estates and family descendants before a single word is published. This protects your university from legal disputes, ensures ethical compliance, and builds unshakeable goodwill.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-white/10 text-xs text-gray-300">

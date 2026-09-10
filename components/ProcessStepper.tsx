@@ -37,7 +37,7 @@ const steps: Step[] = [
     title: 'Scope & Fee',
     tagline: 'Transparent Deliverables & Governance',
     description: 'Comprehensive agreement outlining the 90–120 day build, tangible deliverables, commercial rights boundaries, and pilot investment.',
-    deliverables: ['Formal Engagement SOW', 'Rights Before Reach™ Charter', 'Fixed Pilot Fee Schedule'],
+    deliverables: ['Formal Engagement SOW', 'Rights Before Reach Charter', 'Fixed Pilot Fee Schedule'],
   },
   {
     number: '05',
@@ -94,7 +94,7 @@ export const ProcessStepper: React.FC = () => {
             </h3>
           </div>
           <span className="text-xs font-mono uppercase bg-white/5 border border-white/10 px-3 py-1.5 rounded-sm text-gray-300">
-            INI™ Implementation Phase
+            INI Implementation Phase
           </span>
         </div>
 

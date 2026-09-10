@@ -21,7 +21,7 @@ export const Footer: React.FC = () => {
               </span>
             </Link>
             <p className="text-gray-300 font-serif-heading italic text-lg leading-snug">
-              &ldquo;The family is the source. The institution is the platform. Playmakxrs™ is the bridge.&rdquo;
+              &ldquo;The family is the source. The institution is the platform. Playmakxrs is the bridge.&rdquo;
             </p>
             <p className="text-sm leading-relaxed text-gray-400 max-w-sm">
               Helping athletic departments, legacy families, and sports brands recover, verify, protect, package, and activate overlooked sports narrative capital.
@@ -30,7 +30,7 @@ export const Footer: React.FC = () => {
             {/* Newsletter Subscription */}
             <div className="pt-2">
               <span className="block text-xs uppercase tracking-widest text-white font-heading mb-3">
-                Stay Informed on Narrative Capital™
+                Stay Informed on Narrative Capital
               </span>
               <form onSubmit={(e) => e.preventDefault()} className="flex max-w-md">
                 <input
@@ -101,9 +101,9 @@ export const Footer: React.FC = () => {
                 contact@playmakxrs.com
               </p>
               <div className="pt-4 border-t border-white/10 text-xs text-gray-500 space-y-1">
-                <p>Rights Before Reach™ Framework</p>
-                <p>Narrative Capital™ Architecture</p>
-                <p>Institutional Narrative Infrastructure (INI™)</p>
+                <p>Rights Before Reach Framework</p>
+                <p>Narrative Capital Architecture</p>
+                <p>Institutional Narrative Infrastructure (INI)</p>
               </div>
             </div>
           </div>
