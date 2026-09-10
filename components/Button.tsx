@@ -27,6 +27,21 @@ export const Button: React.FC<ButtonProps> = ({
   const combinedClasses = `${baseStyles} ${variants[variant]} ${className}`;
 
   if (href) {
+    // Absolute URLs leave the site, so they need a plain anchor that opens in a
+    // new tab. next/link is for internal routes only.
+    if (/^https?:\/\//.test(href)) {
+      return (
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={combinedClasses}
+        >
+          {children}
+        </a>
+      );
+    }
+
     return (
       <Link href={href} className={combinedClasses}>
         {children}
