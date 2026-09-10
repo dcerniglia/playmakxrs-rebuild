@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Award, BookOpen, Film, Radio, FileText, CheckCircle2, XCircle } from 'lucide-react';
+import { Award, BookOpen, Film, FileText, XCircle, ArrowRight, ArrowUpRight } from 'lucide-react';
 import { Button } from '@/components/Button';
 import { Card } from '@/components/Card';
 import { SectionHeading } from '@/components/SectionHeading';
@@ -103,41 +103,68 @@ export default function AboutPage() {
           />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <Card variant="solid" className="p-8 group hover:border-crimson transition-colors">
-              <div className="w-12 h-12 rounded-sm bg-crimson/10 border border-crimson/30 flex items-center justify-center mb-6 text-crimson group-hover:bg-crimson group-hover:text-white transition-colors">
-                <BookOpen className="w-6 h-6" />
-              </div>
-              <span className="text-[10px] font-mono uppercase text-crimson block mb-1">National Release</span>
-              <h4 className="text-xl font-heading text-white mb-2">The Published Book</h4>
-              <p className="text-xs text-gray-400 font-light leading-relaxed mb-4">
-                *No Grier, No Game* became an Amazon Best Seller, providing the authoritative biographical account of the 1956 Sugar Bowl.
-              </p>
-              <span className="text-xs font-heading text-crimson uppercase tracking-wider">Available on Amazon & B&N</span>
-            </Card>
+            <Link href="#the-book" className="block group h-full">
+              <Card variant="solid" className="p-8 h-full group-hover:border-crimson transition-colors cursor-pointer">
+                <div className="w-12 h-12 rounded-sm bg-crimson/10 border border-crimson/30 flex items-center justify-center mb-6 text-crimson group-hover:bg-crimson group-hover:text-white transition-colors">
+                  <BookOpen className="w-6 h-6" />
+                </div>
+                <span className="text-[10px] font-mono uppercase text-crimson block mb-1">National Release</span>
+                <h4 className="text-xl font-heading text-white mb-2">The Published Book</h4>
+                <p className="text-xs text-gray-400 font-light leading-relaxed mb-4">
+                  <em>No Grier, No Game</em> became an Amazon Best Seller, providing the authoritative biographical account of the 1956 Sugar Bowl.
+                </p>
+                <span className="inline-flex items-center text-xs font-heading text-crimson uppercase tracking-wider group-hover:text-white transition-colors">
+                  Order the Book
+                  <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+                </span>
+              </Card>
+            </Link>
 
-            <Card variant="solid" className="p-8 group hover:border-crimson transition-colors">
-              <div className="w-12 h-12 rounded-sm bg-white/5 border border-white/10 flex items-center justify-center mb-6 text-white group-hover:border-crimson group-hover:text-crimson transition-colors">
-                <Film className="w-6 h-6" />
-              </div>
-              <span className="text-[10px] font-mono uppercase text-gray-400 block mb-1">Broadcast Media</span>
-              <h4 className="text-xl font-heading text-white mb-2">Television Profile</h4>
-              <p className="text-xs text-gray-400 font-light leading-relaxed mb-4">
-                Fox 5 Atlanta investigative broadcast spotlighting the civil rights courage of Bobby Grier and teammates.
-              </p>
-              <span className="text-xs font-heading text-white uppercase tracking-wider">National Syndication</span>
-            </Card>
+            <a
+              href="https://www.youtube.com/watch?v=rqKf4Es0uOU"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block group h-full"
+            >
+              <Card variant="solid" className="p-8 h-full group-hover:border-crimson transition-colors cursor-pointer">
+                <div className="w-12 h-12 rounded-sm bg-white/5 border border-white/10 flex items-center justify-center mb-6 text-white group-hover:border-crimson group-hover:text-crimson transition-colors">
+                  <Film className="w-6 h-6" />
+                </div>
+                <span className="text-[10px] font-mono uppercase text-gray-400 block mb-1">Broadcast Media</span>
+                <h4 className="text-xl font-heading text-white mb-2">Television Profile</h4>
+                <p className="text-xs text-gray-400 font-light leading-relaxed mb-4">
+                  Fox 5 Atlanta investigative broadcast spotlighting the civil rights courage of Bobby Grier and teammates.
+                </p>
+                <span className="inline-flex items-center text-xs font-heading text-white uppercase tracking-wider group-hover:text-crimson transition-colors">
+                  Watch on YouTube &middot; 4:28
+                  <ArrowUpRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
+                  <span className="sr-only"> &mdash; video, opens on YouTube in a new tab</span>
+                </span>
+              </Card>
+            </a>
 
-            <Card variant="solid" className="p-8 group hover:border-crimson transition-colors">
-              <div className="w-12 h-12 rounded-sm bg-crimson/10 border border-crimson/30 flex items-center justify-center mb-6 text-crimson group-hover:bg-crimson group-hover:text-white transition-colors">
-                <Award className="w-6 h-6" />
-              </div>
-              <span className="text-[10px] font-mono uppercase text-crimson block mb-1">Institutional Honor</span>
-              <h4 className="text-xl font-heading text-white mb-2">Hall of Fame Enshrinement</h4>
-              <p className="text-xs text-gray-400 font-light leading-relaxed mb-4">
-                Permanent induction into the University of Pittsburgh Athletics Hall of Fame with full honors.
-              </p>
-              <span className="text-xs font-heading text-crimson uppercase tracking-wider">Permanent Campus Installation</span>
-            </Card>
+            <a
+              href="https://pittsburghpanthers.com/honors/pitt-athletics-hall-of-fame/bobby-grier/44"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block group h-full"
+            >
+              <Card variant="solid" className="p-8 h-full group-hover:border-crimson transition-colors cursor-pointer">
+                <div className="w-12 h-12 rounded-sm bg-crimson/10 border border-crimson/30 flex items-center justify-center mb-6 text-crimson group-hover:bg-crimson group-hover:text-white transition-colors">
+                  <Award className="w-6 h-6" />
+                </div>
+                <span className="text-[10px] font-mono uppercase text-crimson block mb-1">Institutional Honor</span>
+                <h4 className="text-xl font-heading text-white mb-2">Hall of Fame Enshrinement</h4>
+                <p className="text-xs text-gray-400 font-light leading-relaxed mb-4">
+                  Permanent induction into the University of Pittsburgh Athletics Hall of Fame with full honors.
+                </p>
+                <span className="inline-flex items-center text-xs font-heading text-crimson uppercase tracking-wider group-hover:text-white transition-colors">
+                  View Hall of Fame Profile
+                  <ArrowUpRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
+                  <span className="sr-only"> &mdash; opens pittsburghpanthers.com in a new tab</span>
+                </span>
+              </Card>
+            </a>
 
             <Card variant="solid" className="p-8 group hover:border-crimson transition-colors">
               <div className="w-12 h-12 rounded-sm bg-white/5 border border-white/10 flex items-center justify-center mb-6 text-white group-hover:border-crimson group-hover:text-crimson transition-colors">
@@ -154,7 +181,61 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 4. WHAT WE ARE NOT */}
+      {/* 4. THE BOOK */}
+      <section
+        id="the-book"
+        className="scroll-mt-28 py-24 px-6 md:px-8 bg-gradient-to-b from-deep-navy via-true-black to-true-black border-b border-white/10"
+      >
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          {/* Cover */}
+          <div className="lg:col-span-5 flex justify-center">
+            <img
+              src="/assets/book-cover.jpg"
+              alt="Front cover of the hardcover book No Grier, No Game by Rob and Camille Grier"
+              width={768}
+              height={1151}
+              loading="lazy"
+              decoding="async"
+              className="w-full max-w-sm h-auto rounded-sm shadow-2xl border border-white/10"
+            />
+          </div>
+
+          {/* Detail */}
+          <div className="lg:col-span-7 space-y-6">
+            <span className="text-xs font-mono uppercase tracking-wider text-crimson">
+              Available Now
+            </span>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white">
+              No Grier, No Game
+            </h2>
+            <p className="font-serif-heading italic text-lg md:text-xl text-gold leading-snug">
+              How Bobby Grier and the Sugar Bowl Showdown Changed American Sports History
+            </p>
+            <p className="text-sm md:text-base text-gray-300 font-light leading-relaxed">
+              The authoritative account of the 1956 Sugar Bowl, written with the historical integrity the moment deserves. An Amazon Best Seller, and the foundation from which the rest of the Bobby Grier record was rebuilt.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 pt-2">
+              <Button
+                href="https://www.amazon.com/No-Grier-Game-Showdown-American/dp/196937246X/ref=tmm_hrd_swatch_0"
+                variant="primary"
+              >
+                Order on Amazon
+              </Button>
+              <Button
+                href="https://www.barnesandnoble.com/w/no-grier-no-game-rob-grier/1148515839"
+                variant="outline"
+              >
+                Barnes &amp; Noble
+              </Button>
+            </div>
+            <p className="text-xs text-gray-500 font-light pt-2">
+              Hardcover. Also available through university programs and institutional events.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. WHAT WE ARE NOT */}
       <section className="py-24 px-6 md:px-8 bg-true-black border-b border-white/10">
         <div className="max-w-6xl mx-auto">
           <SectionHeading
@@ -227,7 +308,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 5. CALL TO ACTION */}
+      {/* 6. CALL TO ACTION */}
       <section className="py-20 px-6 md:px-8 bg-crimson text-white text-center">
         <div className="max-w-4xl mx-auto space-y-6">
           <h2 className="text-3xl md:text-5xl font-heading font-bold uppercase text-white">
