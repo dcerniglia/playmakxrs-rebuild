@@ -113,9 +113,15 @@ export const Footer: React.FC = () => {
         <div className="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between text-xs text-gray-500">
           <p>© {new Date().getFullYear()} Playmakxrs Global™. All rights reserved.</p>
           <div className="flex items-center space-x-6 mt-4 md:mt-0">
-            <span>Privacy Policy</span>
-            <span>Terms of Engagement</span>
-            <span>Rights Governance</span>
+            <Link href="/privacy" className="hover:text-white transition-colors">
+              Privacy Policy
+            </Link>
+            <Link href="/terms" className="hover:text-white transition-colors">
+              Terms of Engagement
+            </Link>
+            <Link href="/rights-governance" className="hover:text-white transition-colors">
+              Rights Governance
+            </Link>
           </div>
         </div>
       </div>
