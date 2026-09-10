@@ -14,6 +14,7 @@ export default {
         'card-dark': '#141C3A',
         'crimson': '#E53935',
         'gold': '#D4AF37',
+        'gold-dark': '#B8860B',
         'pure-white': '#FFFFFF',
         'charcoal': '#1E1E1E',
       },
