@@ -113,6 +113,8 @@ The book sits on `/collection#the-book`, not on `/about` and **not on a page of 
 
 Both are carried over from playmakxrs.com. Neither has a staging equivalent, so both point at the live services.
 
+- **Netlify Forms** (`/contact` pilot application): matches how production handles its contact form. Netlify detects forms by scanning **static HTML at deploy time** and cannot see a JSX-only form, so the schema is declared in `public/__forms.html` and the React form POSTs there via `fetch`. **The field names in both files must stay in sync**, as must the form name (`pilot-application`, a constant in `app/contact/page.tsx`) — rename in both places to merge submissions into an existing Netlify form.
+  > This only works on Netlify. On Vercel the POST fails and the form shows an error rather than a false success — that is intended behavior, not a bug to "fix" before handoff.
 - **Mailchimp** (footer newsletter): the form POSTs directly to the list endpoint with `target="_blank"`, the way production does — there is no API route and no client-side handler. The action URL and the list-specific honeypot field name are constants at the top of `components/Footer.tsx` and **must stay in sync with each other**; the honeypot name encodes the same user and list IDs as the action.
 - **Shopify** (`/collection`): the storefront lives at `https://playmakxrs.myshopify.com` and the page hands off to it. The store's own navigation points back to playmakxrs.com, so the round trip resolves once this site is promoted.
 
@@ -128,11 +130,9 @@ Target behavior once GSAP is wired up — none of this is implemented yet:
 Today's motion is CSS only: `html { scroll-behavior: smooth }` plus Tailwind hover transitions.
 
 ## Known gaps
-- **`font-heading` is not a defined Tailwind class.** It is used ~50 times across the site but absent from `tailwind.config.js`, so it silently does nothing. Headings still get Oswald from the global `h1`–`h6` rule, but `<span className="font-heading">` falls back to Inter. Keep using the class for consistency; adding `heading: ['var(--font-oswald)', ...]` to the config fixes every occurrence at once.
-- **`rounded-xs` is likewise undefined** in Tailwind 3.4 (it is a v4 addition). Two occurrences in `app/about/page.tsx`.
-- **`#pathways`, `#process`, and `#capabilities` lack `scroll-mt-28`** and scroll under the fixed navbar. `#the-book` and the legal sections are correct.
-- **`Navbar` and `Footer` set `focus:outline-none`** with no `focus-visible:` replacement — a WCAG 2.4.7 failure. Do not copy that pattern into new interactive elements.
 - The home page carries **duplicate inert proof tiles** (`app/page.tsx`) mirroring the About cards, and still has unprocessed markdown asterisks around the book title.
+- **GSAP and embla are installed but unused.** Left in place deliberately until the content work finishes, at which point we will know whether they are needed.
+- Every interactive element uses `focus:outline-none` paired with a `focus-visible:ring-*` replacement. Keep both together — never strip the outline without one.
 
 ## Backlog
 Agreed order of work — content reinstatement first, then polish:
@@ -140,11 +140,13 @@ Agreed order of work — content reinstatement first, then polish:
 1. ~~Book + proof content on `/about`~~ (done)
 2. ~~Mailchimp newsletter wiring~~ (done)
 3. ~~`/collection` page pointing at Shopify~~ (done)
-4. Press coverage links (History, ESPN, Georgia Tech, ABC, KDKA) — no home on the site yet
-5. Social links (Facebook, TikTok, Instagram) — production has them, this footer does not
-6. The Indigo retailer link, alongside Amazon and B&N
-7. Home-page duplicate proof tiles — still inert, still carry raw markdown asterisks
-8. `font-heading` / `rounded-xs` undefined classes, and the missing anchor offsets
+4. ~~Contact form wired to Netlify Forms~~ (done)
+5. ~~Code health: `font-heading`, `rounded-xs`, anchor offsets, focus rings, build deps~~ (done)
+6. Press coverage links (History, ESPN, Georgia Tech, ABC, KDKA) — no home on the site yet
+7. Social links (Facebook, TikTok, Instagram) — production has them, this footer does not
+8. The Indigo retailer link, alongside Amazon and B&N
+9. Families page merch grid dead-ends — the natural place to link `/collection`
+10. Home-page duplicate proof tiles — still inert, still carry raw markdown asterisks
 
 ## Deployment
 
