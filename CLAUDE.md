@@ -105,10 +105,17 @@ Confirmed against live playmakxrs.com HTML and cross-checked against the scrape.
 | Barnes & Noble | `https://www.barnesandnoble.com/w/no-grier-no-game-rob-grier/1148515839` |
 | Fox 5 Atlanta interview (YouTube, 4:28) | `https://www.youtube.com/watch?v=rqKf4Es0uOU` |
 | Pitt Athletics Hall of Fame | `https://pittsburghpanthers.com/honors/pitt-athletics-hall-of-fame/bobby-grier/44` |
+| Facebook | `https://www.facebook.com/Playmakxrsglobal` |
+| Instagram | `https://www.instagram.com/playmakxrs` |
+| TikTok | `https://www.tiktok.com/@playmakxrs` |
+
+The three social URLs are the **canonical forms**, deliberately not the ones production uses: production links to a Facebook share shortlink (`/share/1CQrJStefx/?mibextid=…`) that merely redirects here, an Instagram URL carrying QR-scan tracking params, and TikTok over plain `http`. All three were verified to resolve to these.
 
 The book is **No Grier, No Game** — *How Bobby Grier and the Sugar Bowl Showdown Changed American Sports History*, by **Rob and Camille Grier** (the B&N slug says only `rob-grier`; the cover credits both). Cover art lives at `public/assets/book-cover.jpg`.
 
-**Not yet used on the new site:** press links (History.com, ESPN, Georgia Tech Alumni, ABC/WGNO, KDKA/CBS), the Indigo retailer link, and the Facebook/TikTok/Instagram socials — all present in production, all recorded in `website_text_content.md`.
+**Not yet used on the new site:** press links (History.com, ESPN, Georgia Tech Alumni, ABC/WGNO, KDKA/CBS) — present in production, recorded in `website_text_content.md`.
+
+> **The Indigo retailer link is dead.** `indigo.ca/fr-ca/no-grier-no-game-…/1e510e0e-….html`, recorded in the scrape, now returns a genuine 404 in both `fr-ca` and `en-ca` (indigo.ca itself responds 200, and an on-site search finds no listing), so the book appears to have been delisted. It is deliberately **not** linked here. Re-check with the client before adding a third retailer.
 
 ### Where the book lives
 The book sits on `/collection#the-book`, not on `/about` and **not on a page of its own** — a dedicated `/the-book` route was considered and explicitly ruled out, since the rebuild's mandate is fewer pages. `/about` references it through the "One Story, Many Assets" grid, which links cross-page. Retail links (Amazon, B&N) appear in exactly one place; keep it that way.
@@ -145,8 +152,8 @@ Agreed order of work — content reinstatement first, then polish:
 4. ~~Contact form wired to Netlify Forms~~ (done)
 5. ~~Code health: `font-heading`, `rounded-xs`, anchor offsets, focus rings, build deps~~ (done)
 6. Press coverage links (History, ESPN, Georgia Tech, ABC, KDKA) — no home on the site yet
-7. Social links (Facebook, TikTok, Instagram) — production has them, this footer does not
-8. The Indigo retailer link, alongside Amazon and B&N
+~~7. Social links in the footer~~ (done)
+8. ~~Indigo retailer link~~ — **dropped: the product page 404s.** Needs a live URL from the client before it can be added
 9. Families page merch grid dead-ends — the natural place to link `/collection`
 ~~10. Home-page proof tiles wired + asterisks fixed~~ (done)
 
