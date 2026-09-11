@@ -6,17 +6,46 @@ import { Button } from '@/components/Button';
 import { Card } from '@/components/Card';
 import { SectionHeading } from '@/components/SectionHeading';
 
+/**
+ * Netlify form name. The schema is mirrored in public/__forms.html, which is
+ * what Netlify's build bot scans — a JSX-only form is invisible to it. Both
+ * must change together. Rename here and there to merge submissions into an
+ * existing Netlify form.
+ */
+const FORM_NAME = 'pilot-application';
+
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
+    setError(null);
+
+    try {
+      const body = new URLSearchParams(
+        Array.from(new FormData(e.currentTarget), ([k, v]) => [k, String(v)]),
+      ).toString();
+
+      // Netlify accepts submissions posted to the static form definition.
+      const res = await fetch('/__forms.html', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body,
+      });
+
+      if (!res.ok) throw new Error(`Submission failed (${res.status})`);
       setSubmitted(true);
-    }, 800);
+    } catch {
+      // Never show a success state for a submission that did not land.
+      setError(
+        'We could not send your inquiry. Please try again, or email contact@playmakxrs.com directly.',
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -146,7 +175,22 @@ export default function ContactPage() {
                     </button>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-8">
+                  <form
+                    name={FORM_NAME}
+                    method="POST"
+                    data-netlify="true"
+                    data-netlify-honeypot="bot-field"
+                    onSubmit={handleSubmit}
+                    className="space-y-8"
+                  >
+                    <input type="hidden" name="form-name" value={FORM_NAME} />
+                    {/* Bot trap: a real applicant never fills this in. */}
+                    <p className="hidden" aria-hidden="true">
+                      <label>
+                        Do not fill this out
+                        <input name="bot-field" tabIndex={-1} autoComplete="off" />
+                      </label>
+                    </p>
                     <div>
                       <h3 className="text-2xl font-heading text-white mb-2">
                         Apply For Pilot Program / General Inquiry
@@ -163,49 +207,57 @@ export default function ContactPage() {
                       </span>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-xs uppercase font-heading text-gray-300 mb-1.5">
+                          <label htmlFor="firstName" className="block text-xs uppercase font-heading text-gray-300 mb-1.5">
                             First Name *
                           </label>
                           <input
                             type="text"
                             required
+                            id="firstName"
+                            name="firstName"
                             placeholder="e.g. Marcus"
-                            className="w-full bg-true-black/60 border border-white/15 rounded-sm px-4 py-3 text-sm text-white focus:outline-none focus:border-crimson transition-colors"
+                            className="w-full bg-true-black/60 border border-white/15 rounded-sm px-4 py-3 text-sm text-white focus:outline-none focus:border-crimson focus-visible:ring-2 focus-visible:ring-crimson/70 transition-colors"
                           />
                         </div>
                         <div>
-                          <label className="block text-xs uppercase font-heading text-gray-300 mb-1.5">
+                          <label htmlFor="lastName" className="block text-xs uppercase font-heading text-gray-300 mb-1.5">
                             Last Name *
                           </label>
                           <input
                             type="text"
                             required
+                            id="lastName"
+                            name="lastName"
                             placeholder="e.g. Thorne"
-                            className="w-full bg-true-black/60 border border-white/15 rounded-sm px-4 py-3 text-sm text-white focus:outline-none focus:border-crimson transition-colors"
+                            className="w-full bg-true-black/60 border border-white/15 rounded-sm px-4 py-3 text-sm text-white focus:outline-none focus:border-crimson focus-visible:ring-2 focus-visible:ring-crimson/70 transition-colors"
                           />
                         </div>
                       </div>
 
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-xs uppercase font-heading text-gray-300 mb-1.5">
+                          <label htmlFor="email" className="block text-xs uppercase font-heading text-gray-300 mb-1.5">
                             Official Email *
                           </label>
                           <input
                             type="email"
                             required
+                            id="email"
+                            name="email"
                             placeholder="name@university.edu"
-                            className="w-full bg-true-black/60 border border-white/15 rounded-sm px-4 py-3 text-sm text-white focus:outline-none focus:border-crimson transition-colors"
+                            className="w-full bg-true-black/60 border border-white/15 rounded-sm px-4 py-3 text-sm text-white focus:outline-none focus:border-crimson focus-visible:ring-2 focus-visible:ring-crimson/70 transition-colors"
                           />
                         </div>
                         <div>
-                          <label className="block text-xs uppercase font-heading text-gray-300 mb-1.5">
+                          <label htmlFor="role" className="block text-xs uppercase font-heading text-gray-300 mb-1.5">
                             Title / Role
                           </label>
                           <input
                             type="text"
+                            id="role"
+                            name="role"
                             placeholder="e.g. Senior Associate AD / Estate Trustee"
-                            className="w-full bg-true-black/60 border border-white/15 rounded-sm px-4 py-3 text-sm text-white focus:outline-none focus:border-crimson transition-colors"
+                            className="w-full bg-true-black/60 border border-white/15 rounded-sm px-4 py-3 text-sm text-white focus:outline-none focus:border-crimson focus-visible:ring-2 focus-visible:ring-crimson/70 transition-colors"
                           />
                         </div>
                       </div>
@@ -218,23 +270,27 @@ export default function ContactPage() {
                       </span>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-xs uppercase font-heading text-gray-300 mb-1.5">
+                          <label htmlFor="organization" className="block text-xs uppercase font-heading text-gray-300 mb-1.5">
                             Organization / University Name *
                           </label>
                           <input
                             type="text"
                             required
+                            id="organization"
+                            name="organization"
                             placeholder="e.g. University of Pittsburgh Athletics"
-                            className="w-full bg-true-black/60 border border-white/15 rounded-sm px-4 py-3 text-sm text-white focus:outline-none focus:border-crimson transition-colors"
+                            className="w-full bg-true-black/60 border border-white/15 rounded-sm px-4 py-3 text-sm text-white focus:outline-none focus:border-crimson focus-visible:ring-2 focus-visible:ring-crimson/70 transition-colors"
                           />
                         </div>
                         <div>
-                          <label className="block text-xs uppercase font-heading text-gray-300 mb-1.5">
+                          <label htmlFor="inquirerType" className="block text-xs uppercase font-heading text-gray-300 mb-1.5">
                             I am reaching out as: *
                           </label>
                           <select
+                            id="inquirerType"
+                            name="inquirerType"
                             required
-                            className="w-full bg-true-black/80 border border-white/15 rounded-sm px-4 py-3 text-sm text-white focus:outline-none focus:border-crimson transition-colors"
+                            className="w-full bg-true-black/80 border border-white/15 rounded-sm px-4 py-3 text-sm text-white focus:outline-none focus:border-crimson focus-visible:ring-2 focus-visible:ring-crimson/70 transition-colors"
                           >
                             <option value="university">University Athletic Department</option>
                             <option value="family">Family Estate / Athlete Descendant</option>
@@ -252,11 +308,13 @@ export default function ContactPage() {
                         3. Strategic Intent
                       </span>
                       <div>
-                        <label className="block text-xs uppercase font-heading text-gray-300 mb-1.5">
+                        <label htmlFor="objective" className="block text-xs uppercase font-heading text-gray-300 mb-1.5">
                           Primary Objective:
                         </label>
                         <select
-                          className="w-full bg-true-black/80 border border-white/15 rounded-sm px-4 py-3 text-sm text-white focus:outline-none focus:border-crimson transition-colors"
+                          id="objective"
+                          name="objective"
+                          className="w-full bg-true-black/80 border border-white/15 rounded-sm px-4 py-3 text-sm text-white focus:outline-none focus:border-crimson focus-visible:ring-2 focus-visible:ring-crimson/70 transition-colors"
                         >
                           <option value="pilot">90–120 Day INI Pilot Program</option>
                           <option value="rights">Archival Recovery & Rights Verification</option>
@@ -267,16 +325,27 @@ export default function ContactPage() {
                       </div>
 
                       <div>
-                        <label className="block text-xs uppercase font-heading text-gray-300 mb-1.5">
+                        <label htmlFor="overview" className="block text-xs uppercase font-heading text-gray-300 mb-1.5">
                           Brief Overview of Stories or Archives to Recover:
                         </label>
                         <textarea
+                          id="overview"
+                          name="overview"
                           rows={4}
                           placeholder="Tell us about the athlete, milestone, or archival heritage you wish to explore..."
-                          className="w-full bg-true-black/60 border border-white/15 rounded-sm px-4 py-3 text-sm text-white focus:outline-none focus:border-crimson transition-colors resize-none"
+                          className="w-full bg-true-black/60 border border-white/15 rounded-sm px-4 py-3 text-sm text-white focus:outline-none focus:border-crimson focus-visible:ring-2 focus-visible:ring-crimson/70 transition-colors resize-none"
                         />
                       </div>
                     </div>
+
+                    {error && (
+                      <p
+                        role="alert"
+                        className="text-sm text-crimson bg-crimson/10 border border-crimson/40 rounded-sm px-4 py-3 font-light"
+                      >
+                        {error}
+                      </p>
+                    )}
 
                     {/* Submit Button */}
                     <button
