@@ -178,7 +178,7 @@ export default function PartnersPage() {
       </section>
 
       {/* 4. MEDIA CAPABILITIES SHOWCASE */}
-      <section id="capabilities" className="py-24 px-6 md:px-8 bg-true-black border-b border-white/10">
+      <section id="capabilities" className="scroll-mt-28 py-24 px-6 md:px-8 bg-true-black border-b border-white/10">
         <div className="max-w-7xl mx-auto">
           <SectionHeading
             category="Content Capabilities"

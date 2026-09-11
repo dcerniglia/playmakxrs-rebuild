@@ -19,6 +19,9 @@ export default {
         'charcoal': '#1E1E1E',
       },
       fontFamily: {
+        // `font-heading` is used across every page; without this it silently
+        // fell back to the body font on any non-heading element.
+        heading: ['var(--font-oswald)', 'Oswald', 'sans-serif'],
         oswald: ['var(--font-oswald)', 'Oswald', 'sans-serif'],
         inter: ['var(--font-inter)', 'Inter', 'sans-serif'],
         playfair: ['var(--font-playfair)', 'Playfair Display', 'serif'],

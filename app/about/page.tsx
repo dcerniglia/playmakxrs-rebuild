@@ -66,11 +66,11 @@ export default function AboutPage() {
 
           {/* Historical Archival Photograph: Bobby Grier (#38) */}
           <figure className="my-12 bg-card-dark border border-white/10 p-4 md:p-6 rounded-sm shadow-2xl max-w-lg mx-auto">
-            <div className="relative overflow-hidden rounded-xs bg-black/40 flex justify-center">
+            <div className="relative overflow-hidden rounded-sm bg-black/40 flex justify-center">
               <img
                 src="/assets/hero_about.png"
                 alt="Bobby Grier (#38) running with football - University of Pittsburgh archival photo"
-                className="w-full max-w-md h-auto object-contain rounded-xs filter contrast-105"
+                className="w-full max-w-md h-auto object-contain rounded-sm filter contrast-105"
               />
             </div>
             <figcaption className="mt-4 pt-3 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-400 font-mono gap-1">

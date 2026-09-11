@@ -36,7 +36,7 @@ export const FAQAccordion: React.FC<FAQAccordionProps> = ({ items, className = '
           >
             <button
               onClick={() => toggleIndex(index)}
-              className="w-full text-left py-5 px-6 flex items-center justify-between gap-4 focus:outline-none"
+              className="w-full text-left py-5 px-6 flex items-center justify-between gap-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-crimson focus-visible:ring-offset-2 focus-visible:ring-offset-true-black"
               aria-expanded={isOpen}
             >
               <span className="text-lg md:text-xl font-heading text-white tracking-wide">

@@ -53,7 +53,7 @@ export default function HomePage() {
       </section>
 
       {/* 2. CHOOSE YOUR PATHWAY (THE THREE LANES) */}
-      <section id="pathways" className="py-24 px-6 md:px-8 bg-deep-navy border-b border-white/10">
+      <section id="pathways" className="scroll-mt-28 py-24 px-6 md:px-8 bg-deep-navy border-b border-white/10">
         <div className="max-w-7xl mx-auto">
           <SectionHeading
             category="Strategic Alignment"

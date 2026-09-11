@@ -111,7 +111,7 @@ export default function InstitutionsPage() {
       </section>
 
       {/* 5-Step Process Stepper */}
-      <section id="process" className="py-24 px-6 md:px-8 bg-deep-navy border-b border-white/10">
+      <section id="process" className="scroll-mt-28 py-24 px-6 md:px-8 bg-deep-navy border-b border-white/10">
         <div className="max-w-7xl mx-auto">
           <SectionHeading
             category="Engagement Architecture"

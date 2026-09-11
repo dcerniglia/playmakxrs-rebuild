@@ -66,7 +66,7 @@ export const Footer: React.FC = () => {
                   required
                   autoComplete="email"
                   placeholder="Enter institutional or estate email"
-                  className="bg-white/5 border border-white/15 text-white px-4 py-2.5 text-sm rounded-l-sm focus:outline-none focus:border-crimson flex-grow placeholder:text-gray-500"
+                  className="bg-white/5 border border-white/15 text-white px-4 py-2.5 text-sm rounded-l-sm focus:outline-none focus:border-crimson focus-visible:ring-2 focus-visible:ring-crimson/70 flex-grow placeholder:text-gray-500"
                 />
                 <button
                   type="submit"
@@ -165,7 +165,7 @@ export const Footer: React.FC = () => {
       {/* Floating Back to Top Button */}
       <button
         onClick={scrollToTop}
-        className="fixed bottom-6 right-6 z-40 bg-crimson hover:bg-red-700 text-white p-3 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 active:scale-95 focus:outline-none"
+        className="fixed bottom-6 right-6 z-40 bg-crimson hover:bg-red-700 text-white p-3 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-crimson focus-visible:ring-offset-2 focus-visible:ring-offset-true-black"
         aria-label="Scroll back to top"
       >
         <ChevronUp className="w-5 h-5" />
