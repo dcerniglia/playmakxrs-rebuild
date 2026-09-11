@@ -3,14 +3,16 @@
 ## Project Overview
 This project is a complete rebuild of the Playmakxrs website. The core objective is to simplify the user journey into three distinct lanes (Institutions, Families, Sponsors) and adopt a premium, "sports-first" aesthetic.
 
-**Core Mantra:** "The family is the source. The institution is the platform. Playmakxrs™ is the bridge."
+**Core Mantra:** "The family is the source. The institution is the platform. Playmakxrs is the bridge."
 
 ## Technology Stack
-- **Framework:** Next.js (App Router)
-- **UI Library:** React
-- **Styling:** Tailwind CSS (utility-first, custom design system)
-- **Animations:** GSAP (GreenSock) for high-performance scroll triggers, parallax, and staggered reveals.
-- **Carousels:** `embla-carousel-react` for smooth, touch-friendly sliders.
+- **Framework:** Next.js 16 (App Router), React 19, TypeScript.
+- **Styling:** Tailwind CSS 3.4 (utility-first, custom design system).
+- **Icons:** `lucide-react`.
+- **Animations:** GSAP (GreenSock) — **installed but not yet wired up.** No component imports it today; the guidance below is the target, not a description of the current code.
+- **Carousels:** `embla-carousel-react` — **installed but not yet used.**
+
+`puppeteer` and `pdf-lib` are build-time tooling only (`capture.js`, `docs/generate_pdf.js`), not runtime dependencies of the site.
 
 ## Design System (Tailwind Config)
 When building components, strictly adhere to this custom color and typography palette:
@@ -18,38 +20,96 @@ When building components, strictly adhere to this custom color and typography pa
 - **Colors:**
   - `bg-true-black` (#000000): Primary background for heroes and high-impact sections.
   - `bg-deep-navy` (#0A1128): Secondary dark background (primarily for B2B/Sponsors).
-  - `bg-light-gray` (#F9F9F9): For alternating light content sections.
-  - `bg-card-dark` (#141C3A): For dark mode glassmorphism/cards.
+  - `bg-light-gray` (#F9F9F9): For alternating light content sections. *Defined but unused — the site is dark throughout.*
+  - `bg-card-dark` (#141C3A): For dark mode glassmorphism/cards. Also what `Card variant="solid"` renders, so never use it as a section background behind cards — they vanish.
   - `text-crimson` / `bg-crimson` (#E53935): Primary brand accent for buttons, active states, and data visualization.
   - `text-gold` (#D4AF37): Secondary accent used sparingly on legacy/family pages.
+  - `text-gold-dark` (#B8860B): Darker companion to gold, for two-tone legacy treatments.
 
 - **Typography:**
-  - **Headings:** Bold, condensed sans-serif (e.g., Oswald or Teko). Use `uppercase`.
-  - **Body:** Clean sans-serif (e.g., Inter).
-  - **Legacy Pages:** Sparingly use a refined serif (e.g., Playfair Display) for emotional headers on the Families/About pages.
+  - **Headings:** Oswald, `uppercase`. Applied globally to `h1`–`h6` via `app/globals.css`.
+  - **Body:** Inter.
+  - **Legacy Pages:** Playfair Display via the `.font-serif-heading` class, for emotional headers on the Families/About pages.
 
 - **Aesthetic Vibe:** Premium sports-centric, high contrast, uncluttered, utilizing dramatic lighting and archival photography. Use subtle glassmorphism on cards and dynamic hover states on interactive elements.
 
-## Site Architecture & Routing
-The site uses the Next.js App Router with the following core pages:
+- **Section rhythm:** Sections are `py-24 px-6 md:px-8` + a background + a border, wrapping `max-w-7xl mx-auto` (or `max-w-6xl`/`max-w-3xl` for narrower content), with `<SectionHeading>` first. Backgrounds alternate `bg-true-black` / `bg-deep-navy`; use `bg-gradient-to-b` to bridge between them.
 
+## Site Architecture & Routing
+
+**Core pages:**
 1. `/` (Home): Hub routing users to the three lanes, featuring the new sports-first mantra.
 2. `/institutions` (For Institutions): Focused on Athletic Departments and Universities.
 3. `/families` (For Families & Athletes): Focused on legacy protection, books, and merchandise.
 4. `/partners` (For Sponsors & Media): B2B focus with data-viz elements.
-5. `/about` (The Bobby Grier Story): Long-form editorial case study.
+5. `/about` (The Bobby Grier Story): Long-form editorial case study. Contains the `#the-book` subsection.
 6. `/contact` (Pilot Program): Branched intake form with robust UI.
+
+**Legal pages** (linked from the footer, built on the shared `LegalPage` component):
+7. `/privacy` (Privacy Policy)
+8. `/terms` (Terms of Engagement)
+9. `/rights-governance` (Rights Governance — the Rights Before Reach standard)
+
+> The legal pages are **standard boilerplate that has not been reviewed by counsel.** `LEGAL_JURISDICTION` in `components/LegalPage.tsx` still renders literally as `[Governing State]`. Shared values (entity, contact, effective date, jurisdiction) are exported constants there — edit them in one place, not per page.
+
+## Components
+`Button`, `Card`, `FAQAccordion`, `Footer`, `LegalPage`, `MetricCard`, `Navbar`, `ProcessStepper`, `SectionHeading`.
+
+- `Card` takes only `variant | className | children`. It has no `href` and spreads no props — to make a card clickable, wrap it in a `<Link>`/`<a>`, move `group` onto the wrapper, and add `h-full` to the Card so grid rows stay flush.
+- `SectionHeading` has no `id` prop — anchors go on the `<section>`.
+- Client components (`'use client'`): `Navbar`, `Footer`, `FAQAccordion`, `ProcessStepper`, and `app/contact/page.tsx`. Everything else is a server component.
+
+## Conventions
+
+- **Trademark symbol:** ™ belongs on the primary Playmakxrs wordmark only — the navbar logo, footer logo, and copyright line. Keep it out of running text. Sub-brands (Rights Before Reach, Narrative Capital, INI, Sponsor-Safe Meaning, No Grier No Game) carry no mark in body copy.
+- **External links:** pass an absolute URL to `Button` and it renders an `<a>` with `target="_blank" rel="noopener noreferrer"` automatically; internal hrefs still route through `next/link`. For a hand-rolled external anchor, set both attributes yourself.
+- **External-link accessibility:** append the destination with `<span className="sr-only">` rather than setting `aria-label` on the wrapper. `aria-label` *replaces* the accessible name and drops the visible text, which breaks voice control (WCAG 2.5.3). Mark the adjacent icon `aria-hidden="true"`.
+- **Anchors:** put `id` and `scroll-mt-28` on the `<section>`. The navbar is fixed at 80px, so without the offset the target scrolls underneath it.
+- **Images:** `next.config.js` sets `images: { unoptimized: true }`, so `next/image` buys nothing — use a plain `<img>` (the house pattern) and hand-optimize the file. Always set `width`/`height` to the real intrinsics to avoid layout shift, plus `loading="lazy" decoding="async"` below the fold.
+- **Markdown does not render in JSX.** Asterisks around a title render literally as asterisks — use `<em>`. Likewise HTML entities decode in JSX text and attributes but **not** inside JS string literals, so `'family&rsquo;s'` inside an array renders the raw entity; use the literal character there.
 
 ## Local Assets & References
 Before writing code or generating copy, refer to the `./assets` directory in the project root:
 - **UI Mockups:** High-fidelity images of the intended design (`screenshot_*.png`).
-- **Old Site Structure:** `existing_site_model.md`
+- **Old Site Structure:** `existing_site_model.md` (descriptive only — contains no URLs).
 - **Raw Text Copy:** `website_text_content.md` (Use this raw text and condense/rephrase it to fit the new sleek layouts).
 
+> **Careful:** `website_text_content.md` is a scrape of a Railway *preview* host, not of production. The real production site is **https://playmakxrs.com** (Astro), whose routes are `/`, `/about-us`, `/merchandise`, `/partnership`, `/the-book`, `/updates`, `/contact-us`. When you need a live URL or asset, fetch production and verify — do not invent one, and do not assume the scrape is current.
+
+### Verified production links
+Confirmed against live playmakxrs.com HTML and cross-checked against the scrape. Do not alter these without re-verifying:
+
+| Destination | URL |
+| --- | --- |
+| Amazon (hardcover) | `https://www.amazon.com/No-Grier-Game-Showdown-American/dp/196937246X/ref=tmm_hrd_swatch_0` |
+| Barnes & Noble | `https://www.barnesandnoble.com/w/no-grier-no-game-rob-grier/1148515839` |
+| Fox 5 Atlanta interview (YouTube, 4:28) | `https://www.youtube.com/watch?v=rqKf4Es0uOU` |
+| Pitt Athletics Hall of Fame | `https://pittsburghpanthers.com/honors/pitt-athletics-hall-of-fame/bobby-grier/44` |
+
+The book is **No Grier, No Game** — *How Bobby Grier and the Sugar Bowl Showdown Changed American Sports History*, by **Rob and Camille Grier** (the B&N slug says only `rob-grier`; the cover credits both). Cover art lives at `public/assets/book-cover.jpg`.
+
+**Not yet used on the new site:** press links (History.com, ESPN, Georgia Tech Alumni, ABC/WGNO, KDKA/CBS), the Indigo retailer link, the Shopify store, the Mailchimp newsletter endpoint, and the Facebook/TikTok/Instagram socials — all present in production, all recorded in `website_text_content.md`.
+
 ## Animation Guidelines (GSAP)
+Target behavior once GSAP is wired up — none of this is implemented yet:
 - **Heroes:** Fade in background image (`scale: 1.05` to `1`), stagger the H1, subhead, and CTA button.
 - **Scroll:** Sections should fade in and translate Y as they enter the viewport (`y: 30, opacity: 0`).
 - **Grids:** Use `stagger: 0.1` for cards/logos popping in sequentially.
+
+Today's motion is CSS only: `html { scroll-behavior: smooth }` plus Tailwind hover transitions.
+
+## Known gaps
+- **`font-heading` is not a defined Tailwind class.** It is used ~50 times across the site but absent from `tailwind.config.js`, so it silently does nothing. Headings still get Oswald from the global `h1`–`h6` rule, but `<span className="font-heading">` falls back to Inter. Keep using the class for consistency; adding `heading: ['var(--font-oswald)', ...]` to the config fixes every occurrence at once.
+- **`rounded-xs` is likewise undefined** in Tailwind 3.4 (it is a v4 addition). Two occurrences in `app/about/page.tsx`.
+- **`#pathways`, `#process`, and `#capabilities` lack `scroll-mt-28`** and scroll under the fixed navbar. `#the-book` and the legal sections are correct.
+- **`Navbar` and `Footer` set `focus:outline-none`** with no `focus-visible:` replacement — a WCAG 2.4.7 failure. Do not copy that pattern into new interactive elements.
+- The home page carries **duplicate inert proof tiles** (`app/page.tsx`) mirroring the About cards, and still has unprocessed markdown asterisks around the book title.
+
+## Deployment
+- **Repo:** `riverae/playmakxrs-concept` on GitHub (private).
+- **Host:** Vercel project `playmakxrs-concept` under `riveraes-projects`, Git-connected — pushes to `main` deploy to production automatically, PRs get previews.
+- **Live:** https://playmakxrs-concept.vercel.app — publicly reachable even though the repo is private. Enable Deployment Protection if it should be gated.
+- Verify a build with `npm run build` (expect 9 static routes plus `/_not-found`) before pushing.
 
 <!-- BEGIN:nextjs-agent-rules -->
 
