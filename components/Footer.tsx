@@ -4,6 +4,14 @@ import React from 'react';
 import Link from 'next/link';
 import { ChevronUp, ArrowRight } from 'lucide-react';
 
+/**
+ * Mailchimp list endpoint carried over from playmakxrs.com. The honeypot field
+ * name is list-specific and must stay in sync with the action URL.
+ */
+const MAILCHIMP_ACTION =
+  'https://playmakxrs.us14.list-manage.com/subscribe/post?u=7013731699bc1120e9b60ea42&id=f601130e8e';
+const MAILCHIMP_HONEYPOT = 'b_7013731699bc1120e9b60ea42_f601130e8e';
+
 export const Footer: React.FC = () => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -32,9 +40,31 @@ export const Footer: React.FC = () => {
               <span className="block text-xs uppercase tracking-widest text-white font-heading mb-3">
                 Stay Informed on Narrative Capital
               </span>
-              <form onSubmit={(e) => e.preventDefault()} className="flex max-w-md">
+              <form
+                action={MAILCHIMP_ACTION}
+                method="post"
+                target="_blank"
+                className="flex max-w-md"
+              >
+                {/* Mailchimp bot trap: a real subscriber never fills this in. */}
+                <div className="absolute -left-[5000px]" aria-hidden="true">
+                  <input
+                    type="text"
+                    name={MAILCHIMP_HONEYPOT}
+                    tabIndex={-1}
+                    defaultValue=""
+                    autoComplete="off"
+                  />
+                </div>
+                <label htmlFor="footer-email" className="sr-only">
+                  Email address
+                </label>
                 <input
+                  id="footer-email"
                   type="email"
+                  name="EMAIL"
+                  required
+                  autoComplete="email"
                   placeholder="Enter institutional or estate email"
                   className="bg-white/5 border border-white/15 text-white px-4 py-2.5 text-sm rounded-l-sm focus:outline-none focus:border-crimson flex-grow placeholder:text-gray-500"
                 />
@@ -42,7 +72,8 @@ export const Footer: React.FC = () => {
                   type="submit"
                   className="bg-crimson hover:bg-red-700 text-white px-5 py-2.5 text-sm font-heading tracking-wider uppercase rounded-r-sm transition-colors flex items-center"
                 >
-                  <ArrowRight className="w-4 h-4" />
+                  <span className="sr-only">Subscribe</span>
+                  <ArrowRight className="w-4 h-4" aria-hidden="true" />
                 </button>
               </form>
             </div>
@@ -77,6 +108,11 @@ export const Footer: React.FC = () => {
               <li>
                 <Link href="/about" className="hover:text-white transition-colors">
                   The Bobby Grier Story
+                </Link>
+              </li>
+              <li>
+                <Link href="/collection" className="hover:text-white transition-colors">
+                  The Collection
                 </Link>
               </li>
               <li>
