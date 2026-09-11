@@ -30,6 +30,7 @@ export const Navbar: React.FC = () => {
     { name: 'Families', href: '/families' },
     { name: 'Sponsors', href: '/partners' },
     { name: 'Stories', href: '/about' },
+    { name: 'Collection', href: '/collection' },
   ];
 
   return (
@@ -43,13 +44,13 @@ export const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 md:px-8 flex items-center justify-between">
         {/* Brand Logo */}
         <Link href="/" className="flex items-center space-x-2 group">
-          <span className="text-2xl md:text-3xl font-heading font-bold tracking-wider text-white">
+          <span className="text-2xl xl:text-3xl font-heading font-bold tracking-wider text-white">
             PLAYMAKXRS<span className="text-crimson transition-transform inline-block group-hover:scale-125">™</span>
           </span>
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center space-x-8 text-sm font-medium tracking-wide uppercase">
+        <nav className="hidden lg:flex items-center space-x-5 xl:space-x-8 text-sm font-medium tracking-wide uppercase">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
