@@ -129,6 +129,8 @@ Both are carried over from playmakxrs.com. Neither has a staging equivalent, so 
 - **Mailchimp** (footer newsletter): the form POSTs directly to the list endpoint with `target="_blank"`, the way production does — there is no API route and no client-side handler. The action URL and the list-specific honeypot field name are constants at the top of `components/Footer.tsx` and **must stay in sync with each other**; the honeypot name encodes the same user and list IDs as the action.
 - **Shopify** (`/collection`): the storefront lives at `https://playmakxrs.myshopify.com` and the page hands off to it. The store's own navigation points back to playmakxrs.com, so the round trip resolves once this site is promoted.
 
+> **Pending the store opening:** three of the four cards in the Families "Artifacts That Stand the Test of Time" grid (`app/families/page.tsx`) still use text-in-a-box placeholders where product imagery belongs. Swap in real photography from Shopify once the store is live. The Published Hardcovers card already carries the real cover.
+
 > The Shopify store currently **302s to `/password`** — it is still gated and not publicly launched. The links are correct, but a visitor today hits a password wall. Re-check before launch.
 
 
@@ -154,7 +156,7 @@ Agreed order of work — content reinstatement first, then polish:
 6. Press coverage links (History, ESPN, Georgia Tech, ABC, KDKA) — no home on the site yet
 ~~7. Social links in the footer~~ (done)
 8. ~~Indigo retailer link~~ — **dropped: the product page 404s.** Needs a live URL from the client before it can be added
-9. Families page merch grid dead-ends — the natural place to link `/collection`
+~~9. Families artifact grid wired~~ (done)
 ~~10. Home-page proof tiles wired + asterisks fixed~~ (done)
 
 ## Deployment

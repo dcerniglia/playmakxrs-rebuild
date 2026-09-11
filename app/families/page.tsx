@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { BookOpen, Shirt, ShieldCheck, Heart, Sparkles, Check, ArrowRight } from 'lucide-react';
+import { BookOpen, Shirt, ShieldCheck, Heart, Sparkles, Check, ArrowRight, ArrowUpRight } from 'lucide-react';
 import { Button } from '@/components/Button';
 import { Card } from '@/components/Card';
 import { SectionHeading } from '@/components/SectionHeading';
@@ -184,45 +184,86 @@ export default function FamiliesPage() {
           />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-card-dark border border-white/10 p-6 rounded-sm text-center group hover:border-gold transition-colors">
-              <div className="h-40 bg-true-black/60 rounded-sm mb-6 flex items-center justify-center border border-white/5 font-serif-heading text-gold text-lg italic p-4">
-                &ldquo;No Grier, No Game&rdquo; Hardcover Edition
+            <Link href="/collection#the-book" className="block group h-full">
+              <div className="bg-card-dark border border-white/10 p-6 rounded-sm text-center h-full group-hover:border-gold group-hover:-translate-y-1 transition-all duration-300">
+                <div className="h-40 bg-true-black/60 rounded-sm mb-6 flex items-center justify-center border border-white/5 p-3">
+                  <img
+                    src="/assets/book-cover.jpg"
+                    alt="No Grier, No Game hardcover"
+                    width={768}
+                    height={1151}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-auto object-contain rounded-sm"
+                  />
+                </div>
+                <h4 className="font-heading text-white text-lg mb-1">Published Hardcovers</h4>
+                <p className="text-xs text-gray-400 font-light">
+                  Distributed through premier national book retailers.
+                </p>
+                <span className="inline-flex items-center justify-center text-[11px] font-heading uppercase tracking-wider text-gold group-hover:text-white transition-colors mt-4">
+                  Order the Book
+                  <ArrowRight className="w-3.5 h-3.5 ml-1.5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                </span>
               </div>
-              <h4 className="font-heading text-white text-lg mb-1">Published Hardcovers</h4>
-              <p className="text-xs text-gray-400 font-light">
-                Distributed through premier national book retailers.
-              </p>
-            </div>
+            </Link>
 
-            <div className="bg-card-dark border border-white/10 p-6 rounded-sm text-center group hover:border-gold transition-colors">
-              <div className="h-40 bg-true-black/60 rounded-sm mb-6 flex items-center justify-center border border-white/5 font-heading text-crimson text-3xl font-bold">
-                #38
+            <Link href="/collection" className="block group h-full">
+              <div className="bg-card-dark border border-white/10 p-6 rounded-sm text-center h-full group-hover:border-gold group-hover:-translate-y-1 transition-all duration-300">
+                {/* Placeholder until the Shopify store opens and real product imagery is available. */}
+                <div className="h-40 bg-true-black/60 rounded-sm mb-6 flex items-center justify-center border border-white/5 font-heading text-crimson text-3xl font-bold">
+                  #38
+                </div>
+                <h4 className="font-heading text-white text-lg mb-1">Vintage Letterman &amp; Jersey</h4>
+                <p className="text-xs text-gray-400 font-light">
+                  Heavyweight melton wool, chenille lettering, and authentic embroidery.
+                </p>
+                <span className="inline-flex items-center justify-center text-[11px] font-heading uppercase tracking-wider text-gold group-hover:text-white transition-colors mt-4">
+                  View the Collection
+                  <ArrowRight className="w-3.5 h-3.5 ml-1.5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                </span>
               </div>
-              <h4 className="font-heading text-white text-lg mb-1">Vintage Letterman & Jersey</h4>
-              <p className="text-xs text-gray-400 font-light">
-                Heavyweight melton wool, chenille lettering, and authentic embroidery.
-              </p>
-            </div>
+            </Link>
 
-            <div className="bg-card-dark border border-white/10 p-6 rounded-sm text-center group hover:border-gold transition-colors">
-              <div className="h-40 bg-true-black/60 rounded-sm mb-6 flex items-center justify-center border border-white/5 font-serif-heading text-gray-300 text-sm p-4">
-                1956 Sugar Bowl Commemorative Program
+            <Link href="/collection" className="block group h-full">
+              <div className="bg-card-dark border border-white/10 p-6 rounded-sm text-center h-full group-hover:border-gold group-hover:-translate-y-1 transition-all duration-300">
+                {/* Placeholder until the Shopify store opens and real product imagery is available. */}
+                <div className="h-40 bg-true-black/60 rounded-sm mb-6 flex items-center justify-center border border-white/5 font-serif-heading text-gray-300 text-sm p-4">
+                  1956 Sugar Bowl Commemorative Program
+                </div>
+                <h4 className="font-heading text-white text-lg mb-1">Archival Replicas</h4>
+                <p className="text-xs text-gray-400 font-light">
+                  Museum-grade historical reproductions for alumni and donor gifts.
+                </p>
+                <span className="inline-flex items-center justify-center text-[11px] font-heading uppercase tracking-wider text-gold group-hover:text-white transition-colors mt-4">
+                  View the Collection
+                  <ArrowRight className="w-3.5 h-3.5 ml-1.5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                </span>
               </div>
-              <h4 className="font-heading text-white text-lg mb-1">Archival Replicas</h4>
-              <p className="text-xs text-gray-400 font-light">
-                Museum-grade historical reproductions for alumni and donor gifts.
-              </p>
-            </div>
+            </Link>
 
-            <div className="bg-card-dark border border-white/10 p-6 rounded-sm text-center group hover:border-gold transition-colors">
-              <div className="h-40 bg-true-black/60 rounded-sm mb-6 flex items-center justify-center border border-white/5 font-serif-heading text-gold text-sm p-4">
-                Pitt Hall of Fame Induction Plaque
+            <a
+              href="https://pittsburghpanthers.com/honors/pitt-athletics-hall-of-fame/bobby-grier/44"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block group h-full"
+            >
+              <div className="bg-card-dark border border-white/10 p-6 rounded-sm text-center h-full group-hover:border-gold group-hover:-translate-y-1 transition-all duration-300">
+                {/* Placeholder until real installation photography is available. */}
+                <div className="h-40 bg-true-black/60 rounded-sm mb-6 flex items-center justify-center border border-white/5 font-serif-heading text-gold text-sm p-4">
+                  Pitt Hall of Fame Induction Plaque
+                </div>
+                <h4 className="font-heading text-white text-lg mb-1">Enshrinement Honors</h4>
+                <p className="text-xs text-gray-400 font-light">
+                  Official university campus installations and stadium plaques.
+                </p>
+                <span className="inline-flex items-center justify-center text-[11px] font-heading uppercase tracking-wider text-gold group-hover:text-white transition-colors mt-4">
+                  View the Profile
+                  <ArrowUpRight className="w-3.5 h-3.5 ml-1.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
+                  <span className="sr-only"> &mdash; opens pittsburghpanthers.com in a new tab</span>
+                </span>
               </div>
-              <h4 className="font-heading text-white text-lg mb-1">Enshrinement Honors</h4>
-              <p className="text-xs text-gray-400 font-light">
-                Official university campus installations and stadium plaques.
-              </p>
-            </div>
+            </a>
           </div>
         </div>
       </section>
