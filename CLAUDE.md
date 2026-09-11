@@ -27,7 +27,7 @@ This repo is intended to **replace the repo currently behind playmakxrs.com**. I
 - **Animations:** GSAP (GreenSock) — **installed but not yet wired up.** No component imports it today; the guidance below is the target, not a description of the current code.
 - **Carousels:** `embla-carousel-react` — **installed but not yet used.**
 
-`puppeteer` and `pdf-lib` are build-time tooling only (`capture.js`, `docs/generate_pdf.js`), not runtime dependencies of the site.
+`puppeteer` and `pdf-lib` are build-time tooling only (`capture.js`, `docs/generate_pdf.js`) and live in `devDependencies`. Keep them there.
 
 ## Design System (Tailwind Config)
 When building components, strictly adhere to this custom color and typography palette:
@@ -44,6 +44,7 @@ When building components, strictly adhere to this custom color and typography pa
 - **Typography:**
   - **Headings:** Oswald, `uppercase`. Applied globally to `h1`–`h6` via `app/globals.css`.
   - **Body:** Inter.
+  - **`font-heading`:** Oswald on anything that is not an `h1`–`h6` — eyebrows, labels, buttons, nav items, small caps. This is the class to reach for when you want heading type on a `span` or `div`. (It was undefined until recently and silently rendered Inter; if old screenshots look different from the current build, that is why.)
   - **Legacy Pages:** Playfair Display via the `.font-serif-heading` class, for emotional headers on the Families/About pages.
 
 - **Aesthetic Vibe:** Premium sports-centric, high contrast, uncluttered, utilizing dramatic lighting and archival photography. Use subtle glassmorphism on cards and dynamic hover states on interactive elements.
@@ -82,6 +83,8 @@ When building components, strictly adhere to this custom color and typography pa
 - **External-link accessibility:** append the destination with `<span className="sr-only">` rather than setting `aria-label` on the wrapper. `aria-label` *replaces* the accessible name and drops the visible text, which breaks voice control (WCAG 2.5.3). Mark the adjacent icon `aria-hidden="true"`.
 - **Anchors:** put `id` and `scroll-mt-28` on the `<section>`. The navbar is fixed at 80px, so without the offset the target scrolls underneath it.
 - **Images:** `next.config.js` sets `images: { unoptimized: true }`, so `next/image` buys nothing — use a plain `<img>` (the house pattern) and hand-optimize the file. Always set `width`/`height` to the real intrinsics to avoid layout shift, plus `loading="lazy" decoding="async"` below the fold.
+- **Forms must never fake success.** Both forms on this site originally called `preventDefault` and showed a confirmation while transmitting nothing. Any form must post somewhere real and must surface an error — never a success state — when the request fails.
+- **Focus rings:** `focus:outline-none` is only acceptable paired with a `focus-visible:ring-*` replacement. Never strip the outline without one (WCAG 2.4.7).
 - **Markdown does not render in JSX.** Asterisks around a title render literally as asterisks — use `<em>`. Likewise HTML entities decode in JSX text and attributes but **not** inside JS string literals, so `'family&rsquo;s'` inside an array renders the raw entity; use the literal character there.
 
 ## Local Assets & References
@@ -132,7 +135,6 @@ Today's motion is CSS only: `html { scroll-behavior: smooth }` plus Tailwind hov
 ## Known gaps
 - The home page carries **duplicate inert proof tiles** (`app/page.tsx`) mirroring the About cards, and still has unprocessed markdown asterisks around the book title.
 - **GSAP and embla are installed but unused.** Left in place deliberately until the content work finishes, at which point we will know whether they are needed.
-- Every interactive element uses `focus:outline-none` paired with a `focus-visible:ring-*` replacement. Keep both together — never strip the outline without one.
 
 ## Backlog
 Agreed order of work — content reinstatement first, then polish:
