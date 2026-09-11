@@ -103,7 +103,7 @@ export default function AboutPage() {
           />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <Link href="#the-book" className="block group h-full">
+            <Link href="/collection#the-book" className="block group h-full">
               <Card variant="solid" className="p-8 h-full group-hover:border-crimson transition-colors cursor-pointer">
                 <div className="w-12 h-12 rounded-sm bg-crimson/10 border border-crimson/30 flex items-center justify-center mb-6 text-crimson group-hover:bg-crimson group-hover:text-white transition-colors">
                   <BookOpen className="w-6 h-6" />
@@ -181,61 +181,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 4. THE BOOK */}
-      <section
-        id="the-book"
-        className="scroll-mt-28 py-24 px-6 md:px-8 bg-gradient-to-b from-deep-navy via-true-black to-true-black border-b border-white/10"
-      >
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Cover */}
-          <div className="lg:col-span-5 flex justify-center">
-            <img
-              src="/assets/book-cover.jpg"
-              alt="Front cover of the hardcover book No Grier, No Game by Rob and Camille Grier"
-              width={768}
-              height={1151}
-              loading="lazy"
-              decoding="async"
-              className="w-full max-w-sm h-auto rounded-sm shadow-2xl border border-white/10"
-            />
-          </div>
-
-          {/* Detail */}
-          <div className="lg:col-span-7 space-y-6">
-            <span className="text-xs font-mono uppercase tracking-wider text-crimson">
-              Available Now
-            </span>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white">
-              No Grier, No Game
-            </h2>
-            <p className="font-serif-heading italic text-lg md:text-xl text-gold leading-snug">
-              How Bobby Grier and the Sugar Bowl Showdown Changed American Sports History
-            </p>
-            <p className="text-sm md:text-base text-gray-300 font-light leading-relaxed">
-              The authoritative account of the 1956 Sugar Bowl, written with the historical integrity the moment deserves. An Amazon Best Seller, and the foundation from which the rest of the Bobby Grier record was rebuilt.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 pt-2">
-              <Button
-                href="https://www.amazon.com/No-Grier-Game-Showdown-American/dp/196937246X/ref=tmm_hrd_swatch_0"
-                variant="primary"
-              >
-                Order on Amazon
-              </Button>
-              <Button
-                href="https://www.barnesandnoble.com/w/no-grier-no-game-rob-grier/1148515839"
-                variant="outline"
-              >
-                Barnes &amp; Noble
-              </Button>
-            </div>
-            <p className="text-xs text-gray-500 font-light pt-2">
-              Hardcover. Also available through university programs and institutional events.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* 5. WHAT WE ARE NOT */}
+      {/* 4. WHAT WE ARE NOT */}
       <section className="py-24 px-6 md:px-8 bg-true-black border-b border-white/10">
         <div className="max-w-6xl mx-auto">
           <SectionHeading
@@ -308,7 +254,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 6. CALL TO ACTION */}
+      {/* 5. CALL TO ACTION */}
       <section className="py-20 px-6 md:px-8 bg-crimson text-white text-center">
         <div className="max-w-4xl mx-auto space-y-6">
           <h2 className="text-3xl md:text-5xl font-heading font-bold uppercase text-white">

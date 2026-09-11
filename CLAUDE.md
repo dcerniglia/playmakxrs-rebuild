@@ -57,9 +57,9 @@ When building components, strictly adhere to this custom color and typography pa
 2. `/institutions` (For Institutions): Focused on Athletic Departments and Universities.
 3. `/families` (For Families & Athletes): Focused on legacy protection, books, and merchandise.
 4. `/partners` (For Sponsors & Media): B2B focus with data-viz elements.
-5. `/about` (The Bobby Grier Story): Long-form editorial case study. Contains the `#the-book` subsection.
+5. `/about` (The Bobby Grier Story): Long-form editorial case study. Its "One Story, Many Assets" grid links out to the book, the Fox interview, and the Hall of Fame profile.
 6. `/contact` (Pilot Program): Branched intake form with robust UI.
-7. `/collection` (The Collection): Merch overview that hands off to the Shopify storefront.
+7. `/collection` (The Collection): Hosts the book at `#the-book` — cover, retail links, and the origin framing — with apparel and archival replicas below it as extensions. Hands off to the Shopify storefront.
 
 **Legal pages** (linked from the footer, built on the shared `LegalPage` component):
 8. `/privacy` (Privacy Policy)
@@ -105,6 +105,9 @@ Confirmed against live playmakxrs.com HTML and cross-checked against the scrape.
 The book is **No Grier, No Game** — *How Bobby Grier and the Sugar Bowl Showdown Changed American Sports History*, by **Rob and Camille Grier** (the B&N slug says only `rob-grier`; the cover credits both). Cover art lives at `public/assets/book-cover.jpg`.
 
 **Not yet used on the new site:** press links (History.com, ESPN, Georgia Tech Alumni, ABC/WGNO, KDKA/CBS), the Indigo retailer link, and the Facebook/TikTok/Instagram socials — all present in production, all recorded in `website_text_content.md`.
+
+### Where the book lives
+The book sits on `/collection#the-book`, not on `/about` and **not on a page of its own** — a dedicated `/the-book` route was considered and explicitly ruled out, since the rebuild's mandate is fewer pages. `/about` references it through the "One Story, Many Assets" grid, which links cross-page. Retail links (Amazon, B&N) appear in exactly one place; keep it that way.
 
 ## Third-party integrations
 

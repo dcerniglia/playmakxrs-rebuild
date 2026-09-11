@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import { Shirt, BookOpen, Award, Check } from 'lucide-react';
+import { Shirt, Award, Check } from 'lucide-react';
 import { Button } from '@/components/Button';
 import { Card } from '@/components/Card';
 import { SectionHeading } from '@/components/SectionHeading';
@@ -62,27 +62,71 @@ export default function CollectionPage() {
         </div>
       </section>
 
-      {/* 3. WHAT IS IN IT */}
-      <section className="py-24 px-6 md:px-8 bg-deep-navy border-b border-white/10">
+      {/* 3. THE BOOK — the origin piece the rest of the collection extends */}
+      <section
+        id="the-book"
+        className="scroll-mt-28 py-24 px-6 md:px-8 bg-deep-navy border-b border-white/10"
+      >
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          {/* Cover */}
+          <div className="lg:col-span-5 flex justify-center">
+            <img
+              src="/assets/book-cover.jpg"
+              alt="Front cover of the hardcover book No Grier, No Game by Rob and Camille Grier"
+              width={768}
+              height={1151}
+              loading="lazy"
+              decoding="async"
+              className="w-full max-w-sm h-auto rounded-sm shadow-2xl border border-white/10"
+            />
+          </div>
+
+          {/* Detail */}
+          <div className="lg:col-span-7 space-y-6">
+            <span className="text-xs font-mono uppercase tracking-wider text-gold">
+              Where It Started &middot; Available Now
+            </span>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white">
+              No Grier, No Game
+            </h2>
+            <p className="font-serif-heading italic text-lg md:text-xl text-gold leading-snug">
+              How Bobby Grier and the Sugar Bowl Showdown Changed American Sports History
+            </p>
+            <p className="text-sm md:text-base text-gray-300 font-light leading-relaxed">
+              The authoritative account of the 1956 Sugar Bowl, written with the historical integrity the moment deserves. An Amazon Best Seller, and the foundation from which the rest of the Bobby Grier record was rebuilt.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 pt-2">
+              <Button
+                href="https://www.amazon.com/No-Grier-Game-Showdown-American/dp/196937246X/ref=tmm_hrd_swatch_0"
+                variant="gold"
+              >
+                Order on Amazon
+              </Button>
+              <Button
+                href="https://www.barnesandnoble.com/w/no-grier-no-game-rob-grier/1148515839"
+                variant="secondary"
+              >
+                Barnes &amp; Noble
+              </Button>
+            </div>
+            <p className="text-xs text-gray-500 font-light pt-2">
+              Hardcover. Also available through university programs and institutional events.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. THE RANGE */}
+      <section className="py-24 px-6 md:px-8 bg-true-black border-b border-white/10">
         <div className="max-w-7xl mx-auto">
           <SectionHeading
             category="The Range"
             title="Made to Outlast the Moment"
-            subtitle="Three categories, each tied directly to verified history rather than invented branding."
+            subtitle="Extensions of the same record, each tied directly to verified history rather than invented branding."
             accentColor="gold"
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card variant="gold" className="p-8 group hover:-translate-y-1 transition-all duration-300">
-              <div className="w-12 h-12 rounded-sm bg-gold/10 border border-gold/30 flex items-center justify-center mb-6 text-gold group-hover:bg-gold group-hover:text-black transition-colors">
-                <BookOpen className="w-6 h-6" />
-              </div>
-              <h3 className="text-xl font-heading text-white mb-2">Published Hardcovers</h3>
-              <p className="text-sm text-gray-400 font-light leading-relaxed">
-                <em>No Grier, No Game</em> in hardcover, alongside future volumes in the series.
-              </p>
-            </Card>
-
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <Card variant="gold" className="p-8 group hover:-translate-y-1 transition-all duration-300">
               <div className="w-12 h-12 rounded-sm bg-gold/10 border border-gold/30 flex items-center justify-center mb-6 text-gold group-hover:bg-gold group-hover:text-black transition-colors">
                 <Shirt className="w-6 h-6" />
@@ -106,8 +150,8 @@ export default function CollectionPage() {
         </div>
       </section>
 
-      {/* 4. WHAT GUIDES IT */}
-      <section className="py-24 px-6 md:px-8 bg-true-black border-b border-white/10">
+      {/* 5. WHAT GUIDES IT */}
+      <section className="py-24 px-6 md:px-8 bg-deep-navy border-b border-white/10">
         <div className="max-w-4xl mx-auto">
           <SectionHeading
             category="Operating Principles"
@@ -135,7 +179,7 @@ export default function CollectionPage() {
         </div>
       </section>
 
-      {/* 5. CALL TO ACTION */}
+      {/* 6. CALL TO ACTION */}
       <section className="py-20 px-6 md:px-8 bg-gradient-to-r from-[#1E180A] via-[#2A210C] to-[#1E180A] border-t border-gold/30 text-center">
         <div className="max-w-4xl mx-auto space-y-6">
           <h2 className="text-3xl md:text-5xl font-serif-heading font-semibold text-white">
