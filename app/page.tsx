@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { ArrowRight, ShieldCheck, Building2, Users, Handshake, BookOpen, Award, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, ShieldCheck, Building2, Users, Handshake, BookOpen, Award, CheckCircle2 } from 'lucide-react';
 import { Button } from '@/components/Button';
 import { Card } from '@/components/Card';
 import { SectionHeading } from '@/components/SectionHeading';
@@ -285,7 +285,7 @@ export default function HomePage() {
                   When the Governor of Georgia demanded the 1956 Sugar Bowl be cancelled to prevent Bobby Grier (No. 38) from playing, the University of Pittsburgh and its student body stood fearless. Grier broke the Sugar Bowl color barrier.
                 </p>
                 <p className="text-gray-400 font-light text-sm leading-relaxed">
-                  Playmakxrs worked closely with the Grier family and Pitt Athletics to recover, document, publish (*No Grier, No Game* Amazon Best Seller), and activate this history across Fox Sports, Pitt Hall of Fame enshrinement, and national media.
+                  Playmakxrs worked closely with the Grier family and Pitt Athletics to recover, document, publish (<em>No Grier, No Game</em>, an Amazon Best Seller), and activate this history across Fox Sports, Pitt Hall of Fame enshrinement, and national media.
                 </p>
                 <div className="pt-2">
                   <Button href="/about" variant="primary">
@@ -296,45 +296,81 @@ export default function HomePage() {
 
               {/* Proof Case Media Artifacts Cards */}
               <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="bg-card-dark border border-white/10 p-6 rounded-sm">
-                  <span className="text-[10px] font-mono uppercase text-crimson bg-crimson/15 px-2 py-0.5 rounded-sm">
-                    Amazon Best Seller
-                  </span>
-                  <h4 className="text-lg font-heading text-white mt-3 mb-2">The Published Book</h4>
-                  <p className="text-xs text-gray-400 font-light leading-relaxed">
-                    *No Grier, No Game* documented the definitive oral history and political defiance of the 1956 Sugar Bowl.
-                  </p>
-                </div>
+                <Link href="/collection#the-book" className="block group h-full">
+                  <div className="bg-card-dark border border-white/10 p-6 rounded-sm h-full group-hover:border-crimson/50 group-hover:-translate-y-1 transition-all duration-300">
+                    <span className="text-[10px] font-mono uppercase text-crimson bg-crimson/15 px-2 py-0.5 rounded-sm">
+                      Amazon Best Seller
+                    </span>
+                    <h4 className="text-lg font-heading text-white mt-3 mb-2">The Published Book</h4>
+                    <p className="text-xs text-gray-400 font-light leading-relaxed">
+                      <em>No Grier, No Game</em> documented the definitive oral history and political defiance of the 1956 Sugar Bowl.
+                    </p>
+                    <span className="inline-flex items-center text-[11px] font-heading uppercase tracking-wider text-crimson group-hover:text-white transition-colors mt-3">
+                      Order the Book
+                      <ArrowRight className="w-3.5 h-3.5 ml-2 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                    </span>
+                  </div>
+                </Link>
 
-                <div className="bg-card-dark border border-white/10 p-6 rounded-sm">
-                  <span className="text-[10px] font-mono uppercase text-crimson bg-crimson/15 px-2 py-0.5 rounded-sm">
-                    Broadcast Feature
-                  </span>
-                  <h4 className="text-lg font-heading text-white mt-3 mb-2">Fox 5 Atlanta Documentary</h4>
-                  <p className="text-xs text-gray-400 font-light leading-relaxed">
-                    National broadcast profile examining the civil rights courage of Bobby Grier and his teammates.
-                  </p>
-                </div>
+                <a
+                  href="https://www.youtube.com/watch?v=rqKf4Es0uOU"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block group h-full"
+                >
+                  <div className="bg-card-dark border border-white/10 p-6 rounded-sm h-full group-hover:border-crimson/50 group-hover:-translate-y-1 transition-all duration-300">
+                    <span className="text-[10px] font-mono uppercase text-crimson bg-crimson/15 px-2 py-0.5 rounded-sm">
+                      Broadcast Feature
+                    </span>
+                    <h4 className="text-lg font-heading text-white mt-3 mb-2">Fox 5 Atlanta Interview</h4>
+                    <p className="text-xs text-gray-400 font-light leading-relaxed">
+                      National broadcast profile examining the civil rights courage of Bobby Grier and his teammates.
+                    </p>
+                    <span className="inline-flex items-center text-[11px] font-heading uppercase tracking-wider text-crimson group-hover:text-white transition-colors mt-3">
+                      Watch &middot; 4:28
+                      <ArrowUpRight className="w-3.5 h-3.5 ml-2 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
+                      <span className="sr-only"> &mdash; video, opens on YouTube in a new tab</span>
+                    </span>
+                  </div>
+                </a>
 
-                <div className="bg-card-dark border border-white/10 p-6 rounded-sm">
-                  <span className="text-[10px] font-mono uppercase text-crimson bg-crimson/15 px-2 py-0.5 rounded-sm">
-                    University Enshrinement
-                  </span>
-                  <h4 className="text-lg font-heading text-white mt-3 mb-2">Pitt Hall of Fame</h4>
-                  <p className="text-xs text-gray-400 font-light leading-relaxed">
-                    Permanent enshrinement of Bobby Grier into the Pitt Athletics Hall of Fame with family ceremony.
-                  </p>
-                </div>
+                <a
+                  href="https://pittsburghpanthers.com/honors/pitt-athletics-hall-of-fame/bobby-grier/44"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block group h-full"
+                >
+                  <div className="bg-card-dark border border-white/10 p-6 rounded-sm h-full group-hover:border-crimson/50 group-hover:-translate-y-1 transition-all duration-300">
+                    <span className="text-[10px] font-mono uppercase text-crimson bg-crimson/15 px-2 py-0.5 rounded-sm">
+                      University Enshrinement
+                    </span>
+                    <h4 className="text-lg font-heading text-white mt-3 mb-2">Pitt Hall of Fame</h4>
+                    <p className="text-xs text-gray-400 font-light leading-relaxed">
+                      Permanent enshrinement of Bobby Grier into the Pitt Athletics Hall of Fame with family ceremony.
+                    </p>
+                    <span className="inline-flex items-center text-[11px] font-heading uppercase tracking-wider text-crimson group-hover:text-white transition-colors mt-3">
+                      View the Profile
+                      <ArrowUpRight className="w-3.5 h-3.5 ml-2 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
+                      <span className="sr-only"> &mdash; opens pittsburghpanthers.com in a new tab</span>
+                    </span>
+                  </div>
+                </a>
 
-                <div className="bg-card-dark border border-white/10 p-6 rounded-sm">
-                  <span className="text-[10px] font-mono uppercase text-crimson bg-crimson/15 px-2 py-0.5 rounded-sm">
-                    Long-Term Value
-                  </span>
-                  <h4 className="text-lg font-heading text-white mt-3 mb-2">Compounding Legacy</h4>
-                  <p className="text-xs text-gray-400 font-light leading-relaxed">
-                    Active educational curriculum, game-week recognitions, and authentic memorabilia collections.
-                  </p>
-                </div>
+                <Link href="/collection" className="block group h-full">
+                  <div className="bg-card-dark border border-white/10 p-6 rounded-sm h-full group-hover:border-crimson/50 group-hover:-translate-y-1 transition-all duration-300">
+                    <span className="text-[10px] font-mono uppercase text-crimson bg-crimson/15 px-2 py-0.5 rounded-sm">
+                      Long-Term Value
+                    </span>
+                    <h4 className="text-lg font-heading text-white mt-3 mb-2">Compounding Legacy</h4>
+                    <p className="text-xs text-gray-400 font-light leading-relaxed">
+                      Active educational curriculum, game-week recognitions, and authentic memorabilia collections.
+                    </p>
+                    <span className="inline-flex items-center text-[11px] font-heading uppercase tracking-wider text-crimson group-hover:text-white transition-colors mt-3">
+                      Browse the Collection
+                      <ArrowRight className="w-3.5 h-3.5 ml-2 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                    </span>
+                  </div>
+                </Link>
               </div>
             </div>
           </div>

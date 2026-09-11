@@ -83,6 +83,7 @@ When building components, strictly adhere to this custom color and typography pa
 - **External-link accessibility:** append the destination with `<span className="sr-only">` rather than setting `aria-label` on the wrapper. `aria-label` *replaces* the accessible name and drops the visible text, which breaks voice control (WCAG 2.5.3). Mark the adjacent icon `aria-hidden="true"`.
 - **Anchors:** put `id` and `scroll-mt-28` on the `<section>`. The navbar is fixed at 80px, so without the offset the target scrolls underneath it.
 - **Images:** `next.config.js` sets `images: { unoptimized: true }`, so `next/image` buys nothing — use a plain `<img>` (the house pattern) and hand-optimize the file. Always set `width`/`height` to the real intrinsics to avoid layout shift, plus `loading="lazy" decoding="async"` below the fold.
+- **Sticky-overlap sections on the home page.** Sections 4-6 of `app/page.tsx` overlap deliberately (`lg:-mt-[calc(100vh-80px)]` over `lg:sticky`), so an element can be on-screen per `getBoundingClientRect` while a higher-`z` section still covers it. After adding anything interactive there, verify with `document.elementFromPoint` at several scroll positions that clicks actually reach it.
 - **Forms must never fake success.** Both forms on this site originally called `preventDefault` and showed a confirmation while transmitting nothing. Any form must post somewhere real and must surface an error — never a success state — when the request fails.
 - **Focus rings:** `focus:outline-none` is only acceptable paired with a `focus-visible:ring-*` replacement. Never strip the outline without one (WCAG 2.4.7).
 - **Markdown does not render in JSX.** Asterisks around a title render literally as asterisks — use `<em>`. Likewise HTML entities decode in JSX text and attributes but **not** inside JS string literals, so `'family&rsquo;s'` inside an array renders the raw entity; use the literal character there.
@@ -133,7 +134,6 @@ Target behavior once GSAP is wired up — none of this is implemented yet:
 Today's motion is CSS only: `html { scroll-behavior: smooth }` plus Tailwind hover transitions.
 
 ## Known gaps
-- The home page carries **duplicate inert proof tiles** (`app/page.tsx`) mirroring the About cards, and still has unprocessed markdown asterisks around the book title.
 - **GSAP and embla are installed but unused.** Left in place deliberately until the content work finishes, at which point we will know whether they are needed.
 
 ## Backlog
@@ -148,7 +148,7 @@ Agreed order of work — content reinstatement first, then polish:
 7. Social links (Facebook, TikTok, Instagram) — production has them, this footer does not
 8. The Indigo retailer link, alongside Amazon and B&N
 9. Families page merch grid dead-ends — the natural place to link `/collection`
-10. Home-page duplicate proof tiles — still inert, still carry raw markdown asterisks
+~~10. Home-page proof tiles wired + asterisks fixed~~ (done)
 
 ## Deployment
 
