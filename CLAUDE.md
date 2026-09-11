@@ -5,6 +5,21 @@ This project is a complete rebuild of the Playmakxrs website. The core objective
 
 **Core Mantra:** "The family is the source. The institution is the platform. Playmakxrs is the bridge."
 
+### Where this repo sits in the lineage
+Four versions of this site exist. Knowing which is which prevents treating a rejected iteration as the source of truth:
+
+1. **playmakxrs.com** — the live production site (Astro). Wired up with Mailchimp and a Shopify-backed merch page. Still the customer-facing site today.
+2. **Railway v1** — repositioned around a sharper focus on the service offering, deployed for review.
+3. **Railway v2** — further reorganization, but it came out too wordy and was not adopted. *This is what `assets/website_text_content.md` captured.*
+4. **This repo** — a streamlined rebuild from the mockups in `docs/`. The version the team settled on.
+
+Current phase: **reinstating content the streamlining cut** — the book and the proof/media content are done; other items remain (see Backlog).
+
+> `assets/website_text_content.md` is a scrape of **Railway v2, a rejected iteration** — not of production and not of this design. Treat it as a *content archive*: the best record of copy and links that were dropped and may be coming back. It is **not** the design authority. The mockups in `docs/` are.
+
+### Where it is going
+This repo is intended to **replace the repo currently behind playmakxrs.com**. It will move to the client's Vercel account as a dev branch, then be promoted to production. The repo will be renamed before final handoff (`playmakxrs-concept` is a working name).
+
 ## Technology Stack
 - **Framework:** Next.js 16 (App Router), React 19, TypeScript.
 - **Styling:** Tailwind CSS 3.4 (utility-first, custom design system).
@@ -44,11 +59,12 @@ When building components, strictly adhere to this custom color and typography pa
 4. `/partners` (For Sponsors & Media): B2B focus with data-viz elements.
 5. `/about` (The Bobby Grier Story): Long-form editorial case study. Contains the `#the-book` subsection.
 6. `/contact` (Pilot Program): Branched intake form with robust UI.
+7. `/collection` (The Collection): Merch overview that hands off to the Shopify storefront.
 
 **Legal pages** (linked from the footer, built on the shared `LegalPage` component):
-7. `/privacy` (Privacy Policy)
-8. `/terms` (Terms of Engagement)
-9. `/rights-governance` (Rights Governance — the Rights Before Reach standard)
+8. `/privacy` (Privacy Policy)
+9. `/terms` (Terms of Engagement)
+10. `/rights-governance` (Rights Governance — the Rights Before Reach standard)
 
 > The legal pages are **standard boilerplate that has not been reviewed by counsel.** `LEGAL_JURISDICTION` in `components/LegalPage.tsx` still renders literally as `[Governing State]`. Shared values (entity, contact, effective date, jurisdiction) are exported constants there — edit them in one place, not per page.
 
@@ -88,7 +104,17 @@ Confirmed against live playmakxrs.com HTML and cross-checked against the scrape.
 
 The book is **No Grier, No Game** — *How Bobby Grier and the Sugar Bowl Showdown Changed American Sports History*, by **Rob and Camille Grier** (the B&N slug says only `rob-grier`; the cover credits both). Cover art lives at `public/assets/book-cover.jpg`.
 
-**Not yet used on the new site:** press links (History.com, ESPN, Georgia Tech Alumni, ABC/WGNO, KDKA/CBS), the Indigo retailer link, the Shopify store, the Mailchimp newsletter endpoint, and the Facebook/TikTok/Instagram socials — all present in production, all recorded in `website_text_content.md`.
+**Not yet used on the new site:** press links (History.com, ESPN, Georgia Tech Alumni, ABC/WGNO, KDKA/CBS), the Indigo retailer link, and the Facebook/TikTok/Instagram socials — all present in production, all recorded in `website_text_content.md`.
+
+## Third-party integrations
+
+Both are carried over from playmakxrs.com. Neither has a staging equivalent, so both point at the live services.
+
+- **Mailchimp** (footer newsletter): the form POSTs directly to the list endpoint with `target="_blank"`, the way production does — there is no API route and no client-side handler. The action URL and the list-specific honeypot field name are constants at the top of `components/Footer.tsx` and **must stay in sync with each other**; the honeypot name encodes the same user and list IDs as the action.
+- **Shopify** (`/collection`): the storefront lives at `https://playmakxrs.myshopify.com` and the page hands off to it. The store's own navigation points back to playmakxrs.com, so the round trip resolves once this site is promoted.
+
+> The Shopify store currently **302s to `/password`** — it is still gated and not publicly launched. The links are correct, but a visitor today hits a password wall. Re-check before launch.
+
 
 ## Animation Guidelines (GSAP)
 Target behavior once GSAP is wired up — none of this is implemented yet:
@@ -105,11 +131,28 @@ Today's motion is CSS only: `html { scroll-behavior: smooth }` plus Tailwind hov
 - **`Navbar` and `Footer` set `focus:outline-none`** with no `focus-visible:` replacement — a WCAG 2.4.7 failure. Do not copy that pattern into new interactive elements.
 - The home page carries **duplicate inert proof tiles** (`app/page.tsx`) mirroring the About cards, and still has unprocessed markdown asterisks around the book title.
 
+## Backlog
+Agreed order of work — content reinstatement first, then polish:
+
+1. ~~Book + proof content on `/about`~~ (done)
+2. ~~Mailchimp newsletter wiring~~ (done)
+3. ~~`/collection` page pointing at Shopify~~ (done)
+4. Press coverage links (History, ESPN, Georgia Tech, ABC, KDKA) — no home on the site yet
+5. Social links (Facebook, TikTok, Instagram) — production has them, this footer does not
+6. The Indigo retailer link, alongside Amazon and B&N
+7. Home-page duplicate proof tiles — still inert, still carry raw markdown asterisks
+8. `font-heading` / `rounded-xs` undefined classes, and the missing anchor offsets
+
 ## Deployment
+
+**Today (testing only):**
 - **Repo:** `riverae/playmakxrs-concept` on GitHub (private).
-- **Host:** Vercel project `playmakxrs-concept` under `riveraes-projects`, Git-connected — pushes to `main` deploy to production automatically, PRs get previews.
-- **Live:** https://playmakxrs-concept.vercel.app — publicly reachable even though the repo is private. Enable Deployment Protection if it should be gated.
-- Verify a build with `npm run build` (expect 9 static routes plus `/_not-found`) before pushing.
+- **Host:** Vercel project `playmakxrs-concept` under `riveraes-projects` — this is a **personal sandbox used to test performance on real servers**, not the client's account and not a staging environment anyone should treat as authoritative.
+- **URL:** https://playmakxrs-concept.vercel.app — Git-connected, so pushes to `main` deploy automatically. Publicly reachable despite the private repo; enable Deployment Protection if that matters.
+
+**Destination:** the client's Vercel account (the one serving playmakxrs.com), first as a dev branch, then promoted to production in place of the existing repo. Rename the repo before handoff.
+
+Verify a build with `npm run build` (expect 10 static routes plus `/_not-found`) before pushing.
 
 <!-- BEGIN:nextjs-agent-rules -->
 
