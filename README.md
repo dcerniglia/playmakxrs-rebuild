@@ -13,8 +13,7 @@ sports-first aesthetic.
 | Framework | Next.js 16 (App Router) |
 | UI | React 19 + TypeScript |
 | Styling | Tailwind CSS (custom design system) |
-| Animation | GSAP (scroll triggers, parallax, staggered reveals) |
-| Carousels | `embla-carousel-react` |
+| Motion | CSS transitions and `scroll-behavior: smooth` |
 
 ## Getting Started
 

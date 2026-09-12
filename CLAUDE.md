@@ -24,8 +24,7 @@ This repo is intended to **replace the repo currently behind playmakxrs.com**. I
 - **Framework:** Next.js 16 (App Router), React 19, TypeScript.
 - **Styling:** Tailwind CSS 3.4 (utility-first, custom design system).
 - **Icons:** `lucide-react`.
-- **Animations:** GSAP (GreenSock) — **installed but not yet wired up.** No component imports it today; the guidance below is the target, not a description of the current code.
-- **Carousels:** `embla-carousel-react` — **installed but not yet used.**
+- **Motion:** CSS only — Tailwind transitions plus `html { scroll-behavior: smooth }`. There is no animation library; see Animation Guidelines below before adding one.
 
 `puppeteer` and `pdf-lib` are build-time tooling only (`capture.js`, `docs/generate_pdf.js`) and live in `devDependencies`. Keep them there.
 
@@ -139,30 +138,31 @@ Both are carried over from playmakxrs.com. Neither has a staging equivalent, so 
 > The Shopify store currently **302s to `/password`** — it is still gated and not publicly launched. The links are correct, but a visitor today hits a password wall. Re-check before launch.
 
 
-## Animation Guidelines (GSAP)
-Target behavior once GSAP is wired up — none of this is implemented yet:
+## Animation Guidelines
+**GSAP and `embla-carousel-react` were removed** after the content work finished, having never been imported by a single component. The site ships CSS-only motion: Tailwind hover and focus transitions, plus `html { scroll-behavior: smooth }`.
+
+The original brief called for scroll-triggered animation, and that intent is recorded here in case it is revisited. **Implementing any of it means re-adding a dependency** (`npm i gsap`) — it is not a matter of wiring up something already present:
 - **Heroes:** Fade in background image (`scale: 1.05` to `1`), stagger the H1, subhead, and CTA button.
-- **Scroll:** Sections should fade in and translate Y as they enter the viewport (`y: 30, opacity: 0`).
-- **Grids:** Use `stagger: 0.1` for cards/logos popping in sequentially.
+- **Scroll:** Sections fade in and translate Y as they enter the viewport (`y: 30, opacity: 0`).
+- **Grids:** `stagger: 0.1` for cards/logos popping in sequentially.
 
-Today's motion is CSS only: `html { scroll-behavior: smooth }` plus Tailwind hover transitions.
+Before reaching for a library, note that scroll-reveal and staggered grids are both achievable with CSS animations and an `IntersectionObserver`, at no dependency cost. Respect `prefers-reduced-motion` whichever route is taken.
 
-## Known gaps
-- **GSAP and embla are installed but unused.** Left in place deliberately until the content work finishes, at which point we will know whether they are needed.
+> `GEMINI.MD` in the repo root is an **older parallel brief** that still specifies GSAP and an `<EmblaCarousel>` component. It is a historical document, not current guidance — this file is.
 
 ## Backlog
-Agreed order of work — content reinstatement first, then polish:
 
-1. ~~Book + proof content on `/about`~~ (done)
-2. ~~Mailchimp newsletter wiring~~ (done)
-3. ~~`/collection` page pointing at Shopify~~ (done)
-4. ~~Contact form wired to Netlify Forms~~ (done)
-5. ~~Code health: `font-heading`, `rounded-xs`, anchor offsets, focus rings, build deps~~ (done)
-~~6. Press coverage on `/about`~~ (done)
-~~7. Social links in the footer~~ (done)
-8. ~~Indigo retailer link~~ — **dropped: the product page 404s.** Needs a live URL from the client before it can be added
-~~9. Families artifact grid wired~~ (done)
-~~10. Home-page proof tiles wired + asterisks fixed~~ (done)
+**Content reinstatement is complete.** The book, proof cards, press coverage, socials, `/collection`, both forms, and the code-health pass are all done and documented above.
+
+Open items, none of which are blocked on code:
+
+| | Waiting on |
+| --- | --- |
+| Indigo retailer link | A live URL — the recorded one 404s and the book looks delisted. Confirm with the client. |
+| Product imagery on three Families cards | The Shopify store opening. Placeholders are marked in `app/families/page.tsx`. |
+| Shopify storefront itself | Still `302`s to `/password`. Links are correct and will work on launch. |
+| Legal review | Counsel sign-off, plus a real value for `LEGAL_JURISDICTION`. |
+| Handoff | Repo rename, move to the client's Vercel account, promote to production. Netlify Forms only starts working once it is off Vercel. |
 
 ## Deployment
 
