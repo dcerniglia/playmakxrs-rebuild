@@ -113,9 +113,14 @@ The three social URLs are the **canonical forms**, deliberately not the ones pro
 
 The book is **No Grier, No Game** — *How Bobby Grier and the Sugar Bowl Showdown Changed American Sports History*, by **Rob and Camille Grier** (the B&N slug says only `rob-grier`; the cover credits both). Cover art lives at `public/assets/book-cover.jpg`.
 
-**Not yet used on the new site:** press links (History.com, ESPN, Georgia Tech Alumni, ABC/WGNO, KDKA/CBS) — present in production, recorded in `website_text_content.md`.
+Press coverage lives in **`lib/press.ts`** and renders on `/about`. `/partners` is the other plausible consumer — import the same list rather than copying it.
+
+> **Verifying press URLs:** several of these outlets return `403` or `202` to non-browser requests — WGNO and ESPN both do. A failed `curl` is not evidence a link is dead; open it in a real browser. Conversely Indigo returned a clean `404` and really was gone, so check both ways.
 
 > **The Indigo retailer link is dead.** `indigo.ca/fr-ca/no-grier-no-game-…/1e510e0e-….html`, recorded in the scrape, now returns a genuine 404 in both `fr-ca` and `en-ca` (indigo.ca itself responds 200, and an on-site search finds no listing), so the book appears to have been delisted. It is deliberately **not** linked here. Re-check with the client before adding a third retailer.
+
+### Bobby Grier
+Bobby Grier died in July 2024, aged 91 — the CBS/KDKA piece in `lib/press.ts` is his obituary. Site copy refers to him in the past tense throughout; keep it that way, and do not write anything implying he is available for interviews or appearances. Playmakxrs worked with him directly during his lifetime, and continues to work with his family.
 
 ### Where the book lives
 The book sits on `/collection#the-book`, not on `/about` and **not on a page of its own** — a dedicated `/the-book` route was considered and explicitly ruled out, since the rebuild's mandate is fewer pages. `/about` references it through the "One Story, Many Assets" grid, which links cross-page. Retail links (Amazon, B&N) appear in exactly one place; keep it that way.
@@ -153,7 +158,7 @@ Agreed order of work — content reinstatement first, then polish:
 3. ~~`/collection` page pointing at Shopify~~ (done)
 4. ~~Contact form wired to Netlify Forms~~ (done)
 5. ~~Code health: `font-heading`, `rounded-xs`, anchor offsets, focus rings, build deps~~ (done)
-6. Press coverage links (History, ESPN, Georgia Tech, ABC, KDKA) — no home on the site yet
+~~6. Press coverage on `/about`~~ (done)
 ~~7. Social links in the footer~~ (done)
 8. ~~Indigo retailer link~~ — **dropped: the product page 404s.** Needs a live URL from the client before it can be added
 ~~9. Families artifact grid wired~~ (done)

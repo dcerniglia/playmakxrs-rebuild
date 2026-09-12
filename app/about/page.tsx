@@ -4,6 +4,7 @@ import { Award, BookOpen, Film, FileText, XCircle, ArrowRight, ArrowUpRight } fr
 import { Button } from '@/components/Button';
 import { Card } from '@/components/Card';
 import { SectionHeading } from '@/components/SectionHeading';
+import { PRESS_COVERAGE } from '@/lib/press';
 
 export default function AboutPage() {
   return (
@@ -181,7 +182,51 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 4. WHAT WE ARE NOT */}
+      {/* 4. INDEPENDENT PRESS COVERAGE */}
+      <section className="py-24 px-6 md:px-8 bg-gradient-to-b from-deep-navy via-true-black to-true-black border-b border-white/10">
+        <div className="max-w-5xl mx-auto">
+          <SectionHeading
+            category="Independent Coverage"
+            title="In The National Press"
+            subtitle="Outlets that reported this story on their own. Commissioned media proves a budget; independent coverage proves the narrative was worth recovering."
+          />
+
+          <ul className="divide-y divide-white/10 border-y border-white/10">
+            {PRESS_COVERAGE.map(({ outlet, headline, medium, duration, url, note }) => (
+              <li key={url}>
+                <a
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group grid grid-cols-1 sm:grid-cols-12 gap-2 sm:gap-6 items-baseline py-6 px-2 -mx-2 rounded-sm hover:bg-white/5 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-crimson focus-visible:ring-offset-2 focus-visible:ring-offset-true-black"
+                >
+                  <span className="sm:col-span-3 text-xs font-heading uppercase tracking-widest text-crimson">
+                    {outlet}
+                  </span>
+
+                  <span className="sm:col-span-7 text-sm md:text-base text-gray-200 font-light leading-snug group-hover:text-white transition-colors">
+                    {headline}
+                    {note && (
+                      <span className="block mt-1.5 text-xs text-gray-500 italic font-light">
+                        {note}
+                      </span>
+                    )}
+                  </span>
+
+                  <span className="sm:col-span-2 inline-flex items-center sm:justify-end text-[11px] font-mono uppercase tracking-wider text-gray-500 group-hover:text-crimson transition-colors">
+                    {medium}
+                    {duration && <span className="ml-1.5 normal-case">{duration}</span>}
+                    <ArrowUpRight className="w-3.5 h-3.5 ml-2 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
+                    <span className="sr-only"> &mdash; opens in a new tab</span>
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* 5. WHAT WE ARE NOT */}
       <section className="py-24 px-6 md:px-8 bg-true-black border-b border-white/10">
         <div className="max-w-6xl mx-auto">
           <SectionHeading
@@ -254,7 +299,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 5. CALL TO ACTION */}
+      {/* 6. CALL TO ACTION */}
       <section className="py-20 px-6 md:px-8 bg-crimson text-white text-center">
         <div className="max-w-4xl mx-auto space-y-6">
           <h2 className="text-3xl md:text-5xl font-heading font-bold uppercase text-white">
