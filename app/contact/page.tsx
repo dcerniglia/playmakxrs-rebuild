@@ -1,10 +1,11 @@
 'use client';
 
 import React, { useState } from 'react';
-import { ShieldCheck, CheckCircle2, ChevronDown, Clock, FileText, Send, Sparkles } from 'lucide-react';
+import { ShieldCheck, CheckCircle2, Clock, FileText, Send, Sparkles } from 'lucide-react';
 import { Button } from '@/components/Button';
 import { Card } from '@/components/Card';
 import { SectionHeading } from '@/components/SectionHeading';
+import { Select, type SelectOption } from '@/components/Select';
 
 /**
  * Netlify form name. The schema is mirrored in public/__forms.html, which is
@@ -19,18 +20,27 @@ const FORM_NAME = 'pilot-application';
  * which is how the two selects ended up a shade darker and a pixel shorter
  * than the inputs beside them.
  *
- * `appearance-none` is load-bearing, not cosmetic: Chrome's UA stylesheet
- * pins `line-height: normal !important` on a native select, so `leading-5`
- * is ignored and the control renders 45px against the inputs' 46px. Dropping
- * the native appearance releases that lock — and costs the native chevron,
- * which is why each select is wrapped with its own ChevronDown.
+ * Selects are not here: the native control is replaced by <Select>, which
+ * matches these classes on its own trigger.
  */
 const FIELD_CLASSES =
   'w-full bg-true-black/60 border border-white/15 rounded-sm px-4 py-3 text-sm leading-5 text-white focus:outline-none focus:border-crimson focus-visible:ring-2 focus-visible:ring-crimson/70 transition-colors';
 
-// Option popups are OS-drawn on macOS but author-styled on Windows/Linux,
-// where an unstyled option would inherit white-on-white.
-const SELECT_CLASSES = `${FIELD_CLASSES} appearance-none cursor-pointer pr-10 [&>option]:bg-true-black [&>option]:text-white`;
+const INQUIRER_TYPES: SelectOption[] = [
+  { value: 'university', label: 'University Athletic Department' },
+  { value: 'family', label: 'Family Estate / Athlete Descendant' },
+  { value: 'sponsor', label: 'Corporate Sponsor / Brand' },
+  { value: 'media', label: 'Media / Broadcast Network' },
+  { value: 'other', label: 'Other Institutional Inquirer' },
+];
+
+const OBJECTIVES: SelectOption[] = [
+  { value: 'pilot', label: '90–120 Day INI Pilot Program' },
+  { value: 'rights', label: 'Archival Recovery & Rights Verification' },
+  { value: 'publishing', label: 'Book Publishing & Documentary Production' },
+  { value: 'sponsorship', label: 'Corporate Heritage Sponsorship' },
+  { value: 'general', label: 'General Narrative Discovery Call' },
+];
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
@@ -301,27 +311,16 @@ export default function ContactPage() {
                           />
                         </div>
                         <div>
-                          <label htmlFor="inquirerType" className="block text-xs uppercase font-heading text-gray-300 mb-1.5">
+                          <label id="inquirerType-label" htmlFor="inquirerType" className="block text-xs uppercase font-heading text-gray-300 mb-1.5">
                             I am reaching out as: *
                           </label>
-                          <div className="relative">
-                            <select
-                              id="inquirerType"
-                              name="inquirerType"
-                              required
-                              className={SELECT_CLASSES}
-                            >
-                              <option value="university">University Athletic Department</option>
-                              <option value="family">Family Estate / Athlete Descendant</option>
-                              <option value="sponsor">Corporate Sponsor / Brand</option>
-                              <option value="media">Media / Broadcast Network</option>
-                              <option value="other">Other Institutional Inquirer</option>
-                            </select>
-                            <ChevronDown
-                              aria-hidden="true"
-                              className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400"
-                            />
-                          </div>
+                          <Select
+                            id="inquirerType"
+                            name="inquirerType"
+                            labelId="inquirerType-label"
+                            options={INQUIRER_TYPES}
+                            required
+                          />
                         </div>
                       </div>
                     </div>
@@ -332,26 +331,15 @@ export default function ContactPage() {
                         3. Strategic Intent
                       </span>
                       <div>
-                        <label htmlFor="objective" className="block text-xs uppercase font-heading text-gray-300 mb-1.5">
+                        <label id="objective-label" htmlFor="objective" className="block text-xs uppercase font-heading text-gray-300 mb-1.5">
                           Primary Objective:
                         </label>
-                        <div className="relative">
-                          <select
-                            id="objective"
-                            name="objective"
-                            className={SELECT_CLASSES}
-                          >
-                            <option value="pilot">90–120 Day INI Pilot Program</option>
-                            <option value="rights">Archival Recovery & Rights Verification</option>
-                            <option value="publishing">Book Publishing & Documentary Production</option>
-                            <option value="sponsorship">Corporate Heritage Sponsorship</option>
-                            <option value="general">General Narrative Discovery Call</option>
-                          </select>
-                          <ChevronDown
-                            aria-hidden="true"
-                            className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400"
-                          />
-                        </div>
+                        <Select
+                          id="objective"
+                          name="objective"
+                          labelId="objective-label"
+                          options={OBJECTIVES}
+                        />
                       </div>
 
                       <div>

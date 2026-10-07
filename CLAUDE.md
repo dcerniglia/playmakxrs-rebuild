@@ -72,13 +72,13 @@ Redesigned October 2026 in the spirit of [JMI Sports](https://www.jmisports.com/
 > The legal pages are **standard boilerplate that has not been reviewed by counsel.** `LEGAL_JURISDICTION` in `components/LegalPage.tsx` still renders literally as `[Governing State]`. Shared values (entity, contact, effective date, jurisdiction) are exported constants there — edit them in one place, not per page.
 
 ## Components
-`Button`, `Card`, `FAQAccordion`, `FeaturedIn`, `Footer`, `LegalPage`, `MetricCard`, `Navbar`, `ProcessStepper`, `SectionHeading`.
+`Button`, `Card`, `FAQAccordion`, `FeaturedIn`, `Footer`, `LegalPage`, `MetricCard`, `Navbar`, `ProcessStepper`, `SectionHeading`, `Select`.
 
 Shared data lives in `lib/`: `press.ts` (coverage + the logo strip) and `audiences.ts` (the three lanes, rendered on both `/` and `/who-we-serve`).
 
 - `Card` takes only `variant | className | children`. It has no `href` and spreads no props — to make a card clickable, wrap it in a `<Link>`/`<a>`, move `group` onto the wrapper, and add `h-full` to the Card so grid rows stay flush.
 - `SectionHeading` has no `id` prop — anchors go on the `<section>`.
-- Client components (`'use client'`): `Navbar`, `Footer`, `FAQAccordion`, `ProcessStepper`, and `app/contact/page.tsx`. Everything else is a server component.
+- Client components (`'use client'`): `Navbar`, `Footer`, `FAQAccordion`, `ProcessStepper`, `Select`, and `app/contact/page.tsx`. Everything else is a server component.
 
 ## Conventions
 
@@ -88,7 +88,8 @@ Shared data lives in `lib/`: `press.ts` (coverage + the logo strip) and `audienc
 - **Anchors:** put `id` and `scroll-mt-28` on the `<section>`. The navbar is fixed at 80px, so without the offset the target scrolls underneath it.
 - **Images:** `next.config.js` sets `images: { unoptimized: true }`, so `next/image` buys nothing — use a plain `<img>` (the house pattern) and hand-optimize the file. Always set `width`/`height` to the real intrinsics to avoid layout shift, plus `loading="lazy" decoding="async"` below the fold.
 - **Sticky-overlap sections on the home page.** Sections 4-6 of `app/page.tsx` overlap deliberately (`lg:-mt-[calc(100vh-80px)]` over `lg:sticky`), so an element can be on-screen per `getBoundingClientRect` while a higher-`z` section still covers it. After adding anything interactive there, verify with `document.elementFromPoint` at several scroll positions that clicks actually reach it.
-- **Form fields share `FIELD_CLASSES`/`SELECT_CLASSES`** at the top of `app/contact/page.tsx` — the literals were duplicated nine times and had already drifted. A `<select>` additionally needs `appearance-none`: Chrome's UA stylesheet pins `line-height: normal !important` on a native select, so it renders a pixel shorter than the inputs beside it and no author `leading-*` can fix it. Dropping the native appearance also drops the native chevron, hence the `ChevronDown` wrapper.
+- **Form fields share `FIELD_CLASSES`** at the top of `app/contact/page.tsx` — the literals were duplicated nine times and had already drifted apart.
+- **Dropdowns use `components/Select.tsx`, not `<select>`.** A native select's popup is drawn by the OS: macOS anchors it over the *selected* row, so it covers the fields above the control, and iOS throws up a bottom wheel. Neither inherits any site styling and neither can be positioned. `Select` is an APG-pattern listbox — focus stays on the trigger, the active option is tracked with `aria-activedescendant`, and arrows/Home/End/typeahead/Escape all work. **The value reaches the form through a hidden input under the same `name`**, so `FormData` serializes exactly as the native control did and `public/__forms.html` needs no change. Its menu is `z-50` to clear the scroll-to-top FAB at `z-40`, which otherwise swallowed taps on the last option.
 - **Forms must never fake success.** Both forms on this site originally called `preventDefault` and showed a confirmation while transmitting nothing. Any form must post somewhere real and must surface an error — never a success state — when the request fails.
 - **Opacity modifiers must be on Tailwind's scale.** It steps by 5 (`/90`, `/95`, `/100`) and an off-scale value like `bg-true-black/98` compiles to **nothing at all** — no warning, no class, no background. That is exactly how the mobile nav drawer shipped transparent. For an in-between value use bracket syntax (`bg-true-black/[0.98]`), or round to the scale.
 - **Focus rings:** `focus:outline-none` is only acceptable paired with a `focus-visible:ring-*` replacement. Never strip the outline without one (WCAG 2.4.7).
