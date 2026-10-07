@@ -35,9 +35,15 @@ export const Navbar: React.FC = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-true-black/95 backdrop-blur-md border-b border-white/10 py-4 shadow-xl'
-          : 'bg-gradient-to-b from-true-black/90 to-transparent py-6'
+        scrolled ? 'py-4' : 'py-6'
+      } ${
+        // The open drawer needs a fully opaque backdrop, so it overrides the
+        // translucent/gradient treatments rather than layering its own.
+        isOpen
+          ? 'bg-true-black border-b border-white/10 shadow-xl'
+          : scrolled
+            ? 'bg-true-black/95 backdrop-blur-md border-b border-white/10 shadow-xl'
+            : 'bg-gradient-to-b from-true-black/90 to-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-8 flex items-center justify-between">
@@ -80,6 +86,7 @@ export const Navbar: React.FC = () => {
           onClick={() => setIsOpen(!isOpen)}
           className="lg:hidden text-gray-300 hover:text-white p-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-crimson focus-visible:ring-offset-2 focus-visible:ring-offset-true-black"
           aria-label="Toggle Navigation Menu"
+          aria-expanded={isOpen}
         >
           {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
@@ -87,7 +94,7 @@ export const Navbar: React.FC = () => {
 
       {/* Mobile Drawer */}
       {isOpen && (
-        <div className="lg:hidden bg-true-black/98 border-b border-white/10 px-6 py-6 transition-all duration-300">
+        <div className="lg:hidden mt-4 border-t border-white/10 px-6 pt-6 max-h-[calc(100vh-7rem)] overflow-y-auto">
           <div className="flex flex-col space-y-4">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
