@@ -77,7 +77,7 @@ export const Navbar: React.FC = () => {
         {/* Desktop CTA */}
         <div className="hidden lg:flex items-center space-x-4">
           <Button href="/contact" variant="primary" className="!py-2.5 !px-6 text-xs">
-            Pilot Program
+            Start a Conversation
           </Button>
         </div>
 
@@ -112,7 +112,7 @@ export const Navbar: React.FC = () => {
             })}
             <div className="pt-4 border-t border-white/10">
               <Button href="/contact" variant="primary" className="w-full text-center">
-                Apply for Pilot Program
+                Start a Conversation
               </Button>
             </div>
           </div>

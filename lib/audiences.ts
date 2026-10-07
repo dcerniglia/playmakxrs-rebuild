@@ -1,7 +1,11 @@
 /**
- * The three lanes. Rendered as brief cards on the home page and as fuller
- * sections on /who-we-serve, so the positioning stays identical in both
- * places. Copy is condensed from the retired lane pages.
+ * The three audiences. Rendered as brief cards on the home page and as fuller
+ * sections on /who-we-serve, so the positioning stays identical in both places.
+ *
+ * Copy is deliberately outcome-level. The public site describes what an
+ * engagement produces, never how it is produced — operating methods,
+ * analytical frameworks and engagement architecture are proprietary and live
+ * behind the applicant portal, not here.
  */
 export interface Audience {
   /** Anchor id on /who-we-serve. */
@@ -11,9 +15,9 @@ export interface Audience {
   tagline: string;
   /** Short paragraph, used in both places. */
   summary: string;
-  /** What they actually get — kept to four so the card stays scannable. */
+  /** Outcomes, not mechanics. Three, so the card stays scannable. */
   points: string[];
-  /** Accent, matching the lane's established color. */
+  /** Accent, matching the audience's established color. */
   accent: 'crimson' | 'gold';
   cta: string;
 }
@@ -22,44 +26,41 @@ export const AUDIENCES: Audience[] = [
   {
     id: 'institutions',
     label: 'Institutions',
-    tagline: 'Athletic departments and universities',
+    tagline: 'Universities, museums, foundations and archives',
     summary:
-      'Your archives hold milestones no one has cataloged and pioneers no one has honored. We recover them, clear the rights, and hand you assets your department can actually use — without disrupting staff or competing with your NIL program.',
+      'Universities, athletic departments, museums, foundations, archives and cultural organizations holding more meaning than they can currently see.',
     points: [
-      'Narrative Capital audit of unmonetised history',
-      'Rights and risk cleared before anything is published',
-      'A 90–120 day pilot with fixed scope and fee',
-      'Board-ready briefing materials',
+      'Recognition of overlooked people, moments and holdings',
+      'Confidence in what can be verified',
+      'Responsible pathways to visibility and enduring value',
     ],
     accent: 'crimson',
     cta: 'Start an institutional conversation',
   },
   {
     id: 'families',
-    label: 'Families & Estates',
-    tagline: 'Descendants and athlete estates',
+    label: 'Athletes, Families & Estates',
+    tagline: 'Descendants, athletes and estate representatives',
     summary:
-      'The family is the source. Before a single word is published we establish chain-of-title, secure your consent, and put your participation in writing. You keep moral rights over how your relative is portrayed, and you can narrow or withdraw that consent.',
+      'People seeking to protect and responsibly steward valuable legacies, and to keep meaning connected to the person it came from.',
     points: [
-      'Verified chain-of-title and estate NIL protection',
-      'Written consent before any commercial use',
-      'Agreed commercial participation',
-      'Approval over material changes in direction',
+      'Attribution and context kept intact',
+      'Consent that stays with the source',
+      'Stewardship that outlasts any single project',
     ],
     accent: 'gold',
-    cta: 'Begin a confidential family conversation',
+    cta: 'Begin a confidential conversation',
   },
   {
     id: 'partners',
-    label: 'Sponsors & Media',
+    label: 'Sponsors & Partners',
     tagline: 'Brands, broadcasters and publishers',
     summary:
-      'Athlete sponsorship carries present-tense risk. Verified history does not. Partner with a story whose facts are settled, whose rights are cleared, and whose meaning compounds rather than expiring at the end of a season.',
+      'Organizations seeking credible alignment with meaningful people, institutions and moments — association that is earned rather than borrowed.',
     points: [
-      'Rights-cleared, indemnified heritage properties',
-      'No present-tense athlete risk',
-      'Multi-format delivery — print, broadcast, exhibit',
-      'Permanent cultural association, not a campaign flight',
+      'Alignment with verified meaning',
+      'Credible association, not borrowed attention',
+      'Value that endures beyond a campaign',
     ],
     accent: 'crimson',
     cta: 'Discuss a partnership',

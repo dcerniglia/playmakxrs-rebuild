@@ -65,13 +65,13 @@ export const Footer: React.FC = () => {
               &ldquo;The family is the source. The institution is the platform. Playmakxrs is the bridge.&rdquo;
             </p>
             <p className="text-sm leading-relaxed text-gray-400 max-w-sm">
-              Helping athletic departments, legacy families, and sports brands recover, verify, protect, package, and activate overlooked sports narrative capital.
+              Narrative Infrastructure&trade; for overlooked meaning, human connection and enduring institutional value.
             </p>
             
             {/* Newsletter Subscription */}
             <div className="pt-2">
               <span className="block text-xs uppercase tracking-widest text-white font-heading mb-3">
-                Stay Informed on Narrative Capital
+                Stay Informed
               </span>
               <form
                 action={MAILCHIMP_ACTION}
@@ -193,16 +193,24 @@ export const Footer: React.FC = () => {
               </div>
 
               <div className="pt-4 border-t border-white/10 text-xs text-gray-500 space-y-1">
-                <p>Rights Before Reach Framework</p>
-                <p>Narrative Capital Architecture</p>
-                <p>Institutional Narrative Infrastructure (INI)</p>
+                <p className="text-gray-400 font-heading uppercase tracking-wider">
+                  Protect the story. Verify the truth.<br />
+                  See the value. Activate what matters.
+                </p>
               </div>
             </div>
           </div>
         </div>
 
+        {/* Intellectual property notice */}
+        <div className="mt-16 pt-8 border-t border-white/10">
+          <p className="text-[11px] leading-relaxed text-gray-600 max-w-5xl">
+            Playmakxrs&trade;, Narrative Infrastructure&trade;, Narrative Observability&trade;, Origin Assets&trade;, Meaning Gap&trade; and related proprietary terminology, frameworks and methodologies are protected intellectual property of their respective owner(s). No license or right to reproduce, adapt, train models on, republish or commercially exploit proprietary materials is granted by access to this website.
+          </p>
+        </div>
+
         {/* Bottom bar */}
-        <div className="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between text-xs text-gray-500">
+        <div className="mt-8 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between text-xs text-gray-500">
           <p>© {new Date().getFullYear()} Playmakxrs Global™. All rights reserved.</p>
           <div className="flex items-center space-x-6 mt-4 md:mt-0">
             <Link href="/privacy" className="hover:text-white transition-colors">

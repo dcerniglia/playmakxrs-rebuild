@@ -32,11 +32,11 @@ export default function TermsPage() {
 
       <LegalSection number="02" title="Scope of Services">
         <p>
-          Playmakxrs recovers, verifies, protects, packages, and activates sports
-          narrative capital for athletic departments, legacy families, and
-          partners. The specific services, deliverables, timelines, and fees for
-          any engagement are defined in a separate written agreement or statement
-          of work.
+          Playmakxrs builds Narrative Infrastructure for institutions, families,
+          and partners &mdash; helping them discover, verify, protect, activate and
+          preserve meaning they already hold. The specific services, deliverables,
+          timelines, and fees for any engagement are defined in a separate written
+          agreement or statement of work.
         </p>
       </LegalSection>
 

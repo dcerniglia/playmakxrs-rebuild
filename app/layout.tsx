@@ -23,13 +23,13 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: 'Playmakxrs | The Era of Legends | Narrative Capital for Sports',
+  title: 'Playmakxrs | Narrative Infrastructure',
   description:
-    'The family is the source. The institution is the platform. Playmakxrs is the bridge. Recovering, verifying, protecting, packaging, and activating sports narrative capital.',
+    'You may already own the value you are looking for. Playmakxrs builds Narrative Infrastructure that makes overlooked meaning visible, verifiable, protected and usable.',
   openGraph: {
-    title: 'Playmakxrs | Sports Narrative Capital',
+    title: 'Playmakxrs | Narrative Infrastructure',
     description:
-      'Where legacy lives forever. Recovering and activating overlooked athletic history for universities, families, and partners.',
+      'Playmakxrs helps institutions discover what they cannot yet see — turning overlooked meaning into human connection and enduring institutional value.',
     type: 'website',
   },
 };

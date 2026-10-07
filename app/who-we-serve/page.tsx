@@ -8,7 +8,7 @@ import { AUDIENCES } from '@/lib/audiences';
 export const metadata: Metadata = {
   title: 'Who We Serve | Playmakxrs',
   description:
-    'Three lanes: athletic departments and universities, families and athlete estates, and sponsors and media partners.',
+    'Institutions, athletes and families, and sponsors and partners — who Playmakxrs works with, and what each gains.',
 };
 
 const ICONS = [Building2, Heart, Handshake];
@@ -23,10 +23,10 @@ export default function WhoWeServePage() {
             Who We Serve
           </span>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight tracking-tight text-white mb-6">
-            THREE LANES, ONE RECORD
+            WHO WE SERVE
           </h1>
           <p className="text-base md:text-lg text-gray-300 font-light leading-relaxed max-w-2xl mx-auto">
-            A recovered story serves three parties at once. Each needs something different from it, and each has something the others cannot supply.
+            Institutions, the people whose legacies they hold, and the partners who want to stand beside both.
           </p>
         </div>
       </section>
@@ -98,10 +98,10 @@ export default function WhoWeServePage() {
       <section className="py-20 px-6 md:px-8 bg-crimson text-white text-center">
         <div className="max-w-3xl mx-auto space-y-6">
           <h2 className="text-3xl md:text-5xl font-heading font-bold uppercase text-white">
-            Not Sure Which Lane?
+            Start With What Matters
           </h2>
           <p className="text-base md:text-lg text-white/90 font-light leading-relaxed">
-            Most engagements involve more than one. Tell us what you are holding and we will tell you honestly whether there is anything in it.
+            You do not need a finished project. Tell us what you are trying to understand.
           </p>
           <div className="pt-4">
             <Button href="/contact" variant="secondary" className="!bg-white !text-crimson hover:!bg-gray-100 font-bold">

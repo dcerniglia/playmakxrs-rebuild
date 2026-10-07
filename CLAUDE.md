@@ -11,9 +11,10 @@ Four versions of this site exist. Knowing which is which prevents treating a rej
 1. **playmakxrs.com** — the live production site (Astro). Wired up with Mailchimp and a Shopify-backed merch page. Still the customer-facing site today.
 2. **Railway v1** — repositioned around a sharper focus on the service offering, deployed for review.
 3. **Railway v2** — further reorganization, but it came out too wordy and was not adopted. *This is what `assets/website_text_content.md` captured.*
-4. **This repo** — a streamlined rebuild from the mockups in `docs/`, then **restructured again in October 2026** around the JMI Sports reference and the Home / What We Do / Who We Serve / Our Proof / About / Contact navigation.
+4. **This repo** — a streamlined rebuild from the mockups in `docs/`, then **restructured in October 2026** around the JMI Sports reference and the Home / What We Do / Who We Serve / Our Proof / About / Contact navigation. Tagged **`v1.0.0`**.
+5. **The public rewrite (current)** — v1 was judged to expose too much of the business process. Its detailed version is destined for a **private portal shown only to verified applicants**; the public site was rewritten to explain outcomes without revealing method.
 
-Current phase: the JMI-inspired restructure. Content reinstatement finished before it; see Backlog for what is still open.
+Current phase: the public rewrite. `v1.0.0` is the restore point for the fuller, process-detailed copy — recover it from the tag rather than rewriting it from memory.
 
 > `assets/website_text_content.md` is a scrape of **Railway v2, a rejected iteration** — not of production and not of this design. Treat it as a *content archive*: the best record of copy and links that were dropped and may be coming back. It is **not** the design authority. The mockups in `docs/` are.
 
@@ -58,27 +59,52 @@ Redesigned October 2026 in the spirit of [JMI Sports](https://www.jmisports.com/
 
 | Route | Purpose |
 | --- | --- |
-| `/` | Hero, "As Featured In" strip, three audience cards, Grier teaser, contact CTA. Deliberately short. |
-| `/what-we-do` | The five verbs (recover, verify, protect, package, activate), Rights Before Reach, the 90–120 day pilot, FAQ. |
+| `/` | The full public argument, following the client brief: hero, "As Featured In", hiding in plain sight, The Meaning Gap™, Narrative Observability™, the five verbs, founding proof, audiences, CTA. Capped at 700 words. |
+| `/what-we-do` | The five verbs, Human Connection, Protection Matters. **No process, no pilot, no FAQ** — see the section above. |
 | `/who-we-serve` | Three anchored sections — `#institutions`, `#families`, `#partners` — driven by `lib/audiences.ts`. |
-| `/our-proof` | The Bobby Grier case study, the proof loop ("One Story, Many Assets"), and independent press. |
-| `/about` | The mantra, the Narrative Capital thesis, the Triad, and operational boundaries. **Not** the Grier story — that is Our Proof. |
-| `/contact` | Pilot application, posting to Netlify Forms. |
+| `/our-proof` | The Bobby Grier Story™ as founding proof, what one verified Origin Asset™ reached, and independent press. Method language removed. |
+| `/about` | The mantra, why this exists, and operational boundaries. The Triad was removed as operating detail. **Not** the Grier story — that is Our Proof. |
+| `/contact` | "Start With What Matters" inquiry, posting to Netlify Forms. The Netlify form name is still `pilot-application` — internal only, and renaming it would split existing submissions. |
 
 **Secondary** (footer only): `/collection`, `/collection#the-book`, and the three legal pages.
 
 **Retired:** `/institutions`, `/families`, `/partners` were folded into `/who-we-serve` and permanently redirect to its anchors (see `next.config.js`). Their process stepper and FAQ moved to `/what-we-do`, where they describe the service rather than the audience.
 
+## What the public site must not say
+
+v1 described how engagements work. v2 does not, and this is the single most important constraint on any copy change here.
+
+**Keep off the public site:** the phase-by-phase engagement architecture, the 90–120 day pilot and its deliverables, time commitments, cohort benefits, chain-of-title mechanics, "forensic" method language, and anything else that tells a reader *how* the work is done. The retired `ProcessStepper` and `FAQAccordion` components existed only to present that material and were deleted with it; recover them from `v1.0.0` if the private portal needs them.
+
+**The public register is outcome-level:** what an institution gains, not the route taken. The line that governs it, lifted from the client's own copy, is: *"Our broader operating methods, analytical frameworks and engagement architecture are proprietary."* It renders on `/` and `/what-we-do`.
+
+**Word budget.** The source brief caps the landing page at **700 words**; it currently renders ~494. Other pages are held to the same spirit. Measure before adding, counting what a visitor actually reads:
+
+```bash
+curl -s http://localhost:3000/ \
+  | perl -0777 -pe 's/<script\b.*?<\/script>//gs; s/<style\b.*?<\/style>//gs' \
+  | perl -0777 -pe 's/.*?<main\b[^>]*>//s; s/<\/main>.*//s' \
+  | perl -0777 -pe 's/<[^>]+>/ /g; s/&[a-z]+;/ /g; s/\s+/ /g' | wc -w
+```
+
+### Vocabulary
+
+The protected terms, per the client's own footer notice: **Playmakxrs™, Narrative Infrastructure™, Narrative Observability™, Origin Assets™, Meaning Gap™** — plus The Bobby Grier Story™. Mark each on **first mention per page**, not every occurrence; the plain word afterwards reads better and is still protected.
+
+**"Narrative Capital" is retired** — replaced everywhere by Narrative Infrastructure™, as is "Institutional Narrative Infrastructure (INI)". Do not reintroduce either. The five verbs changed too: *Recover, Verify, Protect, Package, Activate* became **Discover, Verify, Protect, Activate, Preserve**.
+
+> ™ on sub-brands in body copy is a deliberate reversal of v1's convention, which confined the mark to the wordmark. The client's copy marks them, and their footer enumerates them as protected IP, so the marks stay.
+
 > The legal pages are **standard boilerplate that has not been reviewed by counsel.** `LEGAL_JURISDICTION` in `components/LegalPage.tsx` still renders literally as `[Governing State]`. Shared values (entity, contact, effective date, jurisdiction) are exported constants there — edit them in one place, not per page.
 
 ## Components
-`Button`, `Card`, `FAQAccordion`, `FeaturedIn`, `Footer`, `LegalPage`, `MetricCard`, `Navbar`, `ProcessStepper`, `SectionHeading`, `Select`.
+`Button`, `Card`, `FeaturedIn`, `Footer`, `LegalPage`, `MetricCard`, `Navbar`, `SectionHeading`, `Select`. (`MetricCard` is currently unused.)
 
 Shared data lives in `lib/`: `press.ts` (coverage + the logo strip) and `audiences.ts` (the three lanes, rendered on both `/` and `/who-we-serve`).
 
 - `Card` takes only `variant | className | children`. It has no `href` and spreads no props — to make a card clickable, wrap it in a `<Link>`/`<a>`, move `group` onto the wrapper, and add `h-full` to the Card so grid rows stay flush.
 - `SectionHeading` has no `id` prop — anchors go on the `<section>`.
-- Client components (`'use client'`): `Navbar`, `Footer`, `FAQAccordion`, `ProcessStepper`, `Select`, and `app/contact/page.tsx`. Everything else is a server component.
+- Client components (`'use client'`): `Navbar`, `Footer`, `Select`, and `app/contact/page.tsx` (whose metadata therefore lives in `app/contact/layout.tsx`). Everything else is a server component.
 
 ## Conventions
 

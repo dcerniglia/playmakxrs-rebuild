@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { ShieldCheck, CheckCircle2, Clock, FileText, Send, Sparkles } from 'lucide-react';
+import { CheckCircle2, Send } from 'lucide-react';
 import { Button } from '@/components/Button';
 import { Card } from '@/components/Card';
 import { SectionHeading } from '@/components/SectionHeading';
@@ -35,11 +35,18 @@ const INQUIRER_TYPES: SelectOption[] = [
 ];
 
 const OBJECTIVES: SelectOption[] = [
-  { value: 'pilot', label: '90–120 Day INI Pilot Program' },
-  { value: 'rights', label: 'Archival Recovery & Rights Verification' },
-  { value: 'publishing', label: 'Book Publishing & Documentary Production' },
-  { value: 'sponsorship', label: 'Corporate Heritage Sponsorship' },
-  { value: 'general', label: 'General Narrative Discovery Call' },
+  { value: 'discover', label: 'Understand what we may be holding' },
+  { value: 'verify', label: 'Establish what can be verified' },
+  { value: 'protect', label: 'Protect a legacy or an estate' },
+  { value: 'partner', label: 'Explore a sponsorship or partnership' },
+  { value: 'general', label: 'Something else' },
+];
+
+/** Outcome-level only — never the shape of an engagement. */
+const EXPECTATIONS = [
+  'A reply within one business day',
+  'A first conversation held in confidence',
+  'An honest answer about whether we can help',
 ];
 
 export default function ContactPage() {
@@ -82,13 +89,13 @@ export default function ContactPage() {
       <section className="py-20 px-6 md:px-8 bg-gradient-to-b from-deep-navy to-true-black border-b border-white/10 text-center">
         <div className="max-w-4xl mx-auto">
           <span className="text-crimson font-heading text-sm tracking-widest uppercase mb-4 inline-block font-semibold">
-            Confidential Application
+            Confidential Inquiry
           </span>
           <h1 className="text-4xl sm:text-6xl font-heading font-bold text-white mb-4">
-            PLAYMAKXRS PILOT PROGRAM
+            START WITH WHAT MATTERS
           </h1>
           <p className="text-base sm:text-lg text-gray-400 font-light max-w-2xl mx-auto leading-relaxed">
-            Join an exclusive cohort of universities, athletic departments, and family estates recovering and activating legacy narrative capital.
+            You do not need a finished project. Tell us what you are trying to understand.
           </p>
         </div>
       </section>
@@ -98,86 +105,48 @@ export default function ContactPage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
             
-            {/* Left Column: Pilot Program Details & Deliverables */}
+            {/* Left Column: What to Expect */}
             <div className="lg:col-span-5 space-y-10">
-              <div>
-                <span className="text-xs font-mono uppercase text-crimson tracking-wider">
-                  The 90–120 Day INI Pilot
-                </span>
-                <h2 className="text-3xl font-heading text-white mt-1 mb-4">
-                  What You Receive During The Pilot
-                </h2>
-                <p className="text-sm text-gray-300 font-light leading-relaxed">
-                  The Institutional Narrative Infrastructure (INI) Pilot is a structured, low-friction engagement designed to prove narrative value with zero institutional disruption.
+              <div className="space-y-5 text-gray-300 font-light leading-relaxed">
+                <p className="text-base md:text-lg text-white">
+                  You may have a person, achievement, archive, anniversary, discovery, institutional first, family legacy or opportunity you cannot yet define.
+                </p>
+                <p className="text-sm md:text-base text-gray-400">
+                  That is the right place to begin. The first conversation is about understanding what you hold &mdash; not about committing to anything.
                 </p>
               </div>
 
-              {/* 4 Tangible Deliverables */}
-              <div className="space-y-4">
-                <div className="bg-card-dark border border-white/10 p-6 rounded-sm">
-                  <div className="flex items-center space-x-3 text-crimson mb-2">
-                    <FileText className="w-5 h-5" />
-                    <h3 className="font-heading text-lg text-white">1. Narrative Capital Map</h3>
-                  </div>
-                  <p className="text-xs text-gray-400 font-light leading-relaxed">
-                    Complete forensic cataloging of your athletic department’s unmonetized historical milestones, available archival assets, and barrier-breaking pioneers.
-                  </p>
-                </div>
-
-                <div className="bg-card-dark border border-white/10 p-6 rounded-sm">
-                  <div className="flex items-center space-x-3 text-crimson mb-2">
-                    <ShieldCheck className="w-5 h-5" />
-                    <h3 className="font-heading text-lg text-white">2. Rights & Risk Review</h3>
-                  </div>
-                  <p className="text-xs text-gray-400 font-light leading-relaxed">
-                    Rights Before Reach analysis clarifying estate chain-of-title, family alignment status, and risk mitigation protocols before public release.
-                  </p>
-                </div>
-
-                <div className="bg-card-dark border border-white/10 p-6 rounded-sm">
-                  <div className="flex items-center space-x-3 text-crimson mb-2">
-                    <Clock className="w-5 h-5" />
-                    <h3 className="font-heading text-lg text-white">3. Campaign Blueprint</h3>
-                  </div>
-                  <p className="text-xs text-gray-400 font-light leading-relaxed">
-                    12-month multi-channel activation roadmap coordinating recruiting weekends, game-day ceremonies, published books, and donor campaigns.
-                  </p>
-                </div>
-
-                <div className="bg-card-dark border border-white/10 p-6 rounded-sm">
-                  <div className="flex items-center space-x-3 text-crimson mb-2">
-                    <Sparkles className="w-5 h-5" />
-                    <h3 className="font-heading text-lg text-white">4. Executive Briefing Deck</h3>
-                  </div>
-                  <p className="text-xs text-gray-400 font-light leading-relaxed">
-                    Board-ready presentation decks designed for Athletic Directors, University Presidents, and Trustees to illustrate strategic ROI.
-                  </p>
-                </div>
+              <div className="pt-8 border-t border-white/10">
+                <h2 className="font-heading text-xs uppercase tracking-widest text-gray-400 mb-5">
+                  What to Expect
+                </h2>
+                <ul className="space-y-3 text-sm text-gray-300 font-light">
+                  {EXPECTATIONS.map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <CheckCircle2
+                        className="w-4 h-4 text-crimson flex-shrink-0 mt-0.5"
+                        aria-hidden="true"
+                      />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
 
-              {/* Program Benefits */}
-              <div className="pt-6 border-t border-white/10">
-                <h4 className="font-heading text-xs uppercase tracking-widest text-gray-400 mb-4">
-                  Pilot Cohort Benefits
-                </h4>
-                <div className="space-y-3 text-xs text-gray-300">
-                  <div className="flex items-center space-x-3">
-                    <CheckCircle2 className="w-4 h-4 text-crimson flex-shrink-0" />
-                    <span>Dedicated Senior Forensic & Legal Team</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <CheckCircle2 className="w-4 h-4 text-crimson flex-shrink-0" />
-                    <span>Direct Input Into Platform Roadmap</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <CheckCircle2 className="w-4 h-4 text-crimson flex-shrink-0" />
-                    <span>Preferred Pilot Tier Investment Terms</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <CheckCircle2 className="w-4 h-4 text-crimson flex-shrink-0" />
-                    <span>Complete Confidentiality Prior to Public Launch</span>
-                  </div>
-                </div>
+              <div className="pt-8 border-t border-white/10">
+                <h2 className="font-heading text-xs uppercase tracking-widest text-gray-400 mb-3">
+                  Direct Contact
+                </h2>
+                <p className="text-sm text-gray-400 font-light leading-relaxed">
+                  Prefer email? Write to{' '}
+                  <a
+                    href="mailto:contact@playmakxrs.com"
+                    className="text-crimson hover:text-white transition-colors"
+                  >
+                    contact@playmakxrs.com
+                  </a>
+                  .
+                </p>
               </div>
             </div>
 
@@ -193,13 +162,13 @@ export default function ContactPage() {
                       Inquiry Received
                     </h3>
                     <p className="text-gray-300 font-light max-w-md mx-auto text-sm leading-relaxed">
-                      Thank you for contacting Playmakxrs. Our executive narrative team will review your details and reach out within one business day under strict confidentiality.
+                      Thank you for writing. We will review your note and reply within one business day, in confidence.
                     </p>
                     <button
                       onClick={() => setSubmitted(false)}
                       className="text-xs font-heading text-crimson uppercase tracking-wider hover:underline pt-4 block mx-auto"
                     >
-                      Submit Another Inquiry
+                      Send Another Inquiry
                     </button>
                   </div>
                 ) : (
@@ -221,10 +190,10 @@ export default function ContactPage() {
                     </p>
                     <div>
                       <h3 className="text-2xl font-heading text-white mb-2">
-                        Apply For Pilot Program / General Inquiry
+                        Tell Us What You Are Trying to Understand
                       </h3>
                       <p className="text-xs text-gray-400 font-light leading-relaxed">
-                        Please provide your institutional or estate details below. All inquiries are held in strict confidence under nondisclosure protocols.
+                        All inquiries are held in confidence.
                       </p>
                     </div>
 
@@ -294,7 +263,7 @@ export default function ContactPage() {
                     {/* Section 2: Organization Type */}
                     <div className="space-y-4">
                       <span className="text-xs font-heading uppercase tracking-widest text-crimson font-semibold block">
-                        2. Organization & Lane
+                        2. Organization
                       </span>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
@@ -328,11 +297,11 @@ export default function ContactPage() {
                     {/* Section 3: Scope & Objectives */}
                     <div className="space-y-4">
                       <span className="text-xs font-heading uppercase tracking-widest text-crimson font-semibold block">
-                        3. Strategic Intent
+                        3. What You Are Exploring
                       </span>
                       <div>
                         <label id="objective-label" htmlFor="objective" className="block text-xs uppercase font-heading text-gray-300 mb-1.5">
-                          Primary Objective:
+                          What are you exploring?
                         </label>
                         <Select
                           id="objective"
@@ -344,13 +313,13 @@ export default function ContactPage() {
 
                       <div>
                         <label htmlFor="overview" className="block text-xs uppercase font-heading text-gray-300 mb-1.5">
-                          Brief Overview of Stories or Archives to Recover:
+                          What are you trying to understand?
                         </label>
                         <textarea
                           id="overview"
                           name="overview"
                           rows={4}
-                          placeholder="Tell us about the athlete, milestone, or archival heritage you wish to explore..."
+                          placeholder="A person, a moment, an archive, an anniversary — whatever prompted you to write."
                           className={`${FIELD_CLASSES} resize-none`}
                         />
                       </div>
@@ -375,13 +344,13 @@ export default function ContactPage() {
                         <span>Processing Application...</span>
                       ) : (
                         <>
-                          <span>Submit Pilot Application</span>
+                          <span>Send Inquiry</span>
                           <Send className="w-4 h-4 ml-2" />
                         </>
                       )}
                     </button>
                     <p className="text-[11px] text-gray-500 text-center font-light">
-                      Submissions are protected under standard mutual NDA guidelines. We never share institutional data.
+                      Held in confidence. We never share your information.
                     </p>
                   </form>
                 )}

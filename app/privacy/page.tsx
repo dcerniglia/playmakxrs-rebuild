@@ -40,7 +40,7 @@ export default function PrivacyPage() {
               </strong>{' '}
               Name, organization, role, email address, phone number, and
               anything else you include when you submit an inquiry, apply to the
-              pilot program, or subscribe to updates.
+              engagement, or subscribe to updates.
             </>,
             <>
               <strong className="text-white font-normal">
@@ -64,9 +64,9 @@ export default function PrivacyPage() {
       <LegalSection number="03" title="How We Use Information">
         <LegalList
           items={[
-            'Responding to inquiries and evaluating pilot program applications.',
+            'Responding to inquiries and evaluating prospective engagements.',
             'Delivering, administering, and improving our services.',
-            'Verifying archival records and establishing chain-of-title.',
+            'Verifying records and establishing rights of use.',
             'Sending updates you have asked to receive.',
             'Maintaining the security and integrity of our systems.',
             'Meeting legal, regulatory, and contractual obligations.',
@@ -99,7 +99,7 @@ export default function PrivacyPage() {
         <p>
           We keep personal information for as long as needed to fulfill the
           purposes described above, and thereafter as required to satisfy legal,
-          accounting, or reporting obligations. Archival and chain-of-title
+          accounting, or reporting obligations. Archival and rights
           records are retained for the life of the engagement and any subsequent
           rights term.
         </p>

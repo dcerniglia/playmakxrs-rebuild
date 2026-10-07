@@ -29,7 +29,7 @@ export default function OurProofPage() {
 
         <div className="relative z-20 max-w-5xl mx-auto px-6 md:px-8 pb-8 md:pb-10 text-center w-full">
           <span className="font-heading tracking-widest text-xs md:text-sm text-white uppercase font-semibold mb-2 inline-block drop-shadow-[0_1px_8px_rgba(0,0,0,0.9)]">
-            The Founding Case Study & Origin
+            Founding Proof
           </span>
           <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-serif-heading font-semibold text-gold leading-tight mb-3 drop-shadow-[0_2px_16px_rgba(0,0,0,0.95)]">
             The Gentleman Who Changed The Game.
@@ -44,11 +44,7 @@ export default function OurProofPage() {
       <section className="py-20 px-6 md:px-8 max-w-3xl mx-auto text-gray-300 font-light text-base md:text-lg leading-relaxed">
         <div className="space-y-8 drop-cap">
           <p>
-            Bobby Grier wore jersey number 38 for the University of Pittsburgh Panthers. In late 1955, when Pitt accepted an invitation to face Georgia Tech in the Sugar Bowl at Tulane Stadium in New Orleans, the contest was instantly thrust into the vortex of the American civil rights movement.
-          </p>
-
-          <p>
-            The Governor of Georgia, Marvin Griffin, issued an ultimatum demanding that Georgia Tech forfeit rather than allow a Black player to take the field against them in the segregated Deep South. Segregationist politicians and editorial boards across the region mobilized to block Pitt from boarding the train to Louisiana.
+            Bobby Grier wore number 38 for the University of Pittsburgh. When Pitt accepted an invitation to face Georgia Tech in the 1956 Sugar Bowl, the Governor of Georgia demanded that Tech forfeit rather than meet a Black player on a segregated field.
           </p>
 
           <div className="my-12 pl-6 md:pl-8 border-l-4 border-crimson">
@@ -61,15 +57,11 @@ export default function OurProofPage() {
           </div>
 
           <p>
-            The university leadership refused to buckle. The Pitt student body marched on the streets in solidarity, and even Georgia Tech students defied their own governor, rallying on their Atlanta campus in support of Grier and the matchup.
+            Pitt refused. Its students marched, and Georgia Tech students defied their own governor in support of the matchup. On January 2, 1956, Grier took the field at Tulane Stadium and broke the Sugar Bowl&rsquo;s color barrier.
           </p>
 
           <p>
-            On January 2, 1956, Bobby Grier stepped onto the field at Tulane Stadium, officially breaking the color barrier in the Sugar Bowl and altering the trajectory of collegiate athletic history forever.
-          </p>
-
-          <p>
-            Decades later, despite the monumental significance of this breakthrough, the story had faded from popular national memory. The historical documentation was fragmented, unauthorized accounts misstated key facts, and the Grier family had never received the comprehensive institutional and commercial recognition the moment deserved.
+            Decades later the significance had faded from national memory. The record was fragmented, some accounts misstated it, and the recognition the moment deserved had never arrived.
           </p>
 
           {/* Historical Archival Photograph: Bobby Grier (#38) */}
@@ -89,13 +81,13 @@ export default function OurProofPage() {
 
           <div className="bg-card-dark border border-white/10 p-8 my-10 rounded-sm">
             <h3 className="font-heading text-xl text-white mb-3">
-              How Playmakxrs Rebuilt the Narrative Capital
+              One Verified Origin Asset&trade;
             </h3>
             <p className="text-sm text-gray-300 leading-relaxed font-light mb-4">
-              Playmakxrs partnered directly with Bobby Grier and his family. Under our Rights Before Reach framework, we verified original historical telegrams, newspaper archives, and oral recollections, securing the official family chain-of-title.
+              Playmakxrs worked directly with Bobby Grier and his family, and continues to work with them today. What the record needed first was not amplification. It was verification, and the family&rsquo;s authority over how their own story would be used.
             </p>
             <p className="text-sm text-gray-400 leading-relaxed font-light">
-              From this single foundation, we published the bestselling book, structured a national broadcast feature with Fox 5 Atlanta, coordinated the official enshrinement of Bobby Grier into the Pitt Athletics Hall of Fame, and developed campus educational curricula that continue to inspire collegiate athletes today.
+              From that single verified foundation came a published book, a national broadcast feature, enshrinement in the Pitt Athletics Hall of Fame, and campus curricula still in use. The value was already there. The infrastructure helped make more of it visible.
             </p>
           </div>
         </div>
@@ -107,7 +99,7 @@ export default function OurProofPage() {
           <SectionHeading
             category="The Compounding Model"
             title="One Story, Many Assets"
-            subtitle="How forensic verification and narrative packaging turn a single historical moment into a multi-format ecosystem."
+            subtitle="What one verified Origin Asset reached once it could be trusted."
           />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -244,7 +236,7 @@ export default function OurProofPage() {
           </p>
           <div className="pt-4">
             <Button href="/contact" variant="secondary" className="!bg-white !text-crimson hover:!bg-gray-100 font-bold">
-              Begin Institutional Narrative Discovery
+              Start the Conversation
             </Button>
           </div>
         </div>
