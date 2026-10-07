@@ -35,12 +35,14 @@ npm run start   # serve the production build
 
 | Path | Purpose |
 | --- | --- |
-| `/` | Hub routing users into the three lanes |
-| `/institutions` | Athletic departments and universities |
-| `/families` | Legacy protection, books, and merchandise |
-| `/partners` | Sponsors and media, with data-viz elements |
-| `/about` | The Bobby Grier story — long-form editorial |
-| `/contact` | Pilot program intake form |
+| `/` | Hero, credibility strip, the three lanes, proof teaser |
+| `/what-we-do` | The five verbs, Rights Before Reach, the pilot, FAQ |
+| `/who-we-serve` | Institutions, families and estates, sponsors and media |
+| `/our-proof` | The Bobby Grier case study and independent press |
+| `/about` | The model and its boundaries |
+| `/contact` | Pilot program intake |
+
+Secondary: `/collection` (and `/collection#the-book`), plus privacy, terms and rights-governance.
 
 ## Design System
 

@@ -119,38 +119,38 @@ export const Footer: React.FC = () => {
             </h4>
             <ul className="space-y-2.5 text-sm">
               <li>
-                <Link href="/" className="hover:text-white transition-colors">
-                  Overview & Hub
+                <Link href="/what-we-do" className="hover:text-white transition-colors">
+                  What We Do
                 </Link>
               </li>
               <li>
-                <Link href="/institutions" className="hover:text-white transition-colors">
-                  For Institutions
+                <Link href="/who-we-serve" className="hover:text-white transition-colors">
+                  Who We Serve
                 </Link>
               </li>
               <li>
-                <Link href="/families" className="hover:text-white transition-colors">
-                  For Families & Athletes
-                </Link>
-              </li>
-              <li>
-                <Link href="/partners" className="hover:text-white transition-colors">
-                  Sponsors & Media
+                <Link href="/our-proof" className="hover:text-white transition-colors">
+                  Our Proof
                 </Link>
               </li>
               <li>
                 <Link href="/about" className="hover:text-white transition-colors">
-                  The Bobby Grier Story
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="hover:text-white transition-colors">
+                  Contact
+                </Link>
+              </li>
+              <li className="pt-3 mt-3 border-t border-white/10">
+                <Link href="/collection#the-book" className="hover:text-white transition-colors">
+                  The Book
                 </Link>
               </li>
               <li>
                 <Link href="/collection" className="hover:text-white transition-colors">
                   The Collection
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="hover:text-white transition-colors">
-                  Pilot Program Application
                 </Link>
               </li>
             </ul>

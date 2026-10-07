@@ -11,9 +11,9 @@ Four versions of this site exist. Knowing which is which prevents treating a rej
 1. **playmakxrs.com** — the live production site (Astro). Wired up with Mailchimp and a Shopify-backed merch page. Still the customer-facing site today.
 2. **Railway v1** — repositioned around a sharper focus on the service offering, deployed for review.
 3. **Railway v2** — further reorganization, but it came out too wordy and was not adopted. *This is what `assets/website_text_content.md` captured.*
-4. **This repo** — a streamlined rebuild from the mockups in `docs/`. The version the team settled on.
+4. **This repo** — a streamlined rebuild from the mockups in `docs/`, then **restructured again in October 2026** around the JMI Sports reference and the Home / What We Do / Who We Serve / Our Proof / About / Contact navigation.
 
-Current phase: **reinstating content the streamlining cut** — the book and the proof/media content are done; other items remain (see Backlog).
+Current phase: the JMI-inspired restructure. Content reinstatement finished before it; see Backlog for what is still open.
 
 > `assets/website_text_content.md` is a scrape of **Railway v2, a rejected iteration** — not of production and not of this design. Treat it as a *content archive*: the best record of copy and links that were dropped and may be coming back. It is **not** the design authority. The mockups in `docs/` are.
 
@@ -52,24 +52,29 @@ When building components, strictly adhere to this custom color and typography pa
 
 ## Site Architecture & Routing
 
-**Core pages:**
-1. `/` (Home): Hub routing users to the three lanes, featuring the new sports-first mantra.
-2. `/institutions` (For Institutions): Focused on Athletic Departments and Universities.
-3. `/families` (For Families & Athletes): Focused on legacy protection, books, and merchandise.
-4. `/partners` (For Sponsors & Media): B2B focus with data-viz elements.
-5. `/about` (The Bobby Grier Story): Long-form editorial case study. Its "One Story, Many Assets" grid links out to the book, the Fox interview, and the Hall of Fame profile.
-6. `/contact` (Pilot Program): Branched intake form with robust UI.
-7. `/collection` (The Collection): Hosts the book at `#the-book` — cover, retail links, and the origin framing — with apparel and archival replicas below it as extensions. Hands off to the Shopify storefront.
+Redesigned October 2026 in the spirit of [JMI Sports](https://www.jmisports.com/): brief sections, clear audiences, strong visuals, recognizable proof, short path to contact.
 
-**Legal pages** (linked from the footer, built on the shared `LegalPage` component):
-8. `/privacy` (Privacy Policy)
-9. `/terms` (Terms of Engagement)
-10. `/rights-governance` (Rights Governance — the Rights Before Reach standard)
+**Primary navigation** — Home | What We Do | Who We Serve | Our Proof | About | Contact
+
+| Route | Purpose |
+| --- | --- |
+| `/` | Hero, "As Featured In" strip, three audience cards, Grier teaser, contact CTA. Deliberately short. |
+| `/what-we-do` | The five verbs (recover, verify, protect, package, activate), Rights Before Reach, the 90–120 day pilot, FAQ. |
+| `/who-we-serve` | Three anchored sections — `#institutions`, `#families`, `#partners` — driven by `lib/audiences.ts`. |
+| `/our-proof` | The Bobby Grier case study, the proof loop ("One Story, Many Assets"), and independent press. |
+| `/about` | The mantra, the Narrative Capital thesis, the Triad, and operational boundaries. **Not** the Grier story — that is Our Proof. |
+| `/contact` | Pilot application, posting to Netlify Forms. |
+
+**Secondary** (footer only): `/collection`, `/collection#the-book`, and the three legal pages.
+
+**Retired:** `/institutions`, `/families`, `/partners` were folded into `/who-we-serve` and permanently redirect to its anchors (see `next.config.js`). Their process stepper and FAQ moved to `/what-we-do`, where they describe the service rather than the audience.
 
 > The legal pages are **standard boilerplate that has not been reviewed by counsel.** `LEGAL_JURISDICTION` in `components/LegalPage.tsx` still renders literally as `[Governing State]`. Shared values (entity, contact, effective date, jurisdiction) are exported constants there — edit them in one place, not per page.
 
 ## Components
-`Button`, `Card`, `FAQAccordion`, `Footer`, `LegalPage`, `MetricCard`, `Navbar`, `ProcessStepper`, `SectionHeading`.
+`Button`, `Card`, `FAQAccordion`, `FeaturedIn`, `Footer`, `LegalPage`, `MetricCard`, `Navbar`, `ProcessStepper`, `SectionHeading`.
+
+Shared data lives in `lib/`: `press.ts` (coverage + the logo strip) and `audiences.ts` (the three lanes, rendered on both `/` and `/who-we-serve`).
 
 - `Card` takes only `variant | className | children`. It has no `href` and spreads no props — to make a card clickable, wrap it in a `<Link>`/`<a>`, move `group` onto the wrapper, and add `h-full` to the Card so grid rows stay flush.
 - `SectionHeading` has no `id` prop — anchors go on the `<section>`.
@@ -117,6 +122,11 @@ Press coverage lives in **`lib/press.ts`** and renders on `/about`. `/partners` 
 > **Verifying press URLs:** several of these outlets return `403` or `202` to non-browser requests — WGNO and ESPN both do. A failed `curl` is not evidence a link is dead; open it in a real browser. Conversely Indigo returned a clean `404` and really was gone, so check both ways.
 
 > **The Indigo retailer link is dead.** `indigo.ca/fr-ca/no-grier-no-game-…/1e510e0e-….html`, recorded in the scrape, now returns a genuine 404 in both `fr-ca` and `en-ca` (indigo.ca itself responds 200, and an on-site search finds no listing), so the book appears to have been delisted. It is deliberately **not** linked here. Re-check with the client before adding a third retailer.
+
+### Our proof is one case, not a client roster
+JMI's credibility rests on twenty client logos and six named executive testimonials. Playmakxrs has **one institutional engagement** (Pitt and the Grier family) and **one testimonial** anywhere in the source material (Steve Schwab, Elizabeth Dole Foundation, on production's book page).
+
+So the home strip is labelled **"As Featured In"** and carries outlets that *covered* the work — never "clients", "partners" or "trusted by". Presenting press marks as a client roster would misrepresent the business. If a real client list ever exists, that is a different component.
 
 ### Bobby Grier
 Bobby Grier died in July 2024, aged 91 — the CBS/KDKA piece in `lib/press.ts` is his obituary. Site copy refers to him in the past tense throughout; keep it that way, and do not write anything implying he is available for interviews or appearances. Playmakxrs worked with him directly during his lifetime, and continues to work with his family.
