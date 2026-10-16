@@ -57,7 +57,7 @@ export default function AboutPage() {
             title="Meaning Needs Infrastructure"
           />
           <p>
-            Institutions compete for attention using the same tools as everyone else. Meanwhile the one asset nobody can copy &mdash; what actually happened, to real people, in their own care &mdash; often sits unexamined and unprotected.
+            Institutions compete for attention using the same tools as everyone else. Meanwhile the one asset nobody can copy is what actually happened, to real people, in their own care. It often sits unexamined and unprotected.
           </p>
           <p>
             Not every story should be optimized for attention. Some shape identity, trust and public memory, and they reward restraint. Handled well, they strengthen the institution carrying them.
