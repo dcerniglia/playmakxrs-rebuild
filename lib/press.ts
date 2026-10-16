@@ -89,7 +89,7 @@ export const PRESS_COVERAGE: PressItem[] = [
     headline: 'The Big Moment',
     medium: 'Article',
     url: 'https://www.gtalumni.org/news/2024/the-big-moment.html',
-    note: 'Told by the opposing school — Georgia Tech played Pitt in that Sugar Bowl.',
+    note: 'Told by the opposing school: Georgia Tech played Pitt in that Sugar Bowl.',
     // No logo: the only available Georgia Tech mark is a JPEG with a baked-in
     // transparency checkerboard, which cannot be rendered on a dark ground.
   },

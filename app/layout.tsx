@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Playmakxrs | Narrative Infrastructure',
     description:
-      'Playmakxrs helps institutions discover what they cannot yet see — turning overlooked meaning into human connection and enduring institutional value.',
+      'Playmakxrs helps institutions discover what they cannot yet see, turning overlooked meaning into human connection and enduring institutional value.',
     type: 'website',
   },
 };

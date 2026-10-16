@@ -37,7 +37,7 @@ export default function RightsGovernancePage() {
         </p>
         <LegalList
           items={[
-            'Locating and authenticating primary source records — archives, correspondence, contemporaneous press, and institutional files.',
+            'Locating and authenticating primary source records: archives, correspondence, contemporaneous press, and institutional files.',
             'Identifying the athlete, estate, or descendants holding relevant rights.',
             'Documenting the line of succession from the original subject to the present rights holder.',
             'Recording gaps, contradictions, and unresolved questions rather than papering over them.',

@@ -112,7 +112,7 @@ export default function ContactPage() {
                   You may have a person, achievement, archive, anniversary, discovery, institutional first, family legacy or opportunity you cannot yet define.
                 </p>
                 <p className="text-sm md:text-base text-gray-400">
-                  That is the right place to begin. The first conversation is about understanding what you hold &mdash; not about committing to anything.
+                  That is the right place to begin. The first conversation is about understanding what you hold, not about committing to anything.
                 </p>
               </div>
 
@@ -319,7 +319,7 @@ export default function ContactPage() {
                           id="overview"
                           name="overview"
                           rows={4}
-                          placeholder="A person, a moment, an archive, an anniversary — whatever prompted you to write."
+                          placeholder="Whatever prompted you to write: a person, a moment, an archive, an anniversary."
                           className={`${FIELD_CLASSES} resize-none`}
                         />
                       </div>

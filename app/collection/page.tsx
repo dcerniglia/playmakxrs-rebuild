@@ -57,7 +57,7 @@ export default function CollectionPage() {
             accentColor="gold"
           />
           <p className="text-sm md:text-base text-gray-400 font-light leading-relaxed">
-            The collection extends The Bobby Grier Story into objects &mdash; built with no spectacle, no trend, and no excess. Each item is produced in limited runs and designed to endure.
+            The collection extends The Bobby Grier Story into objects, built with no spectacle, no trend, and no excess. Each item is produced in limited runs and designed to endure.
           </p>
         </div>
       </section>
@@ -133,7 +133,7 @@ export default function CollectionPage() {
               </div>
               <h3 className="text-xl font-heading text-white mb-2">Heritage Apparel</h3>
               <p className="text-sm text-gray-400 font-light leading-relaxed">
-                Heavyweight melton wool, chenille lettering, and authentic embroidery &mdash; drawn from the period, not a trend cycle.
+                Heavyweight melton wool, chenille lettering, and authentic embroidery. Drawn from the period, not a trend cycle.
               </p>
             </Card>
 

@@ -33,7 +33,7 @@ export default function TermsPage() {
       <LegalSection number="02" title="Scope of Services">
         <p>
           Playmakxrs builds Narrative Infrastructure for institutions, families,
-          and partners &mdash; helping them discover, verify, protect, activate and
+          and partners, helping them discover, verify, protect, activate and
           preserve meaning they already hold. The specific services, deliverables,
           timelines, and fees for any engagement are defined in a separate written
           agreement or statement of work.
@@ -74,8 +74,8 @@ export default function TermsPage() {
           The Playmakxrs name, wordmark, frameworks, methodologies, and the
           content of this site remain our property. Institutional trademarks and
           marks remain the property of the institution. Rights in works produced
-          during an engagement — books, documentary footage, curricula, and
-          related materials — are allocated in the engagement agreement, and are
+          during an engagement (books, documentary footage, curricula, and
+          related materials) are allocated in the engagement agreement, and are
           subject to the consents described in our Rights Governance policy.
         </p>
       </LegalSection>

@@ -138,7 +138,7 @@ export default function OurProofPage() {
                 <span className="inline-flex items-center text-xs font-heading text-white uppercase tracking-wider group-hover:text-crimson transition-colors">
                   Watch on YouTube &middot; 4:28
                   <ArrowUpRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
-                  <span className="sr-only"> &mdash; video, opens on YouTube in a new tab</span>
+                  <span className="sr-only"> (video, opens on YouTube in a new tab)</span>
                 </span>
               </Card>
             </a>
@@ -161,7 +161,7 @@ export default function OurProofPage() {
                 <span className="inline-flex items-center text-xs font-heading text-crimson uppercase tracking-wider group-hover:text-white transition-colors">
                   View Hall of Fame Profile
                   <ArrowUpRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
-                  <span className="sr-only"> &mdash; opens pittsburghpanthers.com in a new tab</span>
+                  <span className="sr-only"> (opens pittsburghpanthers.com in a new tab)</span>
                 </span>
               </Card>
             </a>
@@ -216,7 +216,7 @@ export default function OurProofPage() {
                     {medium}
                     {duration && <span className="ml-1.5 normal-case">{duration}</span>}
                     <ArrowUpRight className="w-3.5 h-3.5 ml-2 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
-                    <span className="sr-only"> &mdash; opens in a new tab</span>
+                    <span className="sr-only"> (opens in a new tab)</span>
                   </span>
                 </a>
               </li>

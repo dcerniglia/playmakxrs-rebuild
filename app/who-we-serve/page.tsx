@@ -8,7 +8,7 @@ import { AUDIENCES } from '@/lib/audiences';
 export const metadata: Metadata = {
   title: 'Who We Serve | Playmakxrs',
   description:
-    'Institutions, athletes and families, and sponsors and partners — who Playmakxrs works with, and what each gains.',
+    'Who Playmakxrs works with, and what each gains: institutions, athletes and families, and sponsors and partners.',
 };
 
 const ICONS = [Building2, Heart, Handshake];

@@ -56,7 +56,7 @@ export const AUDIENCES: Audience[] = [
     label: 'Sponsors & Partners',
     tagline: 'Brands, broadcasters and publishers',
     summary:
-      'Organizations seeking credible alignment with meaningful people, institutions and moments — association that is earned rather than borrowed.',
+      'Organizations seeking credible alignment with meaningful people, institutions and moments: association that is earned rather than borrowed.',
     points: [
       'Alignment with verified meaning',
       'Credible association, not borrowed attention',

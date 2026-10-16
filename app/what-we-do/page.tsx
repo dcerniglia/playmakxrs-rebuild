@@ -7,7 +7,7 @@ import { SectionHeading } from '@/components/SectionHeading';
 export const metadata: Metadata = {
   title: 'What We Do | Playmakxrs',
   description:
-    'Narrative Infrastructure that makes overlooked meaning visible, verifiable, protected and usable — then helps turn it into human connection and enduring institutional value.',
+    'Narrative Infrastructure that makes overlooked meaning visible, verifiable, protected and usable, then helps turn it into human connection and enduring institutional value.',
 };
 
 /**
@@ -19,7 +19,7 @@ const capabilities = [
   {
     verb: 'Discover',
     Icon: Search,
-    body: 'what may be overlooked — people, achievements, archives, traditions and defining moments an institution already holds.',
+    body: 'what may be overlooked: people, achievements, archives, traditions and defining moments an institution already holds.',
   },
   {
     verb: 'Verify',
@@ -190,7 +190,7 @@ export default function WhatWeDoPage() {
             See It Proven Once
           </h2>
           <p className="text-base md:text-lg text-white/90 font-light leading-relaxed">
-            The Bobby Grier Story&trade; is our founding proof case &mdash; one verified Origin Asset&trade; that reached history, athletics, education, community and media.
+            The Bobby Grier Story&trade; is our founding proof case: one verified Origin Asset&trade; that reached history, athletics, education, community and media.
           </p>
           <div className="pt-4">
             <Button href="/our-proof" variant="secondary" className="!bg-white !text-crimson hover:!bg-gray-100 font-bold">
