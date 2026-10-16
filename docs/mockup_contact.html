@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilot Program - Playmakxrs™</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'true-black': '#000000',
+                        'deep-navy': '#080E1C',
+                        'crimson': '#E53935',
+                        'card-dark': '#131B2D'
+                    },
+                    fontFamily: {
+                        'oswald': ['Oswald', 'sans-serif'],
+                        'inter': ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #080E1C; color: #ffffff; }
+        .font-heading { font-family: 'Oswald', sans-serif; text-transform: uppercase; }
+        input, select, textarea { background-color: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: white; padding: 0.75rem; border-radius: 0.25rem; width: 100%; outline: none; }
+        input:focus, select:focus, textarea:focus { border-color: #E53935; }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+
+    <!-- Navigation -->
+    <nav class="w-full py-6 px-8 flex justify-between items-center border-b border-white/5 bg-true-black">
+        <div class="text-2xl font-heading font-bold tracking-wider">PLAYMAKXRS<span class="text-crimson">™</span></div>
+        <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-400">
+            <a href="client_mockup.html" class="hover:text-white transition">Home</a>
+            <a href="mockup_institutions.html" class="hover:text-white transition">Institutions</a>
+            <a href="mockup_families.html" class="hover:text-white transition">Families</a>
+            <a href="mockup_sponsors.html" class="hover:text-white transition">Sponsors</a>
+            <a href="mockup_about.html" class="hover:text-white transition">Stories</a>
+        </div>
+        <button class="bg-crimson hover:bg-red-700 text-white px-6 py-2 rounded-sm font-heading tracking-wide transition invisible">Get Started</button>
+    </nav>
+
+    <section class="py-20 px-8">
+        <div class="max-w-7xl mx-auto">
+            
+            <div class="text-center mb-16">
+                <h1 class="text-5xl font-heading mb-4">PLAYMAKXRS™ PILOT PROGRAM</h1>
+                <p class="text-gray-400 text-lg">JOIN OUR EXCLUSIVE EARLY-ADOPTER COMMUNITY FOR LEGACY PROTECTION.</p>
+            </div>
+
+            <div class="flex flex-col lg:flex-row gap-16">
+                
+                <!-- Left: Benefits -->
+                <div class="lg:w-1/2">
+                    <h2 class="text-3xl font-heading mb-8">PROGRAM BENEFITS</h2>
+                    <div class="space-y-8">
+                        <div class="flex items-start gap-4">
+                            <svg class="w-8 h-8 text-crimson flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <div>
+                                <h3 class="font-heading text-xl mb-1">Early Access to New Features</h3>
+                                <p class="text-gray-400 text-sm leading-relaxed">Get first-hand access to innovative tools for storytelling and rights management before public release.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <svg class="w-8 h-8 text-crimson flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <div>
+                                <h3 class="font-heading text-xl mb-1">Shape Product Roadmap</h3>
+                                <p class="text-gray-400 text-sm leading-relaxed">Provide direct feedback that influences the development of our institutional platforms.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <svg class="w-8 h-8 text-crimson flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <div>
+                                <h3 class="font-heading text-xl mb-1">Dedicated Support</h3>
+                                <p class="text-gray-400 text-sm leading-relaxed">Direct access to our senior engineering, legal, and storytelling support teams.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <svg class="w-8 h-8 text-crimson flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <div>
+                                <h3 class="font-heading text-xl mb-1">Exclusive Pricing</h3>
+                                <p class="text-gray-400 text-sm leading-relaxed">Special lifetime discounts for organizations that participate in the pilot phase.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Form -->
+                <div class="lg:w-1/2 bg-card-dark p-10 border border-white/10 rounded-sm">
+                    <h2 class="text-2xl font-heading mb-8">APPLY FOR THE PILOT PROGRAM</h2>
+                    <form class="space-y-6">
+                        
+                        <div>
+                            <h3 class="text-sm font-bold text-gray-300 uppercase tracking-widest mb-4">1. Applicant Information</h3>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs text-gray-400 mb-1">Full Name</label>
+                                    <input type="text" placeholder="Sarah Johnson">
+                                </div>
+                                <div>
+                                    <label class="block text-xs text-gray-400 mb-1">Job Title</label>
+                                    <input type="text" placeholder="Athletic Director">
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <label class="block text-xs text-gray-400 mb-1">Business Email <span class="text-crimson">*</span></label>
+                                <input type="email" placeholder="sarah.j@university.edu" required>
+                            </div>
+                        </div>
+
+                        <div class="pt-4">
+                            <h3 class="text-sm font-bold text-gray-300 uppercase tracking-widest mb-4">2. Organization Details</h3>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs text-gray-400 mb-1">I am representing a(n)...</label>
+                                    <select>
+                                        <option>Institution / University</option>
+                                        <option>Family / Estate</option>
+                                        <option>Sponsor / Brand</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-xs text-gray-400 mb-1">Organization Name</label>
+                                    <input type="text">
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <label class="block text-xs text-gray-400 mb-1">Primary Goals / What story are you exploring?</label>
+                                <textarea rows="3"></textarea>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="w-full bg-crimson hover:bg-red-700 text-white font-heading tracking-widest py-4 mt-8 transition">SUBMIT APPLICATION</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

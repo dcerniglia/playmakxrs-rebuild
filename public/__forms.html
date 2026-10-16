@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Netlify form definitions</title>
+    <meta name="robots" content="noindex" />
+  </head>
+  <body>
+    <!--
+      Netlify detects forms by scanning static HTML at deploy time. It cannot
+      see a form that only exists as JSX inside a React component, so the
+      schema is declared here and the real form on /contact POSTs to this path.
+      Field names must stay in sync with app/contact/page.tsx.
+    -->
+    <form name="pilot-application" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="pilot-application" />
+      <input type="text" name="bot-field" />
+      <input type="text" name="firstName" />
+      <input type="text" name="lastName" />
+      <input type="email" name="email" />
+      <input type="text" name="role" />
+      <input type="text" name="organization" />
+      <select name="inquirerType"></select>
+      <select name="objective"></select>
+      <textarea name="overview"></textarea>
+    </form>
+  </body>
+</html>

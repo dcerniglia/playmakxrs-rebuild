@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Sponsors - Playmakxrs™</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'true-black': '#000000',
+                        'deep-navy': '#060B19',
+                        'crimson': '#E53935',
+                        'card-dark': '#0D1426'
+                    },
+                    fontFamily: {
+                        'oswald': ['Oswald', 'sans-serif'],
+                        'inter': ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #060B19; color: #ffffff; }
+        h1, h2, h3, h4, .font-heading { font-family: 'Oswald', sans-serif; text-transform: uppercase; }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+
+    <!-- Navigation -->
+    <nav class="w-full z-50 py-6 px-8 flex justify-between items-center border-b border-white/5 bg-true-black">
+        <div class="text-2xl font-heading font-bold tracking-wider">PLAYMAKXRS<span class="text-crimson">™</span></div>
+        <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-400">
+            <a href="client_mockup.html" class="hover:text-white transition">Home</a>
+            <a href="mockup_institutions.html" class="hover:text-white transition">Institutions</a>
+            <a href="mockup_families.html" class="hover:text-white transition">Families</a>
+            <a href="#" class="text-white transition">Sponsors</a>
+            <a href="mockup_about.html" class="hover:text-white transition">Stories</a>
+        </div>
+        <button class="bg-crimson hover:bg-red-700 text-white px-6 py-2 rounded-sm font-heading tracking-wide transition">Partner With Us</button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="py-24 px-8 bg-true-black border-b border-white/5">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
+            <div class="max-w-2xl">
+                <p class="text-crimson font-heading text-xl tracking-widest mb-4">SPONSORS & MEDIA PARTNERS</p>
+                <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-8">
+                    CONNECT WITH THE WORLD'S LEADING <span class="text-crimson">SPORTS ECOSYSTEM.</span>
+                </h1>
+                <p class="text-lg text-gray-400 mb-10 font-light leading-relaxed">
+                    Align your brand with verified, rights-aware, emotionally credible stories that audiences can deeply connect with and genuinely trust.
+                </p>
+                <button class="bg-crimson hover:bg-red-700 text-white px-8 py-4 rounded-sm font-heading text-lg tracking-wide transition">EXPLORE PARTNERSHIPS</button>
+            </div>
+            
+            <!-- Data Viz Hero Elements -->
+            <div class="flex flex-col gap-4">
+                <div class="bg-card-dark border border-white/10 p-6 rounded-sm w-64 flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full border-2 border-crimson border-t-transparent animate-spin"></div>
+                    <div>
+                        <div class="font-heading text-2xl font-bold">350M+</div>
+                        <div class="text-xs text-gray-400 uppercase tracking-widest">Audience Reach</div>
+                    </div>
+                </div>
+                <div class="bg-card-dark border border-white/10 p-6 rounded-sm w-64 flex items-center gap-4">
+                    <div class="w-12 h-12 bg-crimson/20 rounded-full flex items-center justify-center">
+                        <div class="w-6 h-6 bg-crimson rounded-full animate-pulse"></div>
+                    </div>
+                    <div>
+                        <div class="font-heading text-2xl font-bold">50+</div>
+                        <div class="text-xs text-gray-400 uppercase tracking-widest">Global Events</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Network Section -->
+    <section class="py-20 px-8 bg-deep-navy">
+        <div class="max-w-6xl mx-auto text-center">
+            <h2 class="text-3xl font-heading mb-12">KEY PARTNERSHIPS & NETWORK</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="h-24 bg-card-dark rounded-sm flex items-center justify-center border border-white/5 font-heading text-xl text-gray-500">NIKE</div>
+                <div class="h-24 bg-card-dark rounded-sm flex items-center justify-center border border-white/5 font-heading text-xl text-gray-500">ADIDAS</div>
+                <div class="h-24 bg-card-dark rounded-sm flex items-center justify-center border border-white/5 font-heading text-xl text-gray-500">ESPN</div>
+                <div class="h-24 bg-card-dark rounded-sm flex items-center justify-center border border-white/5 font-heading text-xl text-gray-500">SONY</div>
+                <div class="h-24 bg-card-dark rounded-sm flex items-center justify-center border border-white/5 font-heading text-xl text-gray-500">UEFA</div>
+                <div class="h-24 bg-card-dark rounded-sm flex items-center justify-center border border-white/5 font-heading text-xl text-gray-500">F1</div>
+                <div class="h-24 bg-card-dark rounded-sm flex items-center justify-center border border-white/5 font-heading text-xl text-gray-500">BBC SPORT</div>
+                <div class="h-24 bg-card-dark rounded-sm flex items-center justify-center border border-white/5 font-heading text-xl text-gray-500">COCA-COLA</div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

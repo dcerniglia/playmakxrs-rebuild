@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Institutions - Playmakxrs™</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'true-black': '#000000',
+                        'deep-navy': '#0A1128',
+                        'crimson': '#E53935',
+                        'card-dark': '#141C3A'
+                    },
+                    fontFamily: {
+                        'oswald': ['Oswald', 'sans-serif'],
+                        'inter': ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #0A1128; color: #ffffff; }
+        h1, h2, h3, h4, .font-heading { font-family: 'Oswald', sans-serif; text-transform: uppercase; }
+        .hero-bg { background: linear-gradient(180deg, #000000 0%, #0A1128 100%); }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+
+    <!-- Navigation -->
+    <nav class="w-full z-50 py-6 px-8 flex justify-between items-center border-b border-white/10 bg-true-black">
+        <div class="text-2xl font-heading font-bold tracking-wider">PLAYMAKXRS<span class="text-crimson">™</span></div>
+        <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-300">
+            <a href="client_mockup.html" class="hover:text-white transition">Home</a>
+            <a href="#" class="text-crimson transition">Institutions</a>
+            <a href="mockup_families.html" class="hover:text-white transition">Families</a>
+            <a href="mockup_sponsors.html" class="hover:text-white transition">Sponsors</a>
+            <a href="mockup_about.html" class="hover:text-white transition">Stories</a>
+        </div>
+        <button class="bg-crimson hover:bg-red-700 text-white px-6 py-2 rounded-sm font-heading tracking-wide transition">Get Started</button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="py-24 px-8 hero-bg text-center">
+        <div class="max-w-4xl mx-auto">
+            <p class="text-crimson font-heading text-xl tracking-widest mb-4">FOR INSTITUTIONS</p>
+            <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-8">
+                THE DEFINITIVE PLATFORM FOR <br><span class="text-crimson">UNIVERSITY ATHLETICS.</span>
+            </h1>
+            <p class="text-xl text-gray-300 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
+                Empowering athletic departments to recover, manage, and showcase elite collegiate sports history with unmatched fidelity and performance.
+            </p>
+            <button class="bg-crimson hover:bg-red-700 text-white px-8 py-4 rounded-sm font-heading text-lg tracking-wide transition">BEGIN INSTITUTIONAL INQUIRY</button>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="py-20 bg-deep-navy px-8">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-heading mb-4">HOW ENGAGEMENT WORKS</h2>
+                <div class="w-24 h-1 bg-crimson mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-card-dark p-8 rounded-sm border border-white/5 hover:border-crimson/50 transition">
+                    <div class="text-4xl font-heading text-crimson mb-4">01</div>
+                    <h3 class="text-xl font-heading mb-3">RECRUITING EDGE</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Demonstrate legacy and history to top-tier recruits with verified, emotionally resonant stories.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-card-dark p-8 rounded-sm border border-white/5 hover:border-crimson/50 transition">
+                    <div class="text-4xl font-heading text-crimson mb-4">02</div>
+                    <h3 class="text-xl font-heading mb-3">ALUMNI PRIDE</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Re-engage donors and alumni bases with high-quality packaging of historical athletic triumphs.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="bg-card-dark p-8 rounded-sm border border-white/5 hover:border-crimson/50 transition">
+                    <div class="text-4xl font-heading text-crimson mb-4">03</div>
+                    <h3 class="text-xl font-heading mb-3">GAME-DAY ACTIVATION</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Leverage packaged rights for stadium displays, broadcast integrations, and game-week events.</p>
+                </div>
+                <!-- Card 4 -->
+                <div class="bg-card-dark p-8 rounded-sm border border-white/5 hover:border-crimson/50 transition">
+                    <div class="text-4xl font-heading text-crimson mb-4">04</div>
+                    <h3 class="text-xl font-heading mb-3">MEDIA PARTNERSHIPS</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Provide pre-cleared, rights-aware story assets directly to broadcast and media partners.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
