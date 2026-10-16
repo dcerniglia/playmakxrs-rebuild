@@ -11,10 +11,24 @@ import { SectionHeading } from '@/components/SectionHeading';
  */
 const SHOPIFY_STORE_URL = 'https://playmakxrs.myshopify.com';
 
+/**
+ * "Made to Outlast the Moment" is hidden until the heritage apparel and
+ * archival replicas are ready to show. Set this to true to bring the section
+ * back — the markup is left intact below rather than commented out, so it
+ * stays typechecked and does not rot.
+ *
+ * It also drives the background of the section that follows: with The Range
+ * hidden, The Book and What Guides It would otherwise both render deep-navy
+ * and merge into one band.
+ */
+const SHOW_THE_RANGE = false;
+
+// Names only what the page actually shows; it previously advertised the
+// heritage apparel and archival replicas that SHOW_THE_RANGE now hides.
 export const metadata: Metadata = {
   title: 'The Collection | Playmakxrs',
   description:
-    'Hardcovers, heritage apparel, and archival replicas produced in limited runs. A physical extension of The Bobby Grier Story.',
+    'A physical extension of The Bobby Grier Story, produced in limited runs.',
 };
 
 const principles = [
@@ -116,7 +130,8 @@ export default function CollectionPage() {
         </div>
       </section>
 
-      {/* 4. THE RANGE */}
+      {/* 4. THE RANGE — hidden; see SHOW_THE_RANGE */}
+      {SHOW_THE_RANGE && (
       <section className="py-24 px-6 md:px-8 bg-true-black border-b border-white/10">
         <div className="max-w-7xl mx-auto">
           <SectionHeading
@@ -149,9 +164,14 @@ export default function CollectionPage() {
           </div>
         </div>
       </section>
+      )}
 
       {/* 5. WHAT GUIDES IT */}
-      <section className="py-24 px-6 md:px-8 bg-deep-navy border-b border-white/10">
+      <section
+        className={`py-24 px-6 md:px-8 border-b border-white/10 ${
+          SHOW_THE_RANGE ? 'bg-deep-navy' : 'bg-true-black'
+        }`}
+      >
         <div className="max-w-4xl mx-auto">
           <SectionHeading
             category="Operating Principles"

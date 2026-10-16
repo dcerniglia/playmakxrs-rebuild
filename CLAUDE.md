@@ -172,7 +172,7 @@ Both are carried over from playmakxrs.com. Neither has a staging equivalent, so 
 - **Mailchimp** (footer newsletter): the form POSTs directly to the list endpoint with `target="_blank"`, the way production does — there is no API route and no client-side handler. The action URL and the list-specific honeypot field name are constants at the top of `components/Footer.tsx` and **must stay in sync with each other**; the honeypot name encodes the same user and list IDs as the action.
 - **Shopify** (`/collection`): the storefront lives at `https://playmakxrs.myshopify.com` and the page hands off to it. The store's own navigation points back to playmakxrs.com, so the round trip resolves once this site is promoted.
 
-> **Pending the store opening:** three of the four cards in the Families "Artifacts That Stand the Test of Time" grid (`app/families/page.tsx`) still use text-in-a-box placeholders where product imagery belongs. Swap in real photography from Shopify once the store is live. The Published Hardcovers card already carries the real cover.
+> **Pending the store opening:** `/collection`'s "Made to Outlast the Moment" section — heritage apparel and archival replicas — is **hidden behind `SHOW_THE_RANGE` in `app/collection/page.tsx`**, set to `false` because those products are not ready to show. The markup is intact rather than commented out, so flipping the flag restores it; the flag also drives the next section's background, since without it The Book and What Guides It would both render deep-navy and merge. The page metadata was narrowed to match. The book is the only product currently shown, and it carries the real cover. (The old Families "Artifacts" grid this note used to describe went out with that page in the JMI restructure.)
 
 > The Shopify store currently **302s to `/password`** — it is still gated and not publicly launched. The links are correct, but a visitor today hits a password wall. Re-check before launch.
 
@@ -198,7 +198,7 @@ Open items, none of which are blocked on code:
 | | Waiting on |
 | --- | --- |
 | Indigo retailer link | A live URL — the recorded one 404s and the book looks delisted. Confirm with the client. |
-| Product imagery on three Families cards | The Shopify store opening. Placeholders are marked in `app/families/page.tsx`. |
+| Heritage apparel and archival replicas | Being ready to show. Hidden behind `SHOW_THE_RANGE` in `app/collection/page.tsx`; flip to `true` and re-check the metadata description. |
 | Shopify storefront itself | Still `302`s to `/password`. Links are correct and will work on launch. |
 | Legal review | Counsel sign-off, plus a real value for `LEGAL_JURISDICTION`. |
 | Handoff | Repo rename, move to the client's Vercel account, promote to production. Netlify Forms only starts working once it is off Vercel. |
