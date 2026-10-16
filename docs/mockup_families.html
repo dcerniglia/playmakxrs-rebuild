@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Families - Playmakxrs™</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'true-black': '#000000',
+                        'deep-navy': '#111111',
+                        'gold': '#D4AF37',
+                        'card-dark': '#1A1A1A'
+                    },
+                    fontFamily: {
+                        'oswald': ['Oswald', 'sans-serif'],
+                        'inter': ['Inter', 'sans-serif'],
+                        'playfair': ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #111111; color: #ffffff; }
+        .font-heading { font-family: 'Oswald', sans-serif; text-transform: uppercase; }
+        .font-serif-heading { font-family: 'Playfair Display', serif; }
+        .hero-bg { background: radial-gradient(circle at center, #222 0%, #000 100%); }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+
+    <!-- Navigation -->
+    <nav class="w-full z-50 py-6 px-8 flex justify-between items-center border-b border-white/10 bg-true-black">
+        <div class="text-2xl font-heading font-bold tracking-wider">PLAYMAKXRS<span class="text-gold">™</span></div>
+        <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-400">
+            <a href="client_mockup.html" class="hover:text-white transition">Home</a>
+            <a href="mockup_institutions.html" class="hover:text-white transition">Institutions</a>
+            <a href="#" class="text-gold transition">Families</a>
+            <a href="mockup_sponsors.html" class="hover:text-white transition">Sponsors</a>
+            <a href="mockup_about.html" class="hover:text-white transition">Stories</a>
+        </div>
+        <button class="border border-gold text-gold hover:bg-gold hover:text-black px-6 py-2 rounded-sm font-heading tracking-wide transition">Protect Your Legacy</button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="py-24 px-8 hero-bg text-center border-b border-white/5">
+        <div class="max-w-4xl mx-auto">
+            <p class="text-gold font-heading text-xl tracking-widest mb-6 uppercase">For Families, Athletes, & Estates</p>
+            <h1 class="text-5xl md:text-7xl font-serif-heading mb-8 font-semibold">
+                Where Legacy Lives Forever.
+            </h1>
+            <p class="text-xl text-gray-300 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
+                Helping you protect legacy, clarify rights, organize archival assets, and create permanent pathways for storytelling.
+            </p>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="py-20 px-8">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <!-- Service 1 -->
+            <div class="bg-card-dark p-10 border border-gold/30 rounded-sm hover:border-gold transition text-center">
+                <div class="text-3xl font-serif-heading mb-2 text-white">Book Publishing</div>
+                <div class="w-12 h-[1px] bg-gold mx-auto mb-6"></div>
+                <h4 class="font-heading text-gold mb-4 text-sm tracking-widest">TELL THEIR STORY</h4>
+                <p class="text-gray-400 text-sm leading-relaxed">Transform archival memories and oral histories into beautifully published, enduring physical books.</p>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="bg-card-dark p-10 border border-gold/30 rounded-sm hover:border-gold transition text-center">
+                <div class="text-3xl font-serif-heading mb-2 text-white">Merchandise</div>
+                <div class="w-12 h-[1px] bg-gold mx-auto mb-6"></div>
+                <h4 class="font-heading text-gold mb-4 text-sm tracking-widest">WEAR YOUR HISTORY</h4>
+                <p class="text-gray-400 text-sm leading-relaxed">Design and license premium vintage apparel, letterman jackets, and collectibles honoring the legacy.</p>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="bg-card-dark p-10 border border-gold/30 rounded-sm hover:border-gold transition text-center">
+                <div class="text-3xl font-serif-heading mb-2 text-white">Rights Protection</div>
+                <div class="w-12 h-[1px] bg-gold mx-auto mb-6"></div>
+                <h4 class="font-heading text-gold mb-4 text-sm tracking-widest">SECURE YOUR NAME</h4>
+                <p class="text-gray-400 text-sm leading-relaxed">Establish clear ownership, manage intellectual property, and coordinate official institutional partnerships.</p>
+            </div>
+
+        </div>
+    </section>
+
+</body>
+</html>
